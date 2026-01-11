@@ -1,142 +1,258 @@
 import React, { useState } from 'react';
 import { User } from '../types';
-import { MOCK_ANNOUNCEMENTS, MOCK_RECOGNITIONS, MOCK_VALUES, MOCK_USERS } from '../constants';
+import { MOCK_ANNOUNCEMENTS, MOCK_RECOGNITIONS, MOCK_VALUES, MOCK_USERS, createAuditLog } from '../constants';
+import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
-import { CompassionIcon, InnovationIcon, TeamworkIcon } from './ui/icons/Icon';
 
 interface TeamProps {
   user: User;
 }
 
-const ValueIcon: React.FC<{ valueName: string; className: string }> = ({ valueName, className }) => {
-    switch(valueName) {
-        case 'Compassion': return <CompassionIcon className={className} />;
-        case 'Innovation': return <InnovationIcon className={className} />;
-        case 'Teamwork': return <TeamworkIcon className={className} />;
-        default: return null;
-    }
-}
-
-
 const Team: React.FC<TeamProps> = ({ user }) => {
+  const { config } = useIndustry();
   const [recognitions, setRecognitions] = useState(MOCK_RECOGNITIONS);
+  const [selectedValue, setSelectedValue] = useState(MOCK_VALUES[0].id);
+  const [selectedRecipient, setSelectedRecipient] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmitRecognition = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      const formData = new FormData(e.currentTarget);
-      const to = formData.get('to') as string;
-      const valueId = formData.get('value') as string;
-      const message = formData.get('message') as string;
-      
-      if (!to || !valueId || !message) {
-          alert("Please complete all fields for recognition.");
-          return;
-      }
+  const handleSubmitRecognition = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!selectedRecipient || !message) {
+      alert('Please select a recipient and enter a message.');
+      return;
+    }
 
-      const newRecognition = {
-          id: `r-${new Date().getTime()}`,
-          from: user.name,
-          to: MOCK_USERS.find(u => u.id === to)?.name || 'Unknown',
-          message,
-          date: new Date().toISOString().split('T')[0],
-          valueId
-      };
-      setRecognitions(prev => [newRecognition, ...prev]);
-      e.currentTarget.reset();
-  }
+    const recipient = MOCK_USERS.find(u => u.id === selectedRecipient);
+    const value = MOCK_VALUES.find(v => v.id === selectedValue);
+    
+    if (!recipient || !value) return;
+
+    const newRecognition = {
+      id: `r-${Date.now()}`,
+      from: user.name,
+      fromId: user.id,
+      to: recipient.name,
+      toId: recipient.id,
+      message,
+      date: new Date().toISOString().split('T')[0],
+      valueId: selectedValue,
+      reactions: [],
+    };
+
+    setRecognitions(prev => [newRecognition, ...prev]);
+    createAuditLog(user, 'GIVE_RECOGNITION', `Recognized ${recipient.name} for ${value.name}`);
+    setMessage('');
+    setSelectedRecipient('');
+  };
+
+  const getValueColor = (color: string) => {
+    const colors: Record<string, { bg: string; text: string; border: string }> = {
+      purple: { bg: 'bg-violet-50 dark:bg-violet-900/30', text: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800' },
+      blue: { bg: 'bg-blue-50 dark:bg-blue-900/30', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800' },
+      gold: { bg: 'bg-amber-50 dark:bg-amber-900/30', text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-200 dark:border-amber-800' },
+      green: { bg: 'bg-emerald-50 dark:bg-emerald-900/30', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800' },
+      red: { bg: 'bg-rose-50 dark:bg-rose-900/30', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-200 dark:border-rose-800' },
+    };
+    return colors[color] || colors.blue;
+  };
 
   return (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-dark-text">Team Hub</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-            <Card title="Recognition Feed">
-                <ul className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
-                    {recognitions.map(rec => {
-                        const value = MOCK_VALUES.find(v => v.id === rec.valueId);
-                        const valueColor = value?.color || 'gray';
-                        
-                        const bgClass = { blue: 'bg-blue-50 dark:bg-blue-900/50', purple: 'bg-purple-50 dark:bg-purple-900/50', green: 'bg-green-50 dark:bg-green-900/50', gray: 'bg-gray-50 dark:bg-gray-700'}[valueColor];
-                        const borderClass = { blue: 'border-blue-500', purple: 'border-purple-500', green: 'border-green-500', gray: 'border-gray-500'}[valueColor];
-                        const iconBgClass = { blue: 'bg-blue-500', purple: 'bg-purple-500', green: 'bg-green-500', gray: 'bg-gray-500'}[valueColor];
-                        const textClass = { blue: 'text-blue-600 dark:text-blue-300', purple: 'text-purple-600 dark:text-purple-300', green: 'text-green-600 dark:text-green-300', gray: 'text-gray-600'}[valueColor];
+    <div className="space-y-6">
+      {/* Header */}
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Team Hub</h1>
+        <p className="text-gray-500 dark:text-slate-400 mt-1">
+          Connect with your {config.terminology.employees.toLowerCase()}, share recognition, and stay updated.
+        </p>
+      </div>
 
-                        return (
-                            <li key={rec.id} className={`p-4 rounded-lg border-l-4 ${borderClass} ${bgClass}`}>
-                                <div className="flex items-start space-x-3">
-                                    <div className={`flex-shrink-0 rounded-full h-10 w-10 flex items-center justify-center ${iconBgClass} text-white`}>
-                                        {value && <ValueIcon valueName={value.name} className="w-6 h-6" />}
-                                    </div>
-                                    <div>
-                                        <p className="font-semibold text-brand-dark dark:text-dark-text">
-                                            {rec.from} recognized {rec.to} for <span className={`font-bold ${textClass}`}>{value?.name}</span>
-                                        </p>
-                                        <p className="mt-1 text-gray-700 dark:text-dark-text-secondary">"{rec.message}"</p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{rec.date}</p>
-                                    </div>
-                                </div>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </Card>
-            <Card title="Announcements">
-                <ul className="space-y-5">
-                    {MOCK_ANNOUNCEMENTS.map(ann => (
-                        <li key={ann.id}>
-                            <p className="text-sm text-gray-500 dark:text-dark-text-secondary">{ann.date} - {ann.author}</p>
-                            <p className="font-semibold text-lg text-brand-dark dark:text-dark-text mt-1">{ann.title}</p>
-                            <p className="text-gray-600 dark:text-dark-text-secondary mt-1">{ann.content}</p>
-                        </li>
-                    ))}
-                </ul>
-            </Card>
-        </div>
-        <div className="space-y-8">
-            <Card title="Give Recognition">
-                <form className="space-y-4" onSubmit={handleSubmitRecognition}>
-                    <div>
-                        <label htmlFor="to" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Recognize (To)</label>
-                        <select id="to" name="to" className="bg-gray-100 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-brand-primary focus:border-brand-primary sm:text-sm rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-dark-text">
-                            {MOCK_USERS.filter(u => u.id !== user.id).map(u => <option key={u.id} value={u.id}>{u.name}</option>)}
-                        </select>
-                    </div>
-                     <div>
-                        <label htmlFor="value" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">For (Value)</label>
-                        <select id="value" name="value" className="bg-gray-100 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-brand-primary focus:border-brand-primary sm:text-sm rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-dark-text">
-                           {MOCK_VALUES.map(v => <option key={v.id} value={v.id}>{v.name}</option>)}
-                        </select>
-                    </div>
-                     <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Message</label>
-                        <textarea id="message" name="message" rows={4} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-brand-primary focus:border-brand-primary bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-dark-text"></textarea>
-                    </div>
-                    <Button type="submit" className="w-full">Submit Kudos</Button>
-                </form>
-            </Card>
-            <Card title="Suggestion Box">
-                <p className="text-sm text-gray-600 dark:text-dark-text-secondary mb-4">Have an idea to improve our practice? Share it here. Submissions can be anonymous.</p>
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-4 dark:bg-yellow-900/50 dark:border-yellow-600">
-                    <p className="text-sm text-yellow-700 dark:text-yellow-300">
-                        <span className="font-bold">Important:</span> Do not include any Patient Health Information (PHI) in your suggestions.
-                    </p>
-                </div>
-                <form className="space-y-4">
-                    <textarea 
-                        rows={4}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary focus:border-transparent bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-dark-text"
-                        placeholder="Describe your suggestion..."
-                    ></textarea>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center">
-                            <input id="anonymous" type="checkbox" className="h-4 w-4 text-brand-primary focus:ring-brand-primary border-gray-300 rounded" />
-                            <label htmlFor="anonymous" className="ml-2 block text-sm text-gray-900 dark:text-dark-text">Submit Anonymously</label>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left Column - Recognition Feed */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Recognition Feed */}
+          <Card>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Recognition Feed</h3>
+              <span className="px-3 py-1 bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300 text-sm font-medium rounded-full">
+                {recognitions.length} kudos
+              </span>
+            </div>
+
+            <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+              {recognitions.map(rec => {
+                const value = MOCK_VALUES.find(v => v.id === rec.valueId);
+                const colors = value ? getValueColor(value.color) : getValueColor('blue');
+                const fromUser = MOCK_USERS.find(u => u.id === rec.fromId);
+                const toUser = MOCK_USERS.find(u => u.id === rec.toId);
+
+                return (
+                  <div
+                    key={rec.id}
+                    className={`p-4 rounded-2xl border ${colors.bg} ${colors.border}`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl ${colors.bg}`}>
+                          {value?.icon}
                         </div>
-                        <Button type="submit">Submit Idea</Button>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-medium text-gray-900 dark:text-white">{rec.from}</span>
+                          <span className="text-gray-500 dark:text-slate-400">recognized</span>
+                          <span className="font-medium text-gray-900 dark:text-white">{rec.to}</span>
+                          <span className="text-gray-500 dark:text-slate-400">for</span>
+                          <span className={`font-semibold ${colors.text}`}>{value?.name}</span>
+                        </div>
+                        <p className="text-gray-700 dark:text-slate-300 mt-2">"{rec.message}"</p>
+                        <div className="flex items-center justify-between mt-3">
+                          <span className="text-sm text-gray-500 dark:text-slate-400">{rec.date}</span>
+                          {rec.reactions && rec.reactions.length > 0 && (
+                            <div className="flex items-center gap-2">
+                              {rec.reactions.map((reaction, idx) => (
+                                <span key={idx} className="flex items-center gap-1 px-2 py-1 bg-white/50 dark:bg-slate-700/50 rounded-full text-sm">
+                                  {reaction.emoji} <span className="text-gray-600 dark:text-slate-400">{reaction.count}</span>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                </form>
-            </Card>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+
+          {/* Announcements */}
+          <Card>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Announcements</h3>
+            </div>
+            <div className="space-y-4">
+              {MOCK_ANNOUNCEMENTS.map(announcement => (
+                <div key={announcement.id} className="p-4 rounded-xl bg-gray-50 dark:bg-slate-700/50 border-l-4 border-indigo-500">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium text-gray-900 dark:text-white">{announcement.title}</h4>
+                        {announcement.pinned && (
+                          <svg className="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-2 0v1h2zm6 0h-2V5a1 1 0 112 0v1z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                        {announcement.priority === 'important' && (
+                          <span className="px-2 py-0.5 text-xs font-medium bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 rounded-full">
+                            Important
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-600 dark:text-slate-300 mt-2">{announcement.content}</p>
+                      <p className="text-sm text-gray-500 dark:text-slate-400 mt-3">
+                        {announcement.author} • {announcement.date}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        {/* Right Column - Give Recognition & Values */}
+        <div className="space-y-6">
+          {/* Give Recognition */}
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Give Recognition</h3>
+            <form onSubmit={handleSubmitRecognition} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
+                  Recognize
+                </label>
+                <select
+                  value={selectedRecipient}
+                  onChange={(e) => setSelectedRecipient(e.target.value)}
+                  className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Select a team member</option>
+                  {MOCK_USERS.filter(u => u.id !== user.id).map(u => (
+                    <option key={u.id} value={u.id}>{u.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                  For
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {MOCK_VALUES.map(value => {
+                    const colors = getValueColor(value.color);
+                    return (
+                      <button
+                        key={value.id}
+                        type="button"
+                        onClick={() => setSelectedValue(value.id)}
+                        className={`p-3 rounded-xl border-2 transition-all ${
+                          selectedValue === value.id
+                            ? `${colors.border} ${colors.bg} ring-2 ring-offset-2`
+                            : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                        }`}
+                        style={{ '--tw-ring-color': selectedValue === value.id ? colors.text.replace('text-', '').split(' ')[0] : undefined } as any}
+                      >
+                        <span className="text-2xl">{value.icon}</span>
+                        <p className={`text-sm font-medium mt-1 ${selectedValue === value.id ? colors.text : 'text-gray-700 dark:text-slate-300'}`}>
+                          {value.name}
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
+                  Message
+                </label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={4}
+                  placeholder="Share why this person deserves recognition..."
+                  className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 resize-none"
+                />
+              </div>
+
+              <Button type="submit" variant="primary" className="w-full">
+                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Send Recognition
+              </Button>
+            </form>
+          </Card>
+
+          {/* Company Values */}
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Our Values</h3>
+            <div className="space-y-3">
+              {MOCK_VALUES.map(value => {
+                const colors = getValueColor(value.color);
+                return (
+                  <div key={value.id} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-slate-700/50">
+                    <span className="text-2xl">{value.icon}</span>
+                    <div>
+                      <h4 className={`font-medium ${colors.text}`}>{value.name}</h4>
+                      <p className="text-sm text-gray-500 dark:text-slate-400">{value.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
         </div>
       </div>
     </div>
