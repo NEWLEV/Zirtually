@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User, Industry } from '../types';
 import { INDUSTRY_CONFIGS } from '../constants';
 import { useIndustry } from '../App';
-import { ZirtulalyLogo } from './ui/icons/Icon';
+import { ZirtuallyLogo } from './ui/icons/Icon';
 
 interface LoginProps {
   onLogin: (user: User) => void;
@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
         {/* Logo and Title */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <ZirtulalyLogo className="w-12 h-12" />
+            <ZirtuallyLogo className="w-12 h-12" />
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent tracking-tight">
               Zirtually
             </h1>
