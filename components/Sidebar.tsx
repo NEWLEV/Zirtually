@@ -6,7 +6,7 @@ import {
   PerformanceReviewIcon, SkillMatrixIcon, DocumentManagementIcon, AuditLogIcon,
   MyJourneyIcon, CredentialingIcon, WellnessIcon, ProfileIcon, NotificationsIcon,
   TimeOffIcon, DirectoryIcon, OrgChartIcon, BenefitsIcon, SurveysIcon, AnalyticsIcon,
-  ChevronLeftIcon, ChevronRightIcon, ZirtulalyLogo, SettingsIcon, OffboardingIcon
+  ChevronLeftIcon, ChevronRightIcon, ZirtuallyLogo, SettingsIcon, OffboardingIcon
 } from './ui/icons/Icon';
 
 interface SidebarProps {
@@ -134,7 +134,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, activeView, setActiveView, coll
     <aside className={`fixed top-0 left-0 h-screen bg-slate-900 border-r border-slate-800 flex flex-col transition-all duration-300 z-40 ${collapsed ? 'w-20' : 'w-64'}`}>
       {/* Logo */}
       <div className={`flex items-center h-16 border-b border-slate-800 ${collapsed ? 'justify-center px-4' : 'px-5'}`}>
-        <ZirtulalyLogo className="w-8 h-8 flex-shrink-0" />
+        <ZirtuallyLogo className="w-8 h-8 flex-shrink-0" />
         {!collapsed && (
           <span className="ml-3 text-xl font-bold bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">
             Zirtually
