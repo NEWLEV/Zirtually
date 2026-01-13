@@ -1,0 +1,308 @@
+﻿components/Dashboard.test.tsx(3,23): error TS2307: Cannot find module './Dashboard' or its corresponding type declarations.
+components/Dashboard.test.tsx(4,26): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+components/Dashboard.test.tsx(5,33): error TS2307: Cannot find module '../App' or its corresponding type declarations.
+components/Dashboard.test.tsx(6,34): error TS2307: Cannot find module '../constants' or its corresponding type declarations.
+cypress/e2e/dashboard.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/dashboard.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/dashboard.cy.ts(4,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(5,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(6,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(7,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(10,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(13,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/dashboard.cy.ts(14,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(15,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(16,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(17,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(20,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/dashboard.cy.ts(21,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(23,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(24,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(27,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/dashboard.cy.ts(28,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(30,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(33,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/dashboard.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(39,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/dashboard.cy.ts(43,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/goals.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/goals.cy.ts(4,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(8,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(9,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(10,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(13,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(14,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(17,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/goals.cy.ts(18,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(19,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(20,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(21,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(24,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/goals.cy.ts(28,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(31,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(32,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(33,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(38,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(39,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(42,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/goals.cy.ts(45,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(48,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(52,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(55,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(57,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(60,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(63,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/goals.cy.ts(65,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(70,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(73,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/goals.cy.ts(75,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/login.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/login.cy.ts(4,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(7,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/login.cy.ts(8,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(9,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(10,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(13,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/login.cy.ts(18,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(21,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(24,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(25,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(28,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/login.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(40,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(43,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(46,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(51,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(52,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(55,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/login.cy.ts(56,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(57,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(61,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/login.cy.ts(64,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/Profile.cy.ts(3,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(6,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(7,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(8,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(11,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(12,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(13,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(14,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(15,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(18,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(19,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(20,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(21,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(22,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(25,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(26,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(27,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(28,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(29,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(32,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Profile.cy.ts(33,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(36,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Profile.cy.ts(38,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/reviews.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/reviews.cy.ts(4,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(7,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(8,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(9,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(12,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(13,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(16,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/reviews.cy.ts(17,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(18,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(19,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(22,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/reviews.cy.ts(24,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(25,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(28,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(29,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(36,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(39,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(40,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(43,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(46,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(47,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(49,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(52,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/reviews.cy.ts(58,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(61,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(62,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/reviews.cy.ts(64,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/Settings.cy.ts(5,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(8,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(9,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(10,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(13,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(14,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(15,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(16,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(17,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(18,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(21,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(22,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(23,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(24,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(27,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(28,22): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(29,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(30,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(31,13): error TS2304: Cannot find name 'expect'.
+cypress/e2e/Settings.cy.ts(35,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(36,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(37,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(38,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(41,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(42,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(43,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(46,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Settings.cy.ts(47,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(48,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(49,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(50,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Settings.cy.ts(51,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(1,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(2,5): error TS2304: Cannot find name 'beforeEach'.
+cypress/e2e/Wellness.cy.ts(3,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(6,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(7,22): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(8,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(9,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(10,13): error TS2304: Cannot find name 'expect'.
+cypress/e2e/Wellness.cy.ts(14,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(15,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(16,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(19,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(20,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(21,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(24,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(25,22): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(26,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(27,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(28,13): error TS2304: Cannot find name 'expect'.
+cypress/e2e/Wellness.cy.ts(32,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(33,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(34,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(35,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(38,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(39,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(40,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(43,5): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+cypress/e2e/Wellness.cy.ts(44,9): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(44,27): error TS7006: Parameter 'win' implicitly has an 'any' type.
+cypress/e2e/Wellness.cy.ts(45,13): error TS2304: Cannot find name 'cy'.
+cypress/e2e/Wellness.cy.ts(47,9): error TS2304: Cannot find name 'cy'.
+services/userService.ts(1,22): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+services/userService.ts(2,28): error TS2307: Cannot find module '../constants' or its corresponding type declarations.
+src/App.tsx(1,27): error TS6133: 'useCallback' is declared but its value is never read.
+src/App.tsx(3,42): error TS6133: 'User' is declared but its value is never read.
+src/components/AIAssistant.tsx(21,58): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/Analytics.tsx(16,48): error TS6133: 'user' is declared but its value is never read.
+src/components/Analytics.tsx(17,9): error TS6133: 'config' is declared but its value is never read.
+src/components/AuditLog.tsx(15,52): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/AuditLog.tsx(16,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Benefits.tsx(14,44): error TS6198: All destructured elements are unused.
+src/components/Benefits.tsx(15,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Benefits.tsx(17,10): error TS6133: 'selectedBenefit' is declared but its value is never read.
+src/components/ClinicalScribe.tsx(39,56): error TS6198: All destructured elements are unused.
+src/components/ClinicalScribe.tsx(90,35): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'SetStateAction<string>'.
+  Type 'undefined' is not assignable to type 'SetStateAction<string>'.
+src/components/Credentialing.tsx(155,63): error TS6133: 'user' is declared but its value is never read.
+src/components/Credentialing.tsx(333,43): error TS2322: Type '"primary" | "outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/Directory.tsx(17,48): error TS6133: 'user' is declared but its value is never read.
+src/components/DocumentManagement.tsx(223,79): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/DocumentManagement.tsx(224,9): error TS6133: 'config' is declared but its value is never read.
+src/components/DocumentManagement.tsx(327,9): error TS6133: 'recentDocs' is declared but its value is never read.
+src/components/ErrorBoundary.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/Goals.tsx(3,10): error TS6133: 'MOCK_GOALS' is declared but its value is never read.
+src/components/Goals.tsx(5,1): error TS6133: 'Card' is declared but its value is never read.
+src/components/Goals.tsx(110,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Goals.tsx(112,10): error TS6133: 'isLoading' is declared but its value is never read.
+src/components/Header.tsx(17,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Learning.tsx(2,16): error TS6133: 'TrainingModule' is declared but its value is never read.
+src/components/Learning.tsx(2,32): error TS6133: 'LearningResource' is declared but its value is never read.
+src/components/Learning.tsx(7,1): error TS6133: 'ProgressBar' is declared but its value is never read.
+src/components/Learning.tsx(62,46): error TS6133: 'user' is declared but its value is never read.
+src/components/Learning.tsx(63,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Login.tsx(303,15): error TS2322: Type '{ children: (string | Element | null)[]; variant: "primary"; size: "lg"; className: string; disabled: boolean; onClick: () => Promise<void>; isLoading: boolean; }' is not assignable to type 'IntrinsicAttributes & ButtonProps'.
+  Property 'isLoading' does not exist on type 'IntrinsicAttributes & ButtonProps'. Did you mean 'loading'?
+src/components/MyJourney.tsx(372,53): error TS6133: 'index' is declared but its value is never read.
+src/components/MyJourney.tsx(426,46): error TS6133: 'index' is declared but its value is never read.
+src/components/MyJourney.tsx(490,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/MyJourney.tsx(618,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/Notifications.tsx(144,56): error TS6133: 'user' is declared but its value is never read.
+src/components/Notifications.tsx(145,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Nova/NovaAssistant.tsx(2,19): error TS6133: 'NovaTip' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(36,71): error TS6133: 'userName' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(43,12): error TS6133: 'clickCount' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(68,71): error TS6133: 'elementId' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(152,15): error TS7030: Not all code paths return a value.
+src/components/Offboarding.tsx(140,50): error TS6198: All destructured elements are unused.
+src/components/Offboarding.tsx(141,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Onboarding.tsx(10,1): error TS6133: 'EmptyState' is declared but its value is never read.
+src/components/OrgChart.tsx(70,44): error TS6198: All destructured elements are unused.
+src/components/OrgChart.tsx(71,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Profile.test.tsx(4,16): error TS6133: 'EmployeeSkill' is declared but its value is never read.
+src/components/Settings.test.tsx(16,7): error TS2741: Property 'isNewHire' is missing in type '{ id: string; name: string; email: string; role: UserRole.STAFF; department: string; avatarUrl: string; title: string; startDate: string; }' but required in type 'User'.
+src/components/Settings.tsx(18,62): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/Settings.tsx(19,11): error TS6133: 'config' is declared but its value is never read.
+src/components/SkillMatrix.tsx(18,9): error TS6133: 'config' is declared but its value is never read.
+src/components/SkillMatrix.tsx(208,17): error TS2322: Type '"primary" | "outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/SkillMatrix.tsx(216,17): error TS2322: Type '"primary" | "outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/SkillMatrix.tsx(499,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/SkillMatrix.tsx(552,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/SkillMatrix.tsx(615,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost" | undefined'.
+src/components/Surveys.tsx(16,42): error TS6198: All destructured elements are unused.
+src/components/Surveys.tsx(17,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Team.tsx(95,23): error TS6133: 'fromUser' is declared but its value is never read.
+src/components/Team.tsx(96,23): error TS6133: 'toUser' is declared but its value is never read.
+src/components/TimeOff.tsx(16,50): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/TimeOff.tsx(17,9): error TS6133: 'config' is declared but its value is never read.
+src/components/ui/EmptyState.tsx(2,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/Wellness.test.tsx(5,16): error TS6133: 'WellnessResource' is declared but its value is never read.
+src/components/Wellness.test.tsx(18,7): error TS2741: Property 'isNewHire' is missing in type '{ id: string; name: string; email: string; role: UserRole.STAFF; department: string; avatarUrl: string; title: string; startDate: string; }' but required in type 'User'.
+src/components/Wellness.tsx(20,9): error TS6133: 'config' is declared but its value is never read.
+src/hooks/useAuth.ts(2,1): error TS6133: 'User' is declared but its value is never read.
+src/services/auth/mapper.ts(1,32): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+src/services/auth/mapper.ts(2,26): error TS2307: Cannot find module '../types/database' or its corresponding type declarations.
+src/services/auth/SupabaseAuthService.ts(70,21): error TS2345: Argument of type '{ full_name: string; avatar_url: string; department: string | undefined; }' is not assignable to parameter of type 'never'.
+src/services/auth/SupabaseAuthService.ts(142,18): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: string; full_name: string; department: string; role: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+src/services/auth/types.ts(1,16): error TS6133: 'UserRole' is declared but its value is never read.
+src/services/authService.ts(73,69): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: string; full_name: string; department: string; role: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+src/services/authService.ts(155,17): error TS2345: Argument of type '{ updated_at: string; id?: string; email?: string; full_name?: string; role?: "admin" | "manager" | "employee"; department?: string; avatar_url?: string | null; }' is not assignable to parameter of type 'never'.
+src/services/goalService.ts(6,6): error TS6196: 'DbGoal' is declared but never used.
+src/services/goalService.ts(8,6): error TS6196: 'GoalUpdate' is declared but never used.
+src/services/goalService.ts(47,25): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never[]'.
+      Type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is missing the following properties from type 'never[]': length, pop, push, concat, and 29 more.
+src/services/goalService.ts(75,25): error TS2345: Argument of type '{ title: string; description: string; progress: number; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(61,25): error TS2345: Argument of type '{ status: ReviewStatus; overall_rating: any; strengths: any; areas_for_improvement: any; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(63,51): error TS2339: Property 'overallRating' does not exist on type 'PerformanceReview'.
+src/services/reviewService.ts(64,46): error TS2339: Property 'strengths' does not exist on type 'PerformanceReview'.
+src/services/reviewService.ts(65,58): error TS2339: Property 'areasForImprovement' does not exist on type 'PerformanceReview'.
+src/services/userService.ts(62,25): error TS2345: Argument of type '{ full_name: string; department: string | undefined; avatar_url: string; updated_at: string; }' is not assignable to parameter of type 'never'.

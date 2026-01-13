@@ -1,20 +1,129 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Zirtually - Employee Experience Platform
 
-# Run and deploy your AI Studio app
+Multi-industry employee lifecycle management platform for onboarding, performance reviews, learning, and team collaboration.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1EGJPQNX_tjFOdymQMLqT3nETgJf50Otk
+- 🎯 **Multi-Industry Support** - Healthcare, Technology, Finance, Retail, Manufacturing, Hospitality, Education, Professional Services
+- 👥 **Employee Lifecycle** - Onboarding, Performance Reviews, Offboarding
+- 📚 **Learning & Development** - Training modules, Certifications, Skill tracking
+- 🎯 **Goals & OKRs** - Individual and team goal management
+- 📊 **Analytics** - HR metrics, Team insights, Performance tracking
+- 🤖 **AI Assistant** - Intelligent HR Q&A and recommendations
+- 🔔 **Smart Notifications** - Task reminders, Training alerts
+- 🌓 **Dark Mode** - Full theme support
+- ♿ **Accessible** - WCAG 2.1 compliant with skip links and screen reader support
 
-## Run Locally
+## Quick Start
 
-**Prerequisites:**  Node.js
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
+### Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.local.example .env.local
+
+# Add your Gemini API key to .env.local
+GEMINI_API_KEY=your-api-key-here
+```
+
+### Development
+
+```bash
+# Start development server
+npm run dev
+
+# Open http://localhost:5173
+```
+
+### Production Build
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── ErrorBoundary.tsx
+│   └── [Feature].tsx   # Feature components
+├── constants.ts        # Mock data and configurations
+├── types.ts           # TypeScript type definitions
+├── App.tsx            # Main application component
+├── index.tsx          # Application entry point
+└── index.css          # Global styles with Tailwind
+```
+
+## Tech Stack
+
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite 6
+- **Styling**: Tailwind CSS 3 (PostCSS)
+- **Charts**: Recharts
+- **AI**: Google Gemini API
+- **Icons**: Custom SVG icons
+
+## Mock Data
+
+⚠️ **Important**: This application currently uses mock data for demonstration purposes.
+
+See [`MOCK_DATA.md`](./MOCK_DATA.md) for:
+- Complete list of mock data constants
+- Migration strategy to real API
+- Production readiness checklist
+
+## Configuration
+
+### Industry Selection
+The platform supports 8 industries with customized terminology and features. Configure in the settings panel.
+
+### Theme
+Toggle between light and dark modes in the header.
+
+### Notifications
+Enable browser notifications for task and training reminders in Settings.
+
+## Accessibility
+
+- ✅ Keyboard navigation support
+- ✅ Skip to main content link
+- ✅ Screen reader compatible
+- ✅ ARIA labels and landmarks
+- ✅ Focus visible indicators
+- ✅ Semantic HTML structure
+
+## Browser Support
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+
+## Contributing
+
+This is a demonstration project. For production use:
+
+1. Review [`MOCK_DATA.md`](./MOCK_DATA.md) for API integration
+2. Implement backend services
+3. Add proper authentication
+4. Set up error monitoring
+5. Configure CI/CD pipeline
+
+## License
+
+MIT
+
+## Credits
+
+Built with [Vite](https://vitejs.dev/), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/)

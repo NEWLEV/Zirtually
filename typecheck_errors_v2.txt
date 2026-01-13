@@ -1,0 +1,8 @@
+
+> zirtually-employee-experience-platform@0.0.0 typecheck
+> tsc --noEmit
+
+src/services/auth/SupabaseAuthService.ts(72,15): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/goalService.ts(76,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(63,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/userService.ts(57,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.

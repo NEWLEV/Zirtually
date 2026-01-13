@@ -1,0 +1,117 @@
+name: Production Readiness CI/CD
+
+on:
+    push:
+        branches: [main, "release/*"]
+    pull_request:
+        branches: [main]
+
+jobs:
+    validate:
+        name: Validate (Lint & Typecheck)
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+            - name: Install dependencies
+              run: npm ci
+            - name: Lint
+              run: npm run lint
+            - name: Typecheck
+              run: npm run typecheck
+
+    unit-test:
+        name: Unit Tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+            - name: Install dependencies
+              run: npm ci
+            - name: Run Vitest
+              run: npm test -- --run
+
+    # E2E tests often require a running server.
+    # This job will run only if unit tests and validation pass.
+    e2e-test:
+        name: E2E Tests (Cypress)
+        needs: [validate, unit-test]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+            - name: Install dependencies
+              run: npm ci
+            - name: Cypress run
+              uses: cypress-io/github-action@v6
+              with:
+                  start: npm run dev
+                  wait-on: "http://localhost:3000" # Matches vite.config.ts port
+
+    build:
+        name: Production Build
+        needs: [e2e-test]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+            - name: Install dependencies
+              run: npm ci
+            - name: Build
+              run: npm run build
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+
+    deploy-staging:
+        name: Deploy to Staging
+        needs: [build]
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        environment: staging
+        steps:
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+            - name: Deploy to Staging (Placeholders)
+              run: |
+                  echo "Deploying to staging.zirtually.com..."
+                  # Example for AWS:
+                  # aws s3 sync . s3://${{ secrets.STAGING_BUCKET_NAME }} --delete
+                  # aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_DIST_ID }} --paths "/*"
+
+    deploy-production:
+        name: Deploy to Production
+        needs: [build]
+        if: startsWith(github.ref, 'refs/heads/release/')
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+            - name: Deploy to Production (Placeholders)
+              run: |
+                  echo "Deploying to app.zirtually.com..."
+                  # Example for Vercel:
+                  # vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

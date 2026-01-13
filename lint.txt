@@ -1,0 +1,131 @@
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\AuditLog.tsx
+   36:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                             react/no-unescaped-entities
+   72:24  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  101:17  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  221:59  error  Unexpected any. Specify a different type                                                                                    @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ClinicalScribe.tsx
+   95:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  105:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\CommandPalette.tsx
+  321:87  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  321:96  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx
+   97:17  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react/no-unescaped-entities
+   97:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react/no-unescaped-entities
+  105:16  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx:105:16
+  103 |             Day{' '}
+  104 |             {Math.ceil(
+> 105 |               (Date.now() - new Date(user.startDate || Date.now()).getTime()) /
+      |                ^^^^^^^^^^ Cannot call impure function
+  106 |                 (1000 * 60 * 60 * 24)
+  107 |             )}{' '}
+  108 |             of your journey                                          react-hooks/purity
+  105:56  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx:105:56
+  103 |             Day{' '}
+  104 |             {Math.ceil(
+> 105 |               (Date.now() - new Date(user.startDate || Date.now()).getTime()) /
+      |                                                        ^^^^^^^^^^ Cannot call impure function
+  106 |                 (1000 * 60 * 60 * 24)
+  107 |             )}{' '}
+  108 |             of your journey  react-hooks/purity
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ErrorBoundary.tsx
+  70:19  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  70:97  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Login.tsx
+   49:21  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  335:30  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  335:60  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  335:74  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\MyJourney.tsx
+  504:23  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  504:45  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaAssistant.tsx
+  12:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaAssistant.tsx:12:7
+  10 |   useEffect(() => {
+  11 |     if (currentTip) {
+> 12 |       setIsVisible(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |     } else {
+  14 |       setIsVisible(false);
+  15 |     }  react-hooks/set-state-in-effect
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx
+   52:47  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx:52:47
+  50 |   const [clickCount, setClickCount] = useState(0);
+  51 |   // Use Ref for tracking interaction time to prevent re-renders on mousemove
+> 52 |   const lastInteractionTimeRef = React.useRef(Date.now());
+     |                                               ^^^^^^^^^^ Cannot call impure function
+  53 |
+  54 |   const updateLastInteraction = useCallback(() => {
+  55 |     lastInteractionTimeRef.current = Date.now();  react-hooks/purity
+  192:32  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Offboarding.tsx
+  482:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Onboarding.tsx
+  223:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\PerformanceReviews.tsx
+   40:62  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   79:64  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  326:57  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Profile.tsx
+  127:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  411:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  463:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Sidebar.tsx
+  260:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\SkillMatrix.tsx
+  142:43  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Surveys.tsx
+  172:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Team.tsx
+  152:79  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  152:93  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  280:32  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Wellness.tsx
+  407:51  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\auth\AuthForm.tsx
+  32:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ui\Card.tsx
+  51:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 40 problems (40 errors, 0 warnings)
+

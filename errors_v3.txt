@@ -1,0 +1,50 @@
+src/components/AIAssistant.tsx(21,58): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/AuditLog.tsx(26,7): error TS2552: Cannot find name 'user'. Did you mean '_user'?
+src/components/Credentialing.tsx(165,63): error TS6133: 'user' is declared but its value is never read.
+src/components/Directory.tsx(17,48): error TS6133: 'user' is declared but its value is never read.
+src/components/DocumentManagement.tsx(248,79): error TS6133: 'setActiveView' is declared but its value is never read.
+src/components/DocumentManagement.tsx(249,9): error TS6133: 'config' is declared but its value is never read.
+src/components/DocumentManagement.tsx(358,9): error TS6133: 'recentDocs' is declared but its value is never read.
+src/components/ErrorBoundary.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/Goals.tsx(5,1): error TS6133: 'Card' is declared but its value is never read.
+src/components/Goals.tsx(136,10): error TS6133: 'isLoading' is declared but its value is never read.
+src/components/Header.tsx(23,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Learning.tsx(2,16): error TS2300: Duplicate identifier 'View'.
+src/components/Learning.tsx(9,10): error TS2300: Duplicate identifier 'View'.
+src/components/MyJourney.tsx(2,40): error TS6133: 'CareerPath' is declared but its value is never read.
+src/components/Nova/NovaAssistant.tsx(2,19): error TS6133: 'NovaTip' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(43,71): error TS6133: 'userName' is declared but its value is never read.
+src/components/Nova/NovaContext.tsx(50,10): error TS6133: 'clickCount' is declared but its value is never read.
+src/components/Onboarding.tsx(10,1): error TS6133: 'EmptyState' is declared but its value is never read.
+src/components/Profile.test.tsx(4,16): error TS6133: 'EmployeeSkill' is declared but its value is never read.
+src/components/SkillMatrix.tsx(18,9): error TS6133: 'config' is declared but its value is never read.
+src/components/Team.tsx(124,23): error TS6133: '_fromUser' is declared but its value is never read.
+src/components/Team.tsx(125,23): error TS6133: '_toUser' is declared but its value is never read.
+src/components/Wellness.tsx(408,24): error TS2552: Cannot find name 'user'. Did you mean '_user'?
+src/constants.ts(1729,3): error TS2739: Type '{ id: string; date: string; title: string; description: string; icon: string; employeeId: string; }' is missing the following properties from type 'JourneyMilestone': type, status, category
+src/constants.ts(1737,3): error TS2739: Type '{ id: string; date: string; title: string; description: string; icon: string; employeeId: string; }' is missing the following properties from type 'JourneyMilestone': type, status, category
+src/constants.ts(1745,3): error TS2739: Type '{ id: string; date: string; title: string; description: string; icon: string; employeeId: string; }' is missing the following properties from type 'JourneyMilestone': type, status, category
+src/constants.ts(1753,3): error TS2739: Type '{ id: string; date: string; title: string; description: string; icon: string; employeeId: string; }' is missing the following properties from type 'JourneyMilestone': type, status, category
+src/constants.ts(1761,3): error TS2739: Type '{ id: string; date: string; title: string; description: string; icon: string; employeeId: string; }' is missing the following properties from type 'JourneyMilestone': type, status, category
+src/services/auth/SupabaseAuthService.ts(72,15): error TS2345: Argument of type '{ full_name: string; avatar_url: string; department: string | undefined; }' is not assignable to parameter of type 'never'.
+src/services/auth/SupabaseAuthService.ts(143,10): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: string; full_name: string; department: string; role: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+src/services/auth/types.ts(1,16): error TS6133: 'UserRole' is declared but its value is never read.
+src/services/authService.ts(73,67): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: string; full_name: string; department: string; role: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+src/services/authService.ts(151,13): error TS2345: Argument of type '{ updated_at: string; id?: string; email?: string; full_name?: string; role?: "admin" | "manager" | "employee"; department?: string; avatar_url?: string | null; }' is not assignable to parameter of type 'never'.
+src/services/goalService.ts(45,17): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never[]'.
+      Type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "completed" | "not-started" | "in-progress" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is missing the following properties from type 'never[]': length, pop, push, concat, and 29 more.
+src/services/goalService.ts(73,17): error TS2345: Argument of type '{ title: string; description: string; progress: number; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(61,17): error TS2345: Argument of type '{ status: ReviewStatus; overall_rating: number | undefined; strengths: string | undefined; areas_for_improvement: string | undefined; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/services/userService.ts(55,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.

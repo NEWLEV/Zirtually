@@ -1,0 +1,167 @@
+
+> zirtually-employee-experience-platform@0.0.0 lint
+> eslint . --report-unused-disable-directives --max-warnings 0
+
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\AIAssistant.tsx
+  21:58  warning  'setActiveView' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Analytics.tsx
+  17:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\AuditLog.tsx
+  16:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Benefits.tsx
+  15:19  warning  '_config' is assigned a value but never used           @typescript-eslint/no-unused-vars
+  17:10  warning  '_selectedBenefit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ClinicalScribe.tsx
+   95:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  105:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\CommandPalette.tsx
+  321:87  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  321:96  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Credentialing.tsx
+  165:63  warning  'user' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx
+  91:17  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx:91:17
+  89 |     if (!user.startDate) return 0;
+  90 |     const start = new Date(user.startDate).getTime();
+> 91 |     const now = Date.now();
+     |                 ^^^^^^^^^^ Cannot call impure function
+  92 |     return Math.ceil((now - start) / (1000 * 60 * 60 * 24));
+  93 |   }, [user.startDate]);
+  94 |  react-hooks/purity
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Directory.tsx
+  17:48  warning  'user' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\DocumentManagement.tsx
+  248:79  warning  'setActiveView' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  249:11  warning  'config' is assigned a value but never used                                      @typescript-eslint/no-unused-vars
+  358:9   warning  'recentDocs' is assigned a value but never used                                  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Goals.tsx
+    5:8   warning  'Card' is defined but never used                @typescript-eslint/no-unused-vars
+  134:19  warning  '_config' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  136:10  warning  'isLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Header.tsx
+  23:11  warning  'config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Learning.tsx
+  95:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Login.tsx
+  49:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\MyJourney.tsx
+    2:40  warning  'CareerPath' is defined but never used                           @typescript-eslint/no-unused-vars
+  506:23  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  506:45  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Notifications.tsx
+  147:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaAssistant.tsx
+  1:17  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  1:28  warning  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+  2:19  warning  'NovaTip' is defined but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx
+   43:71  warning  'userName' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+   50:10  warning  'clickCount' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  156:6   warning  React Hook useEffect has a missing dependency: 'navigate'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  174:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx:174:5
+  172 |   useEffect(() => {
+  173 |     // Reset state on route change
+> 174 |     setCurrentTip(null);
+      |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  175 |     setClickCount(0);
+  176 |     updateLastInteraction();
+  177 |  react-hooks/set-state-in-effect
+  197:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Offboarding.tsx
+  144:19  warning  '_config' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  482:22  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Onboarding.tsx
+   10:8   warning  'EmptyState' is defined but never used    @typescript-eslint/no-unused-vars
+  223:62  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\OrgChart.tsx
+  71:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\PerformanceReviews.tsx
+   40:62  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   79:64  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  326:57  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Profile.test.tsx
+  4:16  warning  'EmployeeSkill' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Settings.tsx
+  46:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Sidebar.tsx
+  260:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\SkillMatrix.tsx
+   18:11  warning  'config' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+  142:43  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Surveys.tsx
+   17:19  warning  '_config' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  172:20  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Team.tsx
+  124:23  warning  '_fromUser' is assigned a value but never used                   @typescript-eslint/no-unused-vars
+  125:23  warning  '_toUser' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  152:79  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  152:93  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  280:32  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\TimeOff.tsx
+  17:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Wellness.tsx
+  20:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\auth\AuthForm.tsx
+  32:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ui\Card.tsx
+  51:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\auth\SupabaseAuthService.ts
+  70:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\goalService.ts
+  44:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  69:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\reviewService.ts
+  61:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\userService.ts
+  55:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 62 problems (28 errors, 34 warnings)
+

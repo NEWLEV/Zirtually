@@ -1,6 +1,6 @@
 {
-  "name": "MedStaff Connect: Healthcare Employee Experience Platform",
-  "description": "A cloud-native platform designed to transform the employee experience in healthcare. It provides a unified, intelligent, and integrated ecosystem for personalized onboarding, continuous professional development, and holistic well-being to enhance staff retention, productivity, and patient care.",
+  "name": "Zirtually: Employee Experience Platform",
+  "description": "A cloud-native platform designed to transform the employee experience across all industries. It provides a unified, intelligent, and integrated ecosystem for personalized onboarding, continuous professional development, and holistic well-being to enhance staff retention, productivity, and organizational success.",
   "requestFramePermissions": [
     "microphone"
   ]

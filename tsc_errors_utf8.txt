@@ -1,0 +1,122 @@
+﻿src/components/AIAssistant.tsx(289,94): error TS2339: Property 'suggestion' does not exist on type '{ id: string; employeeId: string; type: string; title: string; details: string; action: string; }'.
+src/components/AIAssistant.tsx(291,82): error TS2339: Property 'urgency' does not exist on type '{ id: string; employeeId: string; type: string; title: string; details: string; action: string; }'.
+src/components/AIAssistant.tsx(293,33): error TS2339: Property 'urgency' does not exist on type '{ id: string; employeeId: string; type: string; title: string; details: string; action: string; }'.
+src/components/AIAssistant.tsx(297,32): error TS2339: Property 'urgency' does not exist on type '{ id: string; employeeId: string; type: string; title: string; details: string; action: string; }'.
+src/components/Analytics.tsx(114,34): error TS2339: Property 'changePercent' does not exist on type 'AnalyticsMetric'.
+src/components/Analytics.tsx(272,65): error TS2339: Property 'changePercent' does not exist on type 'AnalyticsMetric'.
+src/components/AppRoutes.tsx(49,72): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & MyJourneyProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & MyJourneyProps'.
+src/components/AppRoutes.tsx(59,73): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & OrgChartProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & OrgChartProps'.
+src/components/AppRoutes.tsx(60,71): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & TimeOffProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & TimeOffProps'.
+src/components/AppRoutes.tsx(61,72): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & BenefitsProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & BenefitsProps'.
+src/components/AppRoutes.tsx(62,70): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & SurveysProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & SurveysProps'.
+src/components/AppRoutes.tsx(63,69): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & AIAssistantProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & AIAssistantProps'.
+src/components/AppRoutes.tsx(65,83): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & DocumentManagementProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & DocumentManagementProps'.
+src/components/AppRoutes.tsx(66,73): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & AuditLogProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & AuditLogProps'.
+src/components/AppRoutes.tsx(69,92): error TS2322: Type '{ user: User; onLogout: () => void; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & SettingsProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & SettingsProps'.
+src/components/AppRoutes.tsx(70,78): error TS2322: Type '{ user: User; setActiveView: (view: View) => void; }' is not assignable to type 'IntrinsicAttributes & OffboardingProps'.
+  Property 'setActiveView' does not exist on type 'IntrinsicAttributes & OffboardingProps'.
+src/components/Benefits.tsx(2,29): error TS2305: Module '"../types"' has no exported member 'EnrollmentStatus'.
+src/components/Benefits.tsx(129,69): error TS2339: Property 'category' does not exist on type 'BenefitPlan'.
+src/components/Benefits.tsx(138,31): error TS2339: Property 'employeeCost' does not exist on type 'BenefitPlan'.
+src/components/Benefits.tsx(165,71): error TS2339: Property 'category' does not exist on type 'BenefitPlan'.
+src/components/Benefits.tsx(173,37): error TS2339: Property 'employeeCost' does not exist on type 'BenefitPlan'.
+src/components/Credentialing.tsx(42,5): error TS2820: Type '"active"' is not assignable to type 'CredentialStatus'. Did you mean '"Active"'?
+src/components/Credentialing.tsx(52,5): error TS2820: Type '"active"' is not assignable to type 'CredentialStatus'. Did you mean '"Active"'?
+src/components/Credentialing.tsx(61,5): error TS2820: Type '"expiring_soon"' is not assignable to type 'CredentialStatus'. Did you mean '"Expiring Soon"'?
+src/components/Credentialing.tsx(70,5): error TS2820: Type '"expired"' is not assignable to type 'CredentialStatus'. Did you mean '"Expired"'?
+src/components/Credentialing.tsx(79,5): error TS2820: Type '"active"' is not assignable to type 'CredentialStatus'. Did you mean '"Active"'?
+src/components/Credentialing.tsx(88,5): error TS2820: Type '"active"' is not assignable to type 'CredentialStatus'. Did you mean '"Active"'?
+src/components/Credentialing.tsx(209,58): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"active"' have no overlap.
+src/components/Credentialing.tsx(210,60): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expiring_soon"' have no overlap.
+src/components/Credentialing.tsx(211,59): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(306,32): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expiring_soon"' have no overlap.
+src/components/Credentialing.tsx(306,64): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(313,102): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(316,37): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(318,42): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(324,32): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(330,43): error TS2322: Type '"outline" | "primary"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(330,52): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(331,28): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(336,47): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expiring_soon"' have no overlap.
+src/components/Credentialing.tsx(336,79): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(351,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(355,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(359,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(363,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(378,43): error TS2322: Type '{ value: number; max: number; color: string; }' is not assignable to type 'IntrinsicAttributes & ProgressBarProps'.
+  Property 'max' does not exist on type 'IntrinsicAttributes & ProgressBarProps'.
+src/components/Credentialing.tsx(417,17): error TS2322: Type '{ children: Element[]; key: string; variant: "bordered"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/Credentialing.tsx(421,107): error TS2339: Property 'type' does not exist on type 'Credential'.
+src/components/Credentialing.tsx(424,42): error TS2339: Property 'type' does not exist on type 'Credential'.
+src/components/Credentialing.tsx(426,47): error TS2339: Property 'type' does not exist on type 'Credential'.
+src/components/Credentialing.tsx(447,50): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(448,23): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expiring_soon"' have no overlap.
+src/components/Credentialing.tsx(477,17): error TS2322: Type '{ children: Element[]; key: string; variant: "bordered"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/Credentialing.tsx(499,21): error TS2322: Type '{ value: number; max: number; color: string; }' is not assignable to type 'IntrinsicAttributes & ProgressBarProps'.
+  Property 'max' does not exist on type 'IntrinsicAttributes & ProgressBarProps'.
+src/components/Credentialing.tsx(538,57): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"active"' have no overlap.
+src/components/Credentialing.tsx(572,105): error TS2339: Property 'type' does not exist on type 'Credential'.
+src/components/Credentialing.tsx(586,46): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(602,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(606,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(610,16): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"active"' have no overlap.
+src/components/Credentialing.tsx(638,75): error TS2322: Type '{ value: number; max: number; color: string; }' is not assignable to type 'IntrinsicAttributes & ProgressBarProps'.
+  Property 'max' does not exist on type 'IntrinsicAttributes & ProgressBarProps'.
+src/components/Credentialing.tsx(667,41): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Credentialing.tsx(690,26): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expiring_soon"' have no overlap.
+src/components/Credentialing.tsx(690,58): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(695,44): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Credentialing.tsx(696,22): error TS2367: This comparison appears to be unintentional because the types 'CredentialStatus' and '"expired"' have no overlap.
+src/components/Directory.tsx(138,15): error TS2322: Type '{ children: Element; key: string; variant: "bordered"; padding: "md"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/Directory.tsx(224,13): error TS2322: Type '{ children: Element[]; variant: "elevated"; className: string; onClick: (e: any) => any; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/DocumentManagement.tsx(375,31): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/DocumentManagement.tsx(514,19): error TS2322: Type '{ children: Element[]; key: string; variant: "bordered"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/DocumentManagement.tsx(674,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/DocumentManagement.tsx(693,21): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/DocumentManagement.tsx(732,21): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Goals.tsx(70,45): error TS2322: Type '"default" | "success" | "warning" | "danger"' is not assignable to type '"primary" | "secondary" | "gradient"'.
+  Type '"default"' is not assignable to type '"primary" | "secondary" | "gradient"'.
+src/components/MyJourney.tsx(380,23): error TS2322: Type '{ children: Element[]; variant: "bordered"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/MyJourney.tsx(487,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/MyJourney.tsx(573,68): error TS2322: Type '{ children: Element[]; variant: "elevated"; className: string; onClick: (e: any) => any; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/MyJourney.tsx(615,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Settings.tsx(18,32): error TS2339: Property 'currentIndustry' does not exist on type 'IndustryContextType'.
+src/components/SkillMatrix.tsx(208,17): error TS2322: Type '"outline" | "primary"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/SkillMatrix.tsx(216,17): error TS2322: Type '"outline" | "primary"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+  Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/SkillMatrix.tsx(324,19): error TS2322: Type '{ children: Element[]; key: string; variant: "bordered"; className: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & CardProps'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & CardProps'.
+src/components/SkillMatrix.tsx(499,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/SkillMatrix.tsx(552,25): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/SkillMatrix.tsx(615,23): error TS2322: Type '"outline"' is not assignable to type '"success" | "primary" | "secondary" | "danger" | "ghost"'.
+src/components/Surveys.tsx(2,36): error TS2305: Module '"../types"' has no exported member 'SurveyStatus'.
+src/components/Surveys.tsx(22,48): error TS2367: This comparison appears to be unintentional because the types '"active" | "closed" | "draft"' and '"completed"' have no overlap.
+src/components/Surveys.tsx(143,38): error TS2339: Property 'estimatedTime' does not exist on type 'Survey'.
+src/components/Surveys.tsx(144,51): error TS2339: Property 'dueDate' does not exist on type 'Survey'.
+src/components/Surveys.tsx(211,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "gradient"'.
+src/components/Surveys.tsx(218,37): error TS2322: Type '"warning"' is not assignable to type '"primary" | "secondary" | "gradient"'.
+src/components/Surveys.tsx(265,44): error TS2339: Property 'estimatedTime' does not exist on type 'Survey'.
+src/components/Surveys.tsx(266,37): error TS2551: Property 'isAnonymous' does not exist on type 'Survey'. Did you mean 'anonymous'?
+src/components/TimeOff.tsx(51,12): error TS2678: Type '"rejected"' is not comparable to type 'TimeOffStatus'.
+src/components/TimeOff.tsx(58,12): error TS2678: Type '"vacation"' is not comparable to type 'TimeOffType'.
+src/components/TimeOff.tsx(64,12): error TS2678: Type '"military"' is not comparable to type 'TimeOffType'.
+src/components/TimeOff.tsx(84,7): error TS2353: Object literal may only specify known properties, and 'notes' does not exist in type 'TimeOffRequest'.

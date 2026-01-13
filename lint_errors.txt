@@ -1,0 +1,307 @@
+
+> zirtually-employee-experience-platform@0.0.0 lint
+> eslint . --report-unused-disable-directives --max-warnings 0
+
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\AIAssistant.tsx
+  21:58  warning  'setActiveView' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Analytics.tsx
+  17:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\AuditLog.tsx
+   16:19  warning  '_config' is assigned a value but never used                                                                                @typescript-eslint/no-unused-vars
+   36:22  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                             react/no-unescaped-entities
+   72:24  error    React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  101:17  error    React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  221:59  error    Unexpected any. Specify a different type                                                                                    @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Benefits.tsx
+  15:19  warning  '_config' is assigned a value but never used           @typescript-eslint/no-unused-vars
+  17:10  warning  '_selectedBenefit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ClinicalScribe.tsx
+   95:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  105:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\CommandPalette.tsx
+  321:87  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  321:96  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Credentialing.tsx
+  165:63  warning  'user' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx
+   97:17  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react/no-unescaped-entities
+   97:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react/no-unescaped-entities
+  105:16  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx:105:16
+  103 |             Day{' '}
+  104 |             {Math.ceil(
+> 105 |               (Date.now() - new Date(user.startDate || Date.now()).getTime()) /
+      |                ^^^^^^^^^^ Cannot call impure function
+  106 |                 (1000 * 60 * 60 * 24)
+  107 |             )}{' '}
+  108 |             of your journey                                          react-hooks/purity
+  105:56  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Dashboard.tsx:105:56
+  103 |             Day{' '}
+  104 |             {Math.ceil(
+> 105 |               (Date.now() - new Date(user.startDate || Date.now()).getTime()) /
+      |                                                        ^^^^^^^^^^ Cannot call impure function
+  106 |                 (1000 * 60 * 60 * 24)
+  107 |             )}{' '}
+  108 |             of your journey  react-hooks/purity
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Directory.tsx
+  17:48  warning  'user' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\DocumentManagement.tsx
+  248:79  warning  'setActiveView' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  249:11  warning  'config' is assigned a value but never used                                      @typescript-eslint/no-unused-vars
+  358:9   warning  'recentDocs' is assigned a value but never used                                  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ErrorBoundary.tsx
+  70:19  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  70:97  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Goals.tsx
+    5:8   warning  'Card' is defined but never used                @typescript-eslint/no-unused-vars
+  134:19  warning  '_config' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  136:10  warning  'isLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Header.tsx
+  23:11  warning  'config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Learning.tsx
+   10:1    warning  Delete `⏎`                                                prettier/prettier
+   96:19   warning  '_config' is assigned a value but never used              @typescript-eslint/no-unused-vars
+  215:81   warning  Insert `⏎··············`                                  prettier/prettier
+  218:1    warning  Delete `··`                                               prettier/prettier
+  224:81   warning  Insert `⏎··············`                                  prettier/prettier
+  227:1    warning  Delete `··`                                               prettier/prettier
+  242:93   warning  Insert `⏎··················`                              prettier/prettier
+  245:17   warning  Delete `··`                                               prettier/prettier
+  248:101  warning  Insert `⏎····················`                            prettier/prettier
+  253:1    warning  Replace `····················` with `··················`  prettier/prettier
+  284:82   warning  Insert `⏎························`                        prettier/prettier
+  289:1    warning  Delete `··`                                               prettier/prettier
+  342:110  warning  Insert `⏎····················`                            prettier/prettier
+  345:1    warning  Delete `··`                                               prettier/prettier
+  359:103  warning  Insert `⏎······················`                          prettier/prettier
+  366:1    warning  Delete `··`                                               prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Login.tsx
+   49:21  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  335:30  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  335:60  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  335:74  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\MyJourney.tsx
+    2:40   warning  'CareerPath' is defined but never used                           @typescript-eslint/no-unused-vars
+  155:100  warning  Insert `⏎··············`                                         prettier/prettier
+  158:1    warning  Delete `··`                                                      prettier/prettier
+  180:132  warning  Insert `⏎······················`                                 prettier/prettier
+  183:1    warning  Delete `··`                                                      prettier/prettier
+  504:23   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  504:45   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Notifications.tsx
+  147:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaAssistant.tsx
+   2:19  warning  'NovaTip' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  12:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaAssistant.tsx:12:7
+  10 |   useEffect(() => {
+  11 |     if (currentTip) {
+> 12 |       setIsVisible(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |     } else {
+  14 |       setIsVisible(false);
+  15 |     }  react-hooks/set-state-in-effect
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx
+   43:71  warning  'userName' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   50:10  warning  'clickCount' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   52:47  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx:52:47
+  50 |   const [clickCount, setClickCount] = useState(0);
+  51 |   // Use Ref for tracking interaction time to prevent re-renders on mousemove
+> 52 |   const lastInteractionTimeRef = React.useRef(Date.now());
+     |                                               ^^^^^^^^^^ Cannot call impure function
+  53 |
+  54 |   const updateLastInteraction = useCallback(() => {
+  55 |     lastInteractionTimeRef.current = Date.now();  react-hooks/purity
+  103:5   warning  React Hook useCallback has a missing dependency: 'updateLastInteraction'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+  151:6   warning  React Hook useEffect has a missing dependency: 'navigate'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+  192:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Offboarding.tsx
+  144:19  warning  '_config' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  482:22  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Onboarding.tsx
+   10:8   warning  'EmptyState' is defined but never used    @typescript-eslint/no-unused-vars
+  223:62  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\OrgChart.tsx
+  71:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\PerformanceReviews.tsx
+   40:62  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   79:64  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  326:57  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Profile.test.tsx
+  4:16  warning  'EmployeeSkill' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Profile.tsx
+  245:21   warning  Insert `··`                                           prettier/prettier
+  246:1    warning  Insert `··`                                           prettier/prettier
+  247:1    warning  Insert `··`                                           prettier/prettier
+  267:83   warning  Insert `⏎················`                            prettier/prettier
+  268:1    warning  Insert `··`                                           prettier/prettier
+  269:1    warning  Insert `··`                                           prettier/prettier
+  270:1    warning  Delete `··`                                           prettier/prettier
+  394:25   warning  Insert `··`                                           prettier/prettier
+  395:25   warning  Insert `····`                                         prettier/prettier
+  396:1    warning  Insert `··`                                           prettier/prettier
+  496:65   warning  Insert `⏎····························`                prettier/prettier
+  497:1    warning  Insert `··`                                           prettier/prettier
+  498:29   warning  Insert `··`                                           prettier/prettier
+  499:1    warning  Delete `··`                                           prettier/prettier
+  564:80   warning  Insert `⏎························`                    prettier/prettier
+  565:1    warning  Insert `··`                                           prettier/prettier
+  566:25   warning  Insert `··`                                           prettier/prettier
+  567:1    warning  Insert `··`                                           prettier/prettier
+  568:27   warning  Insert `··`                                           prettier/prettier
+  569:1    warning  Delete `··`                                           prettier/prettier
+  700:75   warning  Insert `⏎······················`                      prettier/prettier
+  701:1    warning  Delete `··`                                           prettier/prettier
+  704:101  warning  Insert `⏎························`                    prettier/prettier
+  705:1    warning  Delete `··`                                           prettier/prettier
+  744:75   warning  Insert `⏎······················`                      prettier/prettier
+  745:1    warning  Delete `··`                                           prettier/prettier
+  748:101  warning  Insert `⏎························`                    prettier/prettier
+  749:1    warning  Delete `··`                                           prettier/prettier
+  785:146  warning  Insert `⏎················`                            prettier/prettier
+  786:1    warning  Replace `················` with `··················`  prettier/prettier
+  787:1    warning  Insert `··`                                           prettier/prettier
+  788:1    warning  Delete `··`                                           prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Settings.test.tsx
+  71:12  warning  Replace `screen.getByText(/Two-factor·authentication·adds·an·extra·layer·of·security/i)` with `⏎······screen.getByText(/Two-factor·authentication·adds·an·extra·layer·of·security/i)⏎····`  prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Settings.tsx
+   32:95   warning  Insert `⏎········`                            prettier/prettier
+   33:1    warning  Delete `··`                                   prettier/prettier
+   36:97   warning  Insert `⏎··········`                          prettier/prettier
+   37:1    warning  Delete `··`                                   prettier/prettier
+   44:19   warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  140:125  warning  Insert `⏎························`            prettier/prettier
+  141:1    warning  Insert `··`                                   prettier/prettier
+  142:1    warning  Insert `··`                                   prettier/prettier
+  143:1    warning  Delete `··`                                   prettier/prettier
+  339:94   warning  Insert `⏎························`            prettier/prettier
+  340:1    warning  Insert `··`                                   prettier/prettier
+  341:1    warning  Insert `··`                                   prettier/prettier
+  342:1    warning  Delete `··`                                   prettier/prettier
+  374:100  warning  Insert `⏎····················`                prettier/prettier
+  375:1    warning  Insert `··`                                   prettier/prettier
+  376:1    warning  Insert `··`                                   prettier/prettier
+  377:1    warning  Delete `··`                                   prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Sidebar.tsx
+  260:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\SkillMatrix.tsx
+   18:11  warning  'config' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+  142:43  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Surveys.tsx
+   17:19  warning  '_config' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  172:20  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Team.tsx
+  124:23  warning  '_fromUser' is assigned a value but never used                   @typescript-eslint/no-unused-vars
+  125:23  warning  '_toUser' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  152:79  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  152:93  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  280:32  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\TimeOff.tsx
+  17:19  warning  '_config' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Wellness.tsx
+   20:19   warning  '_config' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  154:102  warning  Insert `⏎··············`                                         prettier/prettier
+  157:1    warning  Delete `··`                                                      prettier/prettier
+  407:51   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\auth\AuthForm.tsx
+  32:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\ui\Card.tsx
+  51:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\constants.ts
+  1779:1  warning  Delete `⏎⏎`  prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\authService.ts
+  168:19  warning  Delete `·`  prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\auth\SupabaseAuthService.ts
+  70:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\goalService.ts
+  44:64  error    Unexpected any. Specify a different type                                                   @typescript-eslint/no-explicit-any
+  44:68  warning  Replace `⏎········.insert(goal)⏎········.select()⏎········` with `.insert(goal).select()`  prettier/prettier
+  72:64  error    Unexpected any. Specify a different type                                                   @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\reviewService.ts
+  61:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\userService.ts
+  55:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\test\setup.ts
+  17:25  warning  Delete `·`                                                                                             prettier/prettier
+  18:28  warning  Delete `·`                                                                                             prettier/prettier
+  19:30  warning  Delete `·`                                                                                             prettier/prettier
+  20:33  warning  Delete `·`                                                                                             prettier/prettier
+  21:27  warning  Delete `·`                                                                                             prettier/prettier
+  28:3   error    Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\types.ts
+  459:3  warning  Insert `··`               prettier/prettier
+  460:1  warning  Replace `··` with `····`  prettier/prettier
+  461:1  warning  Insert `··`               prettier/prettier
+  462:3  warning  Insert `··`               prettier/prettier
+  463:3  warning  Insert `··`               prettier/prettier
+  464:1  warning  Replace `··` with `····`  prettier/prettier
+  465:1  warning  Insert `··`               prettier/prettier
+  466:3  warning  Insert `··`               prettier/prettier
+  467:1  warning  Replace `··` with `····`  prettier/prettier
+  468:1  warning  Insert `··`               prettier/prettier
+  469:1  warning  Insert `··`               prettier/prettier
+
+✖ 165 problems (43 errors, 122 warnings)
+  1 error and 89 warnings potentially fixable with the `--fix` option.
+
