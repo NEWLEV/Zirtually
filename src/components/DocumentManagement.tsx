@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, View } from '../types';
-import { useIndustry } from '../App';
 import { Button } from './ui/Button';
 import { Card } from './ui/Card';
 import { Modal } from './ui/Modal';
@@ -245,8 +244,7 @@ const MOCK_DOCUMENTS: Document[] = [
   },
 ];
 
-export const DocumentManagement: React.FC<DocumentManagementProps> = ({ user, setActiveView }) => {
-  const { config } = useIndustry();
+export const DocumentManagement: React.FC<DocumentManagementProps> = ({ user }) => {
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
@@ -355,9 +353,6 @@ export const DocumentManagement: React.FC<DocumentManagementProps> = ({ user, se
 
   const requiredDocs = MOCK_DOCUMENTS.filter(d => d.isRequired);
   const outdatedDocs = MOCK_DOCUMENTS.filter(d => d.status === 'outdated');
-  const recentDocs = MOCK_DOCUMENTS.sort(
-    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-  ).slice(0, 5);
 
   return (
     <div className="space-y-6">

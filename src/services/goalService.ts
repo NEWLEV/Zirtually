@@ -1,11 +1,26 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import type { Database } from '../types/database';
-import { Goal as AppGoal } from '../types';
+import { Goal as AppGoal, GoalStatus } from '../types';
 import { MOCK_GOALS } from '../constants';
 
+type GoalRow = Database['public']['Tables']['goals']['Row'];
 type GoalInsert = Database['public']['Tables']['goals']['Insert'];
+type DbGoalStatus = GoalRow['status'];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const mapStatus = (status: string): GoalStatus => {
+  switch (status) {
+    case 'not-started':
+    case 'in-progress':
+    case 'completed':
+    case 'blocked':
+      return status;
+    default:
+      return 'not-started';
+  }
+};
 
 export const GoalService = {
   /**
@@ -13,7 +28,7 @@ export const GoalService = {
    */
   getGoalsByUserId: async (userId: string): Promise<AppGoal[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('goals')
         .select('*')
         .eq('user_id', userId)
@@ -24,8 +39,10 @@ export const GoalService = {
         return [];
       }
 
+      const rows = (data || []) as unknown as GoalRow[];
+
       // Map DB response to AppGoal
-      return (data || []).map(g => ({
+      return rows.map(g => ({
         id: g.id,
         title: g.title,
         description: g.description || '',
@@ -33,9 +50,12 @@ export const GoalService = {
         progress: g.progress,
         dueDate: g.due_date || '',
         category: 'Professional', // Default as it's not in DB yet
-        status: g.status,
+        status: mapStatus(g.status),
         milestones: [],
         comments: [],
+        isTeamGoal: false, // Default
+        priority: 'Medium', // Default
+        estimatedTime: 0, // Default
       }));
     }
 
@@ -56,27 +76,40 @@ export const GoalService = {
         user_id: 'owner' in goal ? (goal.owner as string) : (goal as GoalInsert).user_id,
         description: 'description' in goal ? goal.description : '',
         progress: 'progress' in goal ? goal.progress : 0,
-        status: 'status' in goal ? (goal.status as any) : 'not-started',
+        status: 'status' in goal ? (goal.status as DbGoalStatus) : 'not-started',
         due_date: 'dueDate' in goal ? (goal.dueDate as string) : null,
       };
 
-      const { data, error } = await supabase.from('goals').insert(dbGoal).select().single();
+      const { data, error } = await (supabase as any)
+        .from('goals')
+        .insert(dbGoal as any)
+        .select()
+        .single();
 
       if (error) {
         throw new Error(error.message);
       }
 
+      if (!data) {
+        throw new Error('No data returned from create');
+      }
+
+      const row = data as unknown as GoalRow;
+
       return {
-        id: data.id,
-        title: data.title,
-        description: data.description || '',
-        owner: data.user_id,
-        progress: data.progress,
-        dueDate: data.due_date || '',
+        id: row.id,
+        title: row.title,
+        description: row.description || '',
+        owner: row.user_id,
+        progress: row.progress,
+        dueDate: row.due_date || '',
         category: 'Professional',
-        status: data.status,
+        status: mapStatus(row.status),
         milestones: [],
         comments: [],
+        isTeamGoal: false, // Default
+        priority: 'Medium', // Default
+        estimatedTime: 0, // Default
       };
     }
 
@@ -95,16 +128,16 @@ export const GoalService = {
    */
   updateGoal: async (updatedGoal: AppGoal): Promise<AppGoal | null> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('goals')
         .update({
           title: updatedGoal.title,
           description: updatedGoal.description,
           progress: updatedGoal.progress,
-          status: updatedGoal.status as any,
+          status: updatedGoal.status as DbGoalStatus,
           due_date: updatedGoal.dueDate,
           updated_at: new Date().toISOString(),
-        } as Database['public']['Tables']['goals']['Update'])
+        } as any)
         .eq('id', updatedGoal.id)
         .select()
         .single();
@@ -113,17 +146,26 @@ export const GoalService = {
         throw new Error(error.message);
       }
 
+      if (!data) {
+        throw new Error('No data returned from update');
+      }
+
+      const row = data as unknown as GoalRow;
+
       return {
-        id: data.id,
-        title: data.title,
-        description: data.description || '',
-        owner: data.user_id,
-        progress: data.progress,
-        dueDate: data.due_date || '',
+        id: row.id,
+        title: row.title,
+        description: row.description || '',
+        owner: row.user_id,
+        progress: row.progress,
+        dueDate: row.due_date || '',
         category: updatedGoal.category,
-        status: data.status,
+        status: mapStatus(row.status),
         milestones: updatedGoal.milestones,
         comments: updatedGoal.comments,
+        isTeamGoal: updatedGoal.isTeamGoal,
+        priority: updatedGoal.priority,
+        estimatedTime: updatedGoal.estimatedTime,
       };
     }
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, Survey, SurveyType, SurveyStatus, View } from '../types';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -13,8 +12,7 @@ interface SurveysProps {
   setActiveView?: (view: View) => void;
 }
 
-const Surveys: React.FC<SurveysProps> = ({ user: _user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const Surveys: React.FC<SurveysProps> = () => {
   const [surveys] = useState<Survey[]>(MOCK_SURVEYS);
   const [selectedSurvey, setSelectedSurvey] = useState<Survey | null>(null);
   const [showSurveyModal, setShowSurveyModal] = useState(false);

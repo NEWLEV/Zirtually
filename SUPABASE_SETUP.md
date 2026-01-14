@@ -1,6 +1,7 @@
 # Supabase Setup Guide
 
 ## Prerequisites
+
 1. Create a Supabase account at [supabase.com](https://supabase.com)
 2. Create a new project
 
@@ -14,6 +15,7 @@
 6. Click **Run** to execute the migration
 
 This will create:
+
 - `profiles` table (extends auth.users)
 - `goals` table
 - `performance_reviews` table
@@ -30,11 +32,13 @@ This will create:
 ## Step 3: Configure Environment Variables
 
 1. Create a `.env` file in the project root (copy from `.env.example`):
+
    ```bash
    cp .env.example .env
    ```
 
 2. Add your Supabase credentials:
+
    ```env
    VITE_SUPABASE_URL=https://your-project.supabase.co
    VITE_SUPABASE_ANON_KEY=your-anon-key-here
@@ -50,6 +54,7 @@ This will create:
 The application will now use real Supabase authentication instead of mock data.
 
 ### Testing Sign Up
+
 1. Navigate to the login page
 2. Create a new account with:
    - Email
@@ -58,6 +63,7 @@ The application will now use real Supabase authentication instead of mock data.
    - Department
 
 ### Testing Sign In
+
 1. Use the credentials you just created
 2. Your session will persist across page refreshes
 
@@ -82,13 +88,16 @@ Replace `your-project-id` with your actual Supabase project ID (found in Project
 ## Troubleshooting
 
 ### "Invalid API key" error
+
 - Double-check your `.env` file has the correct `VITE_SUPABASE_ANON_KEY`
 - Make sure you're using the **anon/public** key, not the service role key
 
 ### "Row Level Security" errors
+
 - Verify the RLS policies were created by checking the **Authentication** → **Policies** section
 - Make sure you're signed in when trying to access data
 
 ### Session not persisting
+
 - Check browser console for errors
 - Verify `supabase.auth.onAuthStateChange` is being called in your AuthContext

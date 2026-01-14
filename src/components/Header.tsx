@@ -2,7 +2,6 @@ import React from 'react';
 import { User } from '../types';
 import Button from './ui/Button';
 import { SunIcon, MoonIcon, SearchIcon, LogoutIcon, NotificationsIcon } from './ui/icons/Icon';
-import { useIndustry } from '../App';
 import { Theme } from '../context/SettingsContext';
 
 interface HeaderProps {
@@ -20,8 +19,6 @@ const Header: React.FC<HeaderProps> = ({
   setTheme,
   onOpenCommandPalette,
 }) => {
-  const { config } = useIndustry();
-
   const toggleTheme = () => {
     if (theme === 'system') {
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

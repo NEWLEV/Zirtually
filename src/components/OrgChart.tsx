@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { User, View } from '../types';
-import { useIndustry } from '../App';
 import { useAuthContext } from '../context/AuthContext';
 import Card from './ui/Card';
 import Button from './ui/Button';
@@ -67,8 +66,7 @@ const buildOrgHierarchy = (members: User[]): OrgNode[] => {
   return nodes;
 };
 
-const OrgChart: React.FC<OrgChartProps> = ({ user: _user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const OrgChart: React.FC<OrgChartProps> = () => {
   const { users } = useAuthContext();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedNode, setSelectedNode] = useState<OrgNode | null>(null);

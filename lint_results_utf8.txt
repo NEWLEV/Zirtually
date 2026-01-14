@@ -1,0 +1,188 @@
+﻿
+> zirtually-employee-experience-platform@0.0.0 lint
+> eslint . --report-unused-disable-directives --max-warnings 0
+
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Analytics.tsx
+  92:88  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  95:1   warning  Delete `┬╖┬╖`                 prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Credentialing.tsx
+  330:120  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                                      prettier/prettier
+  333:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  366:99   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                      prettier/prettier
+  369:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  404:19   warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  405:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  406:1    warning  Replace `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖` with `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  407:19   warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  408:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  473:90   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                                  prettier/prettier
+  476:17   warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  497:93   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                            prettier/prettier
+  498:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  539:49   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                            prettier/prettier
+  544:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+  717:45   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                                prettier/prettier
+  720:1    warning  Delete `┬╖┬╖`                                                   prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Directory.tsx
+   71:60  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+   74:1   warning  Delete `┬╖┬╖`               prettier/prettier
+   82:60  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+   85:1   warning  Delete `┬╖┬╖`               prettier/prettier
+  345:23  warning  Insert `┬╖┬╖`               prettier/prettier
+  346:1   warning  Insert `┬╖┬╖`               prettier/prettier
+  347:1   warning  Insert `┬╖┬╖`               prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\DocumentManagement.tsx
+  435:97  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  438:1   warning  Delete `┬╖┬╖`                     prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Goals.tsx
+  276:81  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`    prettier/prettier
+  279:1   warning  Delete `┬╖┬╖`                 prettier/prettier
+  286:83  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  289:1   warning  Delete `┬╖┬╖`                 prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Learning.tsx
+  212:81   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                                  prettier/prettier
+  215:1    warning  Delete `┬╖┬╖`                                               prettier/prettier
+  221:81   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                                  prettier/prettier
+  224:1    warning  Delete `┬╖┬╖`                                               prettier/prettier
+  239:93   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                              prettier/prettier
+  242:17   warning  Delete `┬╖┬╖`                                               prettier/prettier
+  245:101  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                            prettier/prettier
+  250:1    warning  Replace `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖` with `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  281:82   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                        prettier/prettier
+  286:1    warning  Delete `┬╖┬╖`                                               prettier/prettier
+  339:110  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                            prettier/prettier
+  342:1    warning  Delete `┬╖┬╖`                                               prettier/prettier
+  356:103  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                          prettier/prettier
+  363:1    warning  Delete `┬╖┬╖`                                               prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\MyJourney.tsx
+  155:100  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`          prettier/prettier
+  158:1    warning  Delete `┬╖┬╖`                       prettier/prettier
+  180:132  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  183:1    warning  Delete `┬╖┬╖`                       prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Notifications.tsx
+  311:88   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`            prettier/prettier
+  314:1    warning  Delete `┬╖┬╖`                           prettier/prettier
+  320:112  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`            prettier/prettier
+  323:1    warning  Delete `┬╖┬╖`                           prettier/prettier
+  340:116  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`          prettier/prettier
+  343:1    warning  Delete `┬╖┬╖`                           prettier/prettier
+  360:76   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`            prettier/prettier
+  361:1    warning  Delete `┬╖┬╖`                           prettier/prettier
+  372:53   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  375:1    warning  Delete `┬╖┬╖`                           prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Nova\NovaContext.tsx
+  50:10  warning  '_clickCount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Offboarding.tsx
+  222:106  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`              prettier/prettier
+  227:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+  245:39   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`        prettier/prettier
+  248:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+  402:68   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`      prettier/prettier
+  405:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+  414:45   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  417:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+  504:68   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`      prettier/prettier
+  505:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+  511:41   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  514:1    warning  Delete `┬╖┬╖`                     prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Onboarding.tsx
+  240:96   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`    prettier/prettier
+  243:21   warning  Delete `┬╖┬╖`                         prettier/prettier
+  247:129  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  250:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+  343:91   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  346:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\OrgChart.tsx
+   85:7   warning  Insert `┬╖┬╖`                           prettier/prettier
+   86:1   warning  Insert `┬╖┬╖`                           prettier/prettier
+   87:1   warning  Replace `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖` with `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+   88:1   warning  Insert `┬╖┬╖`                           prettier/prettier
+   89:1   warning  Insert `┬╖┬╖`                           prettier/prettier
+  211:85  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`            prettier/prettier
+  214:1   warning  Delete `┬╖┬╖`                           prettier/prettier
+  220:85  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`            prettier/prettier
+  223:1   warning  Delete `┬╖┬╖`                           prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\PerformanceReviews.tsx
+   41:5    warning  Insert `┬╖┬╖`                                 prettier/prettier
+   42:1    warning  Insert `┬╖┬╖┬╖┬╖`                               prettier/prettier
+   43:1    warning  Replace `┬╖┬╖┬╖┬╖┬╖┬╖` with `┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`          prettier/prettier
+   44:1    warning  Insert `┬╖┬╖┬╖┬╖`                               prettier/prettier
+   45:5    warning  Insert `┬╖┬╖`                                 prettier/prettier
+   46:1    warning  Insert `┬╖┬╖`                                 prettier/prettier
+  428:102  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  431:1    warning  Delete `┬╖┬╖`                                 prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Settings.tsx
+   32:95   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                  prettier/prettier
+   33:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+   36:97   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                prettier/prettier
+   37:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+  140:125  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  143:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+  339:94   warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  342:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+  374:100  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`      prettier/prettier
+  377:1    warning  Delete `┬╖┬╖`                         prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\SkillMatrix.tsx
+  175:90  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                      prettier/prettier
+  178:1   warning  Delete `┬╖┬╖`                                   prettier/prettier
+  196:94  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`                prettier/prettier
+  199:1   warning  Delete `┬╖┬╖`                                   prettier/prettier
+  484:82  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`          prettier/prettier
+  487:1   warning  Delete `┬╖┬╖`                                   prettier/prettier
+  670:63  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  673:1   warning  Delete `┬╖┬╖`                                   prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Team.tsx
+  269:78  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  270:1   warning  Insert `┬╖┬╖`                           prettier/prettier
+  271:1   warning  Insert `┬╖┬╖`                           prettier/prettier
+  272:1   warning  Delete `┬╖┬╖`                           prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\TimeOff.tsx
+  328:97  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`    prettier/prettier
+  331:19  warning  Delete `┬╖┬╖`                       prettier/prettier
+  335:58  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  338:1   warning  Delete `┬╖┬╖`                       prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\components\Wellness.tsx
+  152:102  warning  Insert `ΓÅÄ┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖┬╖`  prettier/prettier
+  155:1    warning  Delete `┬╖┬╖`               prettier/prettier
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\auth\SupabaseAuthService.ts
+   34:5  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+   65:5  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+   81:5  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  146:5  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  156:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\goalService.ts
+   31:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+   84:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  133:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\reviewService.ts
+   46:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+   81:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  116:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\P\Documents\Antigravity\Zirtually\Zirtually-1\src\services\userService.ts
+  95:7  error  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+Γ£û 136 problems (12 errors, 124 warnings)
+  12 errors and 123 warnings potentially fixable with the `--fix` option.
+

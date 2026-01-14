@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { User, View } from '../types';
 import { MOCK_TRAINING, MOCK_RESOURCES } from '../constants';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import Breadcrumbs from './ui/Breadcrumbs';
@@ -91,8 +90,7 @@ const getDueDateInfo = (dueDate?: string, completed?: boolean) => {
   };
 };
 
-const Learning: React.FC<LearningProps> = ({ user: _user, setActiveView }) => {
-  const { config: _config } = useIndustry();
+const Learning: React.FC<LearningProps> = ({ setActiveView }) => {
   const [activeTab, setActiveTab] = useState<'training' | 'library'>('training');
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('all');

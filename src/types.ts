@@ -159,6 +159,8 @@ export interface Policy {
 }
 
 // Performance & Goals
+export type GoalStatus = 'not-started' | 'in-progress' | 'completed' | 'blocked';
+
 export interface Goal {
   id: string;
   title: string;
@@ -169,9 +171,27 @@ export interface Goal {
   priority: Priority;
   estimatedTime: number;
   startDate?: string;
-  targetDate?: string;
+  dueDate?: string;
   keyResults?: KeyResult[];
   category?: string;
+  status: GoalStatus;
+  milestones?: GoalMilestone[];
+  comments?: GoalComment[];
+}
+
+export interface GoalMilestone {
+  id: string;
+  title: string;
+  completed: boolean;
+  dueDate?: string;
+}
+
+export interface GoalComment {
+  id: string;
+  authorId: string;
+  authorName: string;
+  content: string;
+  timestamp: string;
 }
 
 export interface KeyResult {

@@ -121,8 +121,6 @@ const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
               {recognitions.map(rec => {
                 const value = MOCK_VALUES.find(v => v.id === rec.valueId);
                 const colors = value ? getValueColor(value.color) : getValueColor('blue');
-                const _fromUser = MOCK_USERS.find(u => u.id === rec.fromId);
-                const _toUser = MOCK_USERS.find(u => u.id === rec.toId);
 
                 return (
                   <div
@@ -268,10 +266,11 @@ const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
                         key={value.id}
                         type="button"
                         onClick={() => setSelectedValue(value.id)}
-                        className={`p-3 rounded-xl border-2 transition-all ${selectedValue === value.id
-                          ? `${colors.border} ${colors.bg} ring-2 ring-offset-2`
-                          : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
-                          }`}
+                        className={`p-3 rounded-xl border-2 transition-all ${
+                          selectedValue === value.id
+                            ? `${colors.border} ${colors.bg} ring-2 ring-offset-2`
+                            : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                        }`}
                         style={
                           {
                             '--tw-ring-color':
@@ -345,7 +344,7 @@ const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
           </Card>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

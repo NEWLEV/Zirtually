@@ -14,7 +14,7 @@ interface DirectoryProps {
   setActiveView: (view: View) => void;
 }
 
-const Directory: React.FC<DirectoryProps> = ({ user, setActiveView }) => {
+const Directory: React.FC<DirectoryProps> = ({ user: _user, setActiveView }) => {
   const { config } = useIndustry();
   const [search, setSearch] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState<string | 'all'>('all');

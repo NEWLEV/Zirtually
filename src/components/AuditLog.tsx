@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { User, AuditLog as AuditLogType, View } from '../types';
-import { useIndustry } from '../App';
 import { useAuditLogs } from '../context/AuditLogContext';
 import Card from './ui/Card';
 import Button from './ui/Button';
@@ -12,8 +11,7 @@ interface AuditLogProps {
   setActiveView?: (view: View) => void;
 }
 
-const AuditLog: React.FC<AuditLogProps> = ({ user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const AuditLog: React.FC<AuditLogProps> = ({ user }) => {
   const { logs } = useAuditLogs();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | 'all'>('all');

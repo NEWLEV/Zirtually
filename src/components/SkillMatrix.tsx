@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { User, SkillGap, TeamMemberSkill } from '../types';
-import { useIndustry } from '../App';
 import { Button } from './ui/Button';
 import { Card } from './ui/Card';
 import { Modal } from './ui/Modal';
@@ -15,7 +14,6 @@ interface SkillMatrixProps {
 }
 
 export const SkillMatrix: React.FC<SkillMatrixProps> = ({ user, setActiveView }) => {
-  const { config } = useIndustry();
   const [activeTab, setActiveTab] = useState<'matrix' | 'gaps' | 'development'>('matrix');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedMember, setSelectedMember] = useState<TeamMemberSkill | null>(null);
@@ -174,10 +172,11 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ user, setActiveView })
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as typeof activeTab)}
-            className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-colors ${activeTab === tab.id
+            className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-colors ${
+              activeTab === tab.id
                 ? 'border-action-primary text-action-primary'
                 : 'border-transparent text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary'
-              }`}
+            }`}
           >
             <Icon name={tab.icon} size={18} />
             {tab.label}
@@ -195,10 +194,11 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ user, setActiveView })
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${selectedCategory === category
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                    selectedCategory === category
                       ? 'bg-action-primary/10 text-action-primary border border-action-primary/20'
                       : 'bg-bg-secondary text-text-secondary hover:bg-border-light dark:bg-dark-card dark:text-dark-text-secondary'
-                    }`}
+                  }`}
                 >
                   {category === 'all' ? 'All Categories' : category}
                 </button>
@@ -483,10 +483,11 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ user, setActiveView })
                         </p>
                       </div>
                       <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${gap.gap > 2
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          gap.gap > 2
                             ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
                             : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-                          }`}
+                        }`}
                       >
                         Gap: {gap.gap}
                       </span>
@@ -669,10 +670,11 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ user, setActiveView })
                             {[1, 2, 3, 4, 5].map(level => (
                               <div
                                 key={level}
-                                className={`w-4 h-4 rounded ${level <= skill.proficiency
+                                className={`w-4 h-4 rounded ${
+                                  level <= skill.proficiency
                                     ? 'bg-violet-500'
                                     : 'bg-gray-200 dark:bg-gray-700'
-                                  }`}
+                                }`}
                               />
                             ))}
                           </div>

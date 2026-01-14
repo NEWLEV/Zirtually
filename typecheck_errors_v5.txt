@@ -1,0 +1,86 @@
+﻿src/components/Analytics.tsx(76,24): error TS2552: Cannot find name 'setActiveView'. Did you mean '_setActiveView'?
+src/components/Goals.tsx(201,11): error TS2741: Property 'status' is missing in type '{ title: string; description: string; priority: Priority; estimatedTime: number; targetDate: string; isTeamGoal: boolean; category: string; id: string; progress: number; owner: string; }' but required in type 'Goal'.
+src/components/PerformanceReviews.tsx(46,5): error TS2411: Property 'achievements' of type 'string | undefined' is not assignable to 'string' index type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+src/components/PerformanceReviews.tsx(47,5): error TS2411: Property 'growth' of type 'string | undefined' is not assignable to 'string' index type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+src/components/PerformanceReviews.tsx(96,15): error TS2345: Argument of type '(prev: Record<string, ReviewDraft>) => { [x: string]: ReviewDraft | { [x: string]: string | number | { rating?: number; comment?: string; }; achievements?: string; growth?: string; }; }' is not assignable to parameter of type 'Record<string, ReviewDraft> | ((val: Record<string, ReviewDraft>) => Record<string, ReviewDraft>)'.
+  Type '(prev: Record<string, ReviewDraft>) => { [x: string]: ReviewDraft | { [x: string]: string | number | { rating?: number; comment?: string; }; achievements?: string; growth?: string; }; }' is not assignable to type '(val: Record<string, ReviewDraft>) => Record<string, ReviewDraft>'.
+    Type '{ [x: string]: ReviewDraft | { [x: string]: string | number | { rating?: number; comment?: string; }; achievements?: string; growth?: string; }; }' is not assignable to type 'Record<string, ReviewDraft>'.
+      'string' index signatures are incompatible.
+        Type 'ReviewDraft | { [x: string]: string | number | { rating?: number | undefined; comment?: string | undefined; }; achievements?: string | undefined; growth?: string | undefined; }' is not assignable to type 'ReviewDraft'.
+          Type '{ [x: string]: string | number | { rating?: number; comment?: string; }; achievements?: string; growth?: string; }' is not assignable to type 'ReviewDraft'.
+            'string' index signatures are incompatible.
+              Type 'string | number | { rating?: number | undefined; comment?: string | undefined; }' is not assignable to type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+                Type 'number' is not assignable to type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+src/components/PerformanceReviews.tsx(400,80): error TS2339: Property 'rating' does not exist on type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+  Property 'rating' does not exist on type 'string'.
+src/components/PerformanceReviews.tsx(401,81): error TS2339: Property 'comment' does not exist on type 'string | { rating?: number | undefined; comment?: string | undefined; }'.
+  Property 'comment' does not exist on type 'string'.
+src/constants.ts(674,3): error TS2741: Property 'status' is missing in type '{ id: string; title: string; description: string; progress: number; owner: string; isTeamGoal: false; priority: "High"; estimatedTime: number; targetDate: string; category: string; }' but required in type 'Goal'.
+src/constants.ts(686,3): error TS2741: Property 'status' is missing in type '{ id: string; title: string; description: string; progress: number; owner: string; isTeamGoal: true; priority: "High"; estimatedTime: number; targetDate: string; category: string; }' but required in type 'Goal'.
+src/constants.ts(698,3): error TS2741: Property 'status' is missing in type '{ id: string; title: string; description: string; progress: number; owner: string; isTeamGoal: true; priority: "Medium"; estimatedTime: number; targetDate: string; category: string; }' but required in type 'Goal'.
+src/constants.ts(710,3): error TS2741: Property 'status' is missing in type '{ id: string; title: string; description: string; progress: number; owner: string; isTeamGoal: false; priority: "Medium"; estimatedTime: number; targetDate: string; category: string; }' but required in type 'Goal'.
+src/constants.ts(722,3): error TS2741: Property 'status' is missing in type '{ id: string; title: string; description: string; progress: number; owner: string; isTeamGoal: false; priority: "High"; estimatedTime: number; targetDate: string; category: string; }' but required in type 'Goal'.
+src/services/auth/SupabaseAuthService.ts(72,15): error TS2345: Argument of type '{ full_name: string; avatar_url: string; department: string | undefined; }' is not assignable to parameter of type 'never'.
+src/services/auth/SupabaseAuthService.ts(143,10): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: string; full_name: string; department: string; role: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "profiles", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+src/services/goalService.ts(41,7): error TS2322: Type '{ id: any; title: any; description: any; owner: any; progress: any; dueDate: any; category: string; status: GoalStatus; milestones: never[]; comments: never[]; }[]' is not assignable to type 'Goal[]'.
+  Type '{ id: any; title: any; description: any; owner: any; progress: any; dueDate: any; category: string; status: GoalStatus; milestones: never[]; comments: never[]; }' is missing the following properties from type 'Goal': isTeamGoal, priority, estimatedTime
+src/services/goalService.ts(42,15): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/goalService.ts(43,18): error TS2339: Property 'title' does not exist on type 'never'.
+src/services/goalService.ts(44,24): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/goalService.ts(45,18): error TS2339: Property 'user_id' does not exist on type 'never'.
+src/services/goalService.ts(46,21): error TS2339: Property 'progress' does not exist on type 'never'.
+src/services/goalService.ts(47,20): error TS2339: Property 'due_date' does not exist on type 'never'.
+src/services/goalService.ts(49,29): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/goalService.ts(76,67): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "not-started" | "in-progress" | "completed" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "goals", never, "POST">', gave the following error.
+    Argument of type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "not-started" | "in-progress" | "completed" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is not assignable to parameter of type 'never[]'.
+      Type '{ id?: string | undefined; user_id: string; title: string; description?: string | null | undefined; status?: "not-started" | "in-progress" | "completed" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; created_at?: string | undefined; updated_at?: string | undef...' is missing the following properties from type 'never[]': length, pop, push, concat, and 29 more.
+src/services/goalService.ts(87,18): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/goalService.ts(88,21): error TS2339: Property 'title' does not exist on type 'never'.
+src/services/goalService.ts(89,27): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/goalService.ts(90,21): error TS2339: Property 'user_id' does not exist on type 'never'.
+src/services/goalService.ts(91,24): error TS2339: Property 'progress' does not exist on type 'never'.
+src/services/goalService.ts(92,9): error TS2353: Object literal may only specify known properties, and 'dueDate' does not exist in type 'Goal'.
+src/services/goalService.ts(92,23): error TS2339: Property 'due_date' does not exist on type 'never'.
+src/services/goalService.ts(94,32): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/goalService.ts(117,17): error TS2345: Argument of type '{ id?: string | undefined; user_id?: string | undefined; title?: string | undefined; description?: string | null | undefined; status?: "not-started" | "in-progress" | "completed" | "blocked" | undefined; progress?: number | undefined; due_date?: string | ... 1 more ... | undefined; updated_at?: string | undefined; }' is not assignable to parameter of type 'never'.
+src/services/goalService.ts(122,33): error TS2339: Property 'dueDate' does not exist on type 'Goal'.
+src/services/goalService.ts(138,18): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/goalService.ts(139,21): error TS2339: Property 'title' does not exist on type 'never'.
+src/services/goalService.ts(140,27): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/goalService.ts(141,21): error TS2339: Property 'user_id' does not exist on type 'never'.
+src/services/goalService.ts(142,24): error TS2339: Property 'progress' does not exist on type 'never'.
+src/services/goalService.ts(143,9): error TS2353: Object literal may only specify known properties, and 'dueDate' does not exist in type 'Goal'.
+src/services/goalService.ts(143,23): error TS2339: Property 'due_date' does not exist on type 'never'.
+src/services/goalService.ts(145,32): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/goalService.ts(146,33): error TS2339: Property 'milestones' does not exist on type 'Goal'.
+src/services/goalService.ts(147,31): error TS2339: Property 'comments' does not exist on type 'Goal'.
+src/services/reviewService.ts(54,15): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/reviewService.ts(55,23): error TS2339: Property 'employee_id' does not exist on type 'never'.
+src/services/reviewService.ts(56,22): error TS2339: Property 'reviewer_id' does not exist on type 'never'.
+src/services/reviewService.ts(57,19): error TS2339: Property 'period' does not exist on type 'never'.
+src/services/reviewService.ts(58,36): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/reviewService.ts(59,20): error TS2339: Property 'created_at' does not exist on type 'never'.
+src/services/reviewService.ts(60,26): error TS2339: Property 'overall_rating' does not exist on type 'never'.
+src/services/reviewService.ts(86,15): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/reviewService.ts(87,23): error TS2339: Property 'employee_id' does not exist on type 'never'.
+src/services/reviewService.ts(88,22): error TS2339: Property 'reviewer_id' does not exist on type 'never'.
+src/services/reviewService.ts(89,19): error TS2339: Property 'period' does not exist on type 'never'.
+src/services/reviewService.ts(90,36): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/reviewService.ts(91,20): error TS2339: Property 'created_at' does not exist on type 'never'.
+src/services/reviewService.ts(92,26): error TS2339: Property 'overall_rating' does not exist on type 'never'.
+src/services/reviewService.ts(109,17): error TS2345: Argument of type '{ status: "completed" | "draft" | "submitted"; overall_rating: number | undefined; strengths: string | undefined; areas_for_improvement: string | undefined; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(129,18): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/reviewService.ts(130,26): error TS2339: Property 'employee_id' does not exist on type 'never'.
+src/services/reviewService.ts(131,25): error TS2339: Property 'reviewer_id' does not exist on type 'never'.
+src/services/reviewService.ts(132,22): error TS2339: Property 'period' does not exist on type 'never'.
+src/services/reviewService.ts(133,39): error TS2339: Property 'status' does not exist on type 'never'.
+src/services/reviewService.ts(134,23): error TS2339: Property 'created_at' does not exist on type 'never'.
+src/services/reviewService.ts(135,29): error TS2339: Property 'overall_rating' does not exist on type 'never'.
+src/services/userService.ts(96,17): error TS2345: Argument of type '{ full_name: string; department: string | undefined; avatar_url: string; updated_at: string; }' is not assignable to parameter of type 'never'.

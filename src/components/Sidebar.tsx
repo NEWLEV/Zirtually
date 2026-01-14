@@ -25,7 +25,6 @@ import {
   AnalyticsIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  ZirtuallyLogo,
   SettingsIcon,
   OffboardingIcon,
 } from './ui/icons/Icon';
@@ -62,8 +61,8 @@ const NavItem: React.FC<NavItemProps> = ({
       <button
         onClick={() => setActiveView(view)}
         className={`relative flex items-center w-full px-3 py-2.5 rounded-xl transition-all duration-200 group ${isActive
-            ? 'bg-action-primary text-text-inverse shadow-lg shadow-action-primary/25'
-            : 'text-text-secondary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-card hover:text-text-primary dark:hover:text-dark-text'
+          ? 'bg-action-primary text-text-inverse shadow-lg shadow-action-primary/25'
+          : 'text-text-secondary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-card hover:text-text-primary dark:hover:text-dark-text'
           }`}
         title={collapsed ? view : undefined}
         aria-label={view}
@@ -75,8 +74,8 @@ const NavItem: React.FC<NavItemProps> = ({
             {badge && (
               <span
                 className={`ml-auto px-2 py-0.5 text-xs font-bold rounded-full ${isActive
-                    ? 'bg-text-inverse/20 text-text-inverse'
-                    : 'bg-action-primary/20 text-action-primary'
+                  ? 'bg-text-inverse/20 text-text-inverse'
+                  : 'bg-action-primary/20 text-action-primary'
                   }`}
               >
                 {badge}
@@ -276,14 +275,13 @@ const Sidebar: React.FC<SidebarProps> = ({
     >
       {/* Logo */}
       <div
-        className={`flex items-center h-16 border-b border-slate-800 ${collapsed ? 'justify-center px-4' : 'px-5'}`}
+        className={`flex items-center justify-center border-b border-slate-800 ${collapsed ? 'h-20 px-2' : 'h-28 px-4 py-4'}`}
       >
-        <ZirtuallyLogo className="w-8 h-8 flex-shrink-0" />
-        {!collapsed && (
-          <span className="ml-3 text-xl font-bold bg-gradient-to-r from-action-primary to-action-secondary bg-clip-text text-transparent">
-            Zirtually
-          </span>
-        )}
+        <img
+          src="/zirtually-logo.png"
+          alt="Zirtually"
+          className={`object-contain transition-all duration-300 ${collapsed ? 'h-12' : 'h-16 w-full'}`}
+        />
       </div>
 
       {/* Navigation */}

@@ -271,25 +271,28 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({
                     <button
                       key={cmd.id}
                       onClick={() => cmd.view && onSelect(cmd.view)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 transition-colors ${isSelected
+                      className={`w-full flex items-center gap-3 px-4 py-3 transition-colors ${
+                        isSelected
                           ? 'bg-indigo-50 dark:bg-indigo-900/30'
                           : 'hover:bg-gray-50 dark:hover:bg-slate-700/50'
-                        }`}
+                      }`}
                     >
                       <div
-                        className={`p-2 rounded-lg ${isSelected
+                        className={`p-2 rounded-lg ${
+                          isSelected
                             ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400'
                             : 'bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400'
-                          }`}
+                        }`}
                       >
                         {cmd.icon}
                       </div>
                       <div className="flex-1 text-left">
                         <p
-                          className={`font-medium ${isSelected
+                          className={`font-medium ${
+                            isSelected
                               ? 'text-indigo-900 dark:text-indigo-100'
                               : 'text-gray-900 dark:text-white'
-                            }`}
+                          }`}
                         >
                           {cmd.title}
                           {isCurrent && (

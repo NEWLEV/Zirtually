@@ -1,0 +1,4 @@
+﻿src/services/auth/SupabaseAuthService.ts(80,15): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/goalService.ts(132,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/reviewService.ts(115,17): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+src/services/userService.ts(96,17): error TS2345: Argument of type '{ full_name: string; department: string | undefined; avatar_url: string; updated_at: string; }' is not assignable to parameter of type 'never'.

@@ -7,129 +7,129 @@
  */
 
 :root {
-    /* ============================================
+  /* ============================================
      BACKGROUNDS
      ============================================ */
-    --bg-primary: #F8FAFB;
-    /* Soft Cloud White - main canvas */
-    --bg-secondary: #E8F4F8;
-    /* Misty Blue - cards & panels */
-    --bg-elevated: #FFFFFF;
-    /* Pure white - elevated surfaces */
+  --bg-primary: #f8fafb;
+  /* Soft Cloud White - main canvas */
+  --bg-secondary: #e8f4f8;
+  /* Misty Blue - cards & panels */
+  --bg-elevated: #ffffff;
+  /* Pure white - elevated surfaces */
 
-    /* ============================================
+  /* ============================================
      TEXT COLORS
      ============================================ */
-    --text-primary: #1A3A4A;
-    /* Deep Ocean - headings (14.2:1 contrast) */
-    --text-secondary: #4A6A7A;
-    /* Slate Blue - body text (7.8:1 contrast) */
-    --text-tertiary: #6A8A9A;
-    /* Light Slate - supporting text (5.2:1 contrast) */
-    --text-inverse: #FFFFFF;
-    /* White - text on dark backgrounds */
+  --text-primary: #1a3a4a;
+  /* Deep Ocean - headings (14.2:1 contrast) */
+  --text-secondary: #4a6a7a;
+  /* Slate Blue - body text (7.8:1 contrast) */
+  --text-tertiary: #6a8a9a;
+  /* Light Slate - supporting text (5.2:1 contrast) */
+  --text-inverse: #ffffff;
+  /* White - text on dark backgrounds */
 
-    /* ============================================
+  /* ============================================
      INTERACTIVE ELEMENTS
      ============================================ */
-    --action-primary: #2E7D6E;
-    /* Forest Teal - primary buttons */
-    --action-primary-hover: #236B5D;
-    /* Deep Forest - button hover */
-    --action-primary-active: #1A5547;
-    /* Darker Forest - button active */
-    --action-secondary: #3A8FB7;
-    /* Ocean Blue - secondary actions */
-    --action-secondary-hover: #2A6F8F;
-    /* Deep Ocean Blue - secondary hover */
+  --action-primary: #2e7d6e;
+  /* Forest Teal - primary buttons */
+  --action-primary-hover: #236b5d;
+  /* Deep Forest - button hover */
+  --action-primary-active: #1a5547;
+  /* Darker Forest - button active */
+  --action-secondary: #3a8fb7;
+  /* Ocean Blue - secondary actions */
+  --action-secondary-hover: #2a6f8f;
+  /* Deep Ocean Blue - secondary hover */
 
-    /* ============================================
+  /* ============================================
      LINKS
      ============================================ */
-    --link-default: #2A6F8F;
-    /* Deep Ocean Blue - links (7.1:1 contrast) */
-    --link-hover: #1A5570;
-    /* Darker Ocean - link hover (9.5:1 contrast) */
-    --link-visited: #5A4A7A;
-    /* Purple-slate - visited links */
+  --link-default: #2a6f8f;
+  /* Deep Ocean Blue - links (7.1:1 contrast) */
+  --link-hover: #1a5570;
+  /* Darker Ocean - link hover (9.5:1 contrast) */
+  --link-visited: #5a4a7a;
+  /* Purple-slate - visited links */
 
-    /* ============================================
+  /* ============================================
      BORDERS & DIVIDERS
      ============================================ */
-    --border-light: #D4E4EA;
-    /* Soft Mist - subtle borders */
-    --border-medium: #B4D4DA;
-    /* Medium Mist - standard borders */
-    --border-strong: #8AB4BA;
-    /* Strong Mist - emphasized borders */
+  --border-light: #d4e4ea;
+  /* Soft Mist - subtle borders */
+  --border-medium: #b4d4da;
+  /* Medium Mist - standard borders */
+  --border-strong: #8ab4ba;
+  /* Strong Mist - emphasized borders */
 
-    /* ============================================
+  /* ============================================
      FOCUS & ACCESSIBILITY
      ============================================ */
-    --focus-ring: #5BA3C5;
-    /* Sky Blue - keyboard focus indicator */
-    --focus-ring-offset: #FFFFFF;
-    /* White - focus ring offset */
-    --focus-ring-width: 3px;
-    /* ADA compliant focus ring width */
-    --focus-ring-offset-width: 2px;
-    /* Focus ring offset distance */
+  --focus-ring: #5ba3c5;
+  /* Sky Blue - keyboard focus indicator */
+  --focus-ring-offset: #ffffff;
+  /* White - focus ring offset */
+  --focus-ring-width: 3px;
+  /* ADA compliant focus ring width */
+  --focus-ring-offset-width: 2px;
+  /* Focus ring offset distance */
 
-    /* ============================================
+  /* ============================================
      STATUS COLORS (ADA Compliant)
      ============================================ */
-    --status-success: #2D7A5F;
-    /* Deep Green - success (7.2:1 contrast) */
-    --status-success-bg: #E8F5F0;
-    /* Light Green - success background */
-    --status-warning: #9A6B00;
-    /* Deep Amber - warnings (7.5:1 contrast) */
-    --status-warning-bg: #FFF4E0;
-    /* Light Amber - warning background */
-    --status-error: #B71C1C;
-    /* Deep Red - errors (8.1:1 contrast) */
-    --status-error-bg: #FFEBEE;
-    /* Light Red - error background */
-    --status-info: #1A5F7A;
-    /* Deep Blue - info (8.5:1 contrast) */
-    --status-info-bg: #E3F2F9;
-    /* Light Blue - info background */
+  --status-success: #2d7a5f;
+  /* Deep Green - success (7.2:1 contrast) */
+  --status-success-bg: #e8f5f0;
+  /* Light Green - success background */
+  --status-warning: #9a6b00;
+  /* Deep Amber - warnings (7.5:1 contrast) */
+  --status-warning-bg: #fff4e0;
+  /* Light Amber - warning background */
+  --status-error: #b71c1c;
+  /* Deep Red - errors (8.1:1 contrast) */
+  --status-error-bg: #ffebee;
+  /* Light Red - error background */
+  --status-info: #1a5f7a;
+  /* Deep Blue - info (8.5:1 contrast) */
+  --status-info-bg: #e3f2f9;
+  /* Light Blue - info background */
 
-    /* ============================================
+  /* ============================================
      DARK MODE (Future Implementation)
      ============================================ */
-    --dark-bg: #0F1F2A;
-    /* Deep Ocean Night */
-    --dark-card: #1A3A4A;
-    /* Ocean Card */
-    --dark-border: #2A4A5A;
-    /* Ocean Border */
-    --dark-text: #E8F4F8;
-    /* Light Mist Text */
-    --dark-text-secondary: #B4D4DA;
-    /* Medium Mist Text */
+  --dark-bg: #0f1f2a;
+  /* Deep Ocean Night */
+  --dark-card: #1a3a4a;
+  /* Ocean Card */
+  --dark-border: #2a4a5a;
+  /* Ocean Border */
+  --dark-text: #e8f4f8;
+  /* Light Mist Text */
+  --dark-text-secondary: #b4d4da;
+  /* Medium Mist Text */
 
-    /* ============================================
+  /* ============================================
      SPACING & SIZING (Accessibility)
      ============================================ */
-    --min-touch-target: 44px;
-    /* Minimum touch target size (WCAG AAA) */
-    --min-spacing: 8px;
-    /* Minimum spacing between elements */
-    --focus-outline-offset: 2px;
-    /* Standard focus outline offset */
+  --min-touch-target: 44px;
+  /* Minimum touch target size (WCAG AAA) */
+  --min-spacing: 8px;
+  /* Minimum spacing between elements */
+  --focus-outline-offset: 2px;
+  /* Standard focus outline offset */
 }
 
 /* ============================================
    DARK MODE OVERRIDES
    ============================================ */
 .dark {
-    --bg-primary: var(--dark-bg);
-    --bg-secondary: var(--dark-card);
-    --bg-elevated: var(--dark-card);
-    --text-primary: var(--dark-text);
-    --text-secondary: var(--dark-text-secondary);
-    --border-light: var(--dark-border);
+  --bg-primary: var(--dark-bg);
+  --bg-secondary: var(--dark-card);
+  --bg-elevated: var(--dark-card);
+  --text-primary: var(--dark-text);
+  --text-secondary: var(--dark-text-secondary);
+  --border-light: var(--dark-border);
 }
 
 /* ============================================
@@ -138,155 +138,155 @@
 
 /* Text Colors */
 .text-primary {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .text-secondary {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .text-tertiary {
-    color: var(--text-tertiary);
+  color: var(--text-tertiary);
 }
 
 .text-inverse {
-    color: var(--text-inverse);
+  color: var(--text-inverse);
 }
 
 /* Background Colors */
 .bg-primary {
-    background-color: var(--bg-primary);
+  background-color: var(--bg-primary);
 }
 
 .bg-secondary {
-    background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary);
 }
 
 .bg-elevated {
-    background-color: var(--bg-elevated);
+  background-color: var(--bg-elevated);
 }
 
 /* Status Colors */
 .text-success {
-    color: var(--status-success);
+  color: var(--status-success);
 }
 
 .text-warning {
-    color: var(--status-warning);
+  color: var(--status-warning);
 }
 
 .text-error {
-    color: var(--status-error);
+  color: var(--status-error);
 }
 
 .text-info {
-    color: var(--status-info);
+  color: var(--status-info);
 }
 
 .bg-success {
-    background-color: var(--status-success-bg);
+  background-color: var(--status-success-bg);
 }
 
 .bg-warning {
-    background-color: var(--status-warning-bg);
+  background-color: var(--status-warning-bg);
 }
 
 .bg-error {
-    background-color: var(--status-error-bg);
+  background-color: var(--status-error-bg);
 }
 
 .bg-info {
-    background-color: var(--status-info-bg);
+  background-color: var(--status-info-bg);
 }
 
 /* Borders */
 .border-light {
-    border-color: var(--border-light);
+  border-color: var(--border-light);
 }
 
 .border-medium {
-    border-color: var(--border-medium);
+  border-color: var(--border-medium);
 }
 
 .border-strong {
-    border-color: var(--border-strong);
+  border-color: var(--border-strong);
 }
 
 /* ============================================
    ACCESSIBLE BUTTON STYLES
    ============================================ */
 .btn-primary {
-    background-color: var(--action-primary);
-    color: var(--text-inverse);
-    min-height: var(--min-touch-target);
-    min-width: var(--min-touch-target);
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
+  background-color: var(--action-primary);
+  color: var(--text-inverse);
+  min-height: var(--min-touch-target);
+  min-width: var(--min-touch-target);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--action-primary-hover);
+  background-color: var(--action-primary-hover);
 }
 
 .btn-primary:active {
-    background-color: var(--action-primary-active);
+  background-color: var(--action-primary-active);
 }
 
 .btn-primary:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring);
-    outline-offset: var(--focus-ring-offset-width);
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset-width);
 }
 
 .btn-secondary {
-    background-color: var(--action-secondary);
-    color: var(--text-inverse);
-    min-height: var(--min-touch-target);
-    min-width: var(--min-touch-target);
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
+  background-color: var(--action-secondary);
+  color: var(--text-inverse);
+  min-height: var(--min-touch-target);
+  min-width: var(--min-touch-target);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-    background-color: var(--action-secondary-hover);
+  background-color: var(--action-secondary-hover);
 }
 
 .btn-secondary:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring);
-    outline-offset: var(--focus-ring-offset-width);
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset-width);
 }
 
 /* ============================================
    ACCESSIBLE LINK STYLES
    ============================================ */
 a {
-    color: var(--link-default);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    transition: all 0.2s ease;
+  color: var(--link-default);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
 }
 
 a:hover {
-    color: var(--link-hover);
-    text-decoration-thickness: 2px;
+  color: var(--link-hover);
+  text-decoration-thickness: 2px;
 }
 
 a:visited {
-    color: var(--link-visited);
+  color: var(--link-visited);
 }
 
 a:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring);
-    outline-offset: var(--focus-ring-offset-width);
-    border-radius: 2px;
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset-width);
+  border-radius: 2px;
 }
 
 /* ============================================
@@ -295,61 +295,61 @@ a:focus-visible {
 input,
 textarea,
 select {
-    min-height: var(--min-touch-target);
-    padding: 12px;
-    border: 2px solid var(--border-medium);
-    border-radius: 6px;
-    background-color: var(--bg-elevated);
-    color: var(--text-primary);
-    transition: all 0.2s ease;
+  min-height: var(--min-touch-target);
+  padding: 12px;
+  border: 2px solid var(--border-medium);
+  border-radius: 6px;
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
 }
 
 input:hover,
 textarea:hover,
 select:hover {
-    border-color: var(--border-strong);
+  border-color: var(--border-strong);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    outline: var(--focus-ring-width) solid var(--focus-ring);
-    outline-offset: var(--focus-ring-offset-width);
-    border-color: var(--action-primary);
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset-width);
+  border-color: var(--action-primary);
 }
 
 /* ============================================
    STATUS MESSAGE STYLES
    ============================================ */
 .alert {
-    padding: 16px;
-    border-radius: 6px;
-    border-left: 4px solid;
-    margin: 16px 0;
+  padding: 16px;
+  border-radius: 6px;
+  border-left: 4px solid;
+  margin: 16px 0;
 }
 
 .alert-success {
-    background-color: var(--status-success-bg);
-    border-left-color: var(--status-success);
-    color: var(--status-success);
+  background-color: var(--status-success-bg);
+  border-left-color: var(--status-success);
+  color: var(--status-success);
 }
 
 .alert-warning {
-    background-color: var(--status-warning-bg);
-    border-left-color: var(--status-warning);
-    color: var(--status-warning);
+  background-color: var(--status-warning-bg);
+  border-left-color: var(--status-warning);
+  color: var(--status-warning);
 }
 
 .alert-error {
-    background-color: var(--status-error-bg);
-    border-left-color: var(--status-error);
-    color: var(--status-error);
+  background-color: var(--status-error-bg);
+  border-left-color: var(--status-error);
+  color: var(--status-error);
 }
 
 .alert-info {
-    background-color: var(--status-info-bg);
-    border-left-color: var(--status-info);
-    color: var(--status-info);
+  background-color: var(--status-info-bg);
+  border-left-color: var(--status-info);
+  color: var(--status-info);
 }
 
 /* ============================================
@@ -358,43 +358,42 @@ select:focus {
 
 /* Ensure minimum touch target size */
 .touch-target {
-    min-height: var(--min-touch-target);
-    min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  min-width: var(--min-touch-target);
 }
 
 /* Skip to main content link */
 .skip-to-main {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--action-primary);
-    color: var(--text-inverse);
-    padding: 8px 16px;
-    text-decoration: none;
-    z-index: 100;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--action-primary);
+  color: var(--text-inverse);
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
 }
 
 .skip-to-main:focus {
-    top: 0;
+  top: 0;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-    :root {
-        --text-primary: #000000;
-        --text-secondary: #000000;
-        --border-medium: #000000;
-    }
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --border-medium: #000000;
+  }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

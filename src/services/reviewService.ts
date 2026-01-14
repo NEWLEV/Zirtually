@@ -1,8 +1,41 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { PerformanceReview } from '../types';
+import { PerformanceReview, ReviewStatus } from '../types';
 import { MOCK_REVIEWS } from '../constants';
+import type { Database } from '../types/database';
+
+type DbReviewStatus = Database['public']['Tables']['performance_reviews']['Row']['status'];
+
+type ReviewRow = Database['public']['Tables']['performance_reviews']['Row'];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const mapDbStatusToApp = (status: string): ReviewStatus => {
+  switch (status) {
+    case 'draft':
+      return 'pending';
+    case 'submitted':
+      return 'in_progress';
+    case 'completed':
+      return 'completed';
+    default:
+      return 'pending';
+  }
+};
+
+const mapAppStatusToDb = (status: ReviewStatus): DbReviewStatus => {
+  switch (status) {
+    case 'pending':
+    case 'scheduled':
+      return 'draft';
+    case 'in_progress':
+      return 'submitted';
+    case 'completed':
+      return 'completed';
+    default:
+      return 'draft';
+  }
+};
 
 export const ReviewService = {
   /**
@@ -10,7 +43,7 @@ export const ReviewService = {
    */
   getReviewsByEmployeeId: async (employeeId: string): Promise<PerformanceReview[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('performance_reviews')
         .select('*')
         .eq('employee_id', employeeId);
@@ -20,12 +53,14 @@ export const ReviewService = {
         return [];
       }
 
-      return (data || []).map(r => ({
+      const rows = (data || []) as unknown as ReviewRow[];
+
+      return rows.map(r => ({
         id: r.id,
         employeeId: r.employee_id,
         managerId: r.reviewer_id,
         period: r.period,
-        status: r.status as any,
+        status: mapDbStatusToApp(r.status),
         dueDate: r.created_at, // Placeholder
         overallRating: r.overall_rating || undefined,
       }));
@@ -42,7 +77,7 @@ export const ReviewService = {
    */
   getManagedReviews: async (managerId: string): Promise<PerformanceReview[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('performance_reviews')
         .select('*')
         .eq('reviewer_id', managerId);
@@ -52,12 +87,14 @@ export const ReviewService = {
         return [];
       }
 
-      return (data || []).map(r => ({
+      const rows = (data || []) as unknown as ReviewRow[];
+
+      return rows.map(r => ({
         id: r.id,
         employeeId: r.employee_id,
         managerId: r.reviewer_id,
         period: r.period,
-        status: r.status as any,
+        status: mapDbStatusToApp(r.status),
         dueDate: r.created_at,
         overallRating: r.overall_rating || undefined,
       }));
@@ -74,15 +111,15 @@ export const ReviewService = {
    */
   updateReview: async (updatedReview: PerformanceReview): Promise<PerformanceReview | null> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('performance_reviews')
         .update({
-          status: updatedReview.status as any,
+          status: mapAppStatusToDb(updatedReview.status),
           overall_rating: updatedReview.overallRating,
           strengths: updatedReview.strengths,
           areas_for_improvement: updatedReview.areasForImprovement,
           updated_at: new Date().toISOString(),
-        })
+        } as any)
         .eq('id', updatedReview.id)
         .select()
         .single();
@@ -91,14 +128,20 @@ export const ReviewService = {
         throw new Error(error.message);
       }
 
+      if (!data) {
+        throw new Error('No data returned from update');
+      }
+
+      const r = data as unknown as ReviewRow;
+
       return {
-        id: data.id,
-        employeeId: data.employee_id,
-        managerId: data.reviewer_id,
-        period: data.period,
-        status: data.status as any,
-        dueDate: data.created_at,
-        overallRating: data.overall_rating || undefined,
+        id: r.id,
+        employeeId: r.employee_id,
+        managerId: r.reviewer_id,
+        period: r.period,
+        status: mapDbStatusToApp(r.status),
+        dueDate: r.created_at,
+        overallRating: r.overall_rating || undefined,
       };
     }
 

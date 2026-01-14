@@ -165,10 +165,11 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ user, setActiveView: _setActi
                   className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.role === 'user'
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                      message.role === 'user'
                         ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white'
                         : 'bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white'
-                      }`}
+                    }`}
                   >
                     {message.role === 'assistant' && (
                       <div className="flex items-center gap-2 mb-2">
@@ -180,10 +181,11 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ user, setActiveView: _setActi
                     )}
                     <p className="text-sm leading-relaxed">{message.content}</p>
                     <p
-                      className={`text-xs mt-2 ${message.role === 'user'
+                      className={`text-xs mt-2 ${
+                        message.role === 'user'
                           ? 'text-white/60'
                           : 'text-gray-400 dark:text-slate-500'
-                        }`}
+                      }`}
                     >
                       {message.timestamp.toLocaleTimeString([], {
                         hour: '2-digit',
@@ -273,12 +275,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ user, setActiveView: _setActi
               {aiInsights.slice(0, 3).map(insight => (
                 <div
                   key={insight.id}
-                  className={`p-3 rounded-xl border ${insight.priority === 'high'
+                  className={`p-3 rounded-xl border ${
+                    insight.priority === 'high'
                       ? 'border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-900/20'
                       : insight.priority === 'medium'
                         ? 'border-amber-200 dark:border-amber-900/50 bg-amber-50 dark:bg-amber-900/20'
                         : 'border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800/50'
-                    }`}
+                  }`}
                 >
                   <p className="text-sm font-medium text-gray-900 dark:text-white">
                     {insight.title}
@@ -318,12 +321,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ user, setActiveView: _setActi
                         </p>
                       </div>
                       <span
-                        className={`px-2 py-0.5 text-xs rounded-full ${nudge.urgency === 'high'
+                        className={`px-2 py-0.5 text-xs rounded-full ${
+                          nudge.urgency === 'high'
                             ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
                             : nudge.urgency === 'medium'
                               ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
                               : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-400'
-                          }`}
+                        }`}
                       >
                         {nudge.urgency}
                       </span>

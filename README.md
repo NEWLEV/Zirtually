@@ -17,6 +17,7 @@ Multi-industry employee lifecycle management platform for onboarding, performanc
 ## Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ installed
 - npm or yarn package manager
 
@@ -80,6 +81,7 @@ npm run preview
 ⚠️ **Important**: This application currently uses mock data for demonstration purposes.
 
 See [`MOCK_DATA.md`](./MOCK_DATA.md) for:
+
 - Complete list of mock data constants
 - Migration strategy to real API
 - Production readiness checklist
@@ -87,12 +89,15 @@ See [`MOCK_DATA.md`](./MOCK_DATA.md) for:
 ## Configuration
 
 ### Industry Selection
+
 The platform supports 8 industries with customized terminology and features. Configure in the settings panel.
 
 ### Theme
+
 Toggle between light and dark modes in the header.
 
 ### Notifications
+
 Enable browser notifications for task and training reminders in Settings.
 
 ## Accessibility

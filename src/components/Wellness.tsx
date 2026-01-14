@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User, WellnessResource } from '../types';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -17,7 +16,6 @@ interface WellnessProps {
 }
 
 const Wellness: React.FC<WellnessProps> = ({ user, setActiveView }) => {
-  const { config: _config } = useIndustry();
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<string | 'all'>('all');
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -112,7 +110,8 @@ const Wellness: React.FC<WellnessProps> = ({ user, setActiveView }) => {
           </p>
           <div className="mt-6 flex gap-4">
             <Button
-              className="bg-bg-elevated text-action-primary hover:bg-bg-elevated/90"
+              variant="secondary"
+              className="bg-white text-action-primary hover:bg-white/90 border-white shadow-lg"
               onClick={handleTalkToSomeoneClick}
               data-testid="talk-to-someone-button"
             >
@@ -120,7 +119,7 @@ const Wellness: React.FC<WellnessProps> = ({ user, setActiveView }) => {
             </Button>
             <Button
               variant="secondary"
-              className="border-white/30 text-text-inverse hover:bg-white/10"
+              className="bg-transparent border-2 border-white text-white hover:bg-white/20"
               onClick={handleEAPServicesClick}
               data-testid="eap-services-button"
             >
@@ -151,11 +150,10 @@ const Wellness: React.FC<WellnessProps> = ({ user, setActiveView }) => {
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors ${
-              selectedCategory === cat.id
-                ? 'bg-action-primary/10 text-action-primary border border-action-primary/20'
-                : 'bg-bg-secondary dark:bg-dark-card text-text-secondary dark:text-dark-text-secondary hover:bg-border-light dark:hover:bg-dark-border'
-            }`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors ${selectedCategory === cat.id
+              ? 'bg-action-primary/10 text-action-primary border border-action-primary/20'
+              : 'bg-bg-secondary dark:bg-dark-card text-text-secondary dark:text-dark-text-secondary hover:bg-border-light dark:hover:bg-dark-border'
+              }`}
           >
             <span>{cat.icon}</span>
             {cat.label}

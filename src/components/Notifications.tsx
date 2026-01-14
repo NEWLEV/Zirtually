@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { User } from '../types';
-import { useIndustry } from '../App';
+import { User, View } from '../types';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import { BellIcon, CheckCircleIcon } from './ui/icons/Icon';
 import Breadcrumbs from './ui/Breadcrumbs';
 import EmptyState from './ui/EmptyState';
-import { View } from '../types';
 
 interface NotificationsProps {
   user: User;
@@ -143,8 +141,7 @@ const MOCK_NOTIFICATIONS: Notification[] = [
   },
 ];
 
-const Notifications: React.FC<NotificationsProps> = ({ user: _user, setActiveView }) => {
-  const { config: _config } = useIndustry();
+const Notifications: React.FC<NotificationsProps> = ({ setActiveView }) => {
   const [notifications, setNotifications] = useState<Notification[]>(MOCK_NOTIFICATIONS);
   const [filter, setFilter] = useState<'all' | 'unread'>('all');
   const [categoryFilter, setCategoryFilter] = useState<string | 'all'>('all');

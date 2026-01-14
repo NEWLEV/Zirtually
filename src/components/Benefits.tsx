@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { User, BenefitPlan, EnrollmentStatus, View } from '../types';
-import { useIndustry } from '../App';
+import { BenefitPlan, EnrollmentStatus, User, View } from '../types';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import { BenefitsIcon, CheckCircleIcon } from './ui/icons/Icon';
@@ -11,10 +10,9 @@ interface BenefitsProps {
   setActiveView?: (view: View) => void;
 }
 
-const Benefits: React.FC<BenefitsProps> = ({ user: _user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const Benefits: React.FC<BenefitsProps> = () => {
   const [benefits] = useState<BenefitPlan[]>(MOCK_BENEFITS);
-  const [_selectedBenefit, setSelectedBenefit] = useState<BenefitPlan | null>(null);
+  const [, setSelectedBenefit] = useState<BenefitPlan | null>(null);
 
   const enrolledBenefits = benefits.filter(b => b.enrollmentStatus === 'enrolled');
   const availableBenefits = benefits.filter(b => b.enrollmentStatus === 'eligible');

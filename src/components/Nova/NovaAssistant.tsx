@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useNova, NovaTip } from './NovaContext';
+import React from 'react';
+import { useNova } from './NovaContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SparklesIcon, XIcon } from '../ui/icons/Icon'; // Assuming icons exist
 

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { User, Goal, UserRole, Priority } from '../types';
 import { MOCK_USERS, createAuditLog } from '../constants';
-import { useIndustry } from '../App';
-import Card from './ui/Card';
 import ProgressBar from './ui/ProgressBar';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -88,7 +86,7 @@ const GoalCard: React.FC<{
           <PriorityBadge priority={goal.priority} />
         </div>
         <div className="flex items-center gap-4 text-gray-500 dark:text-slate-400">
-          {goal.targetDate && (
+          {goal.dueDate && (
             <span className="flex items-center gap-1">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
@@ -98,7 +96,7 @@ const GoalCard: React.FC<{
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              {new Date(goal.targetDate).toLocaleDateString('en-US', {
+              {new Date(goal.dueDate).toLocaleDateString('en-US', {
                 month: 'short',
                 day: 'numeric',
               })}
@@ -131,9 +129,8 @@ const GoalCard: React.FC<{
 };
 
 const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
-  const { config: _config } = useIndustry();
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'my' | 'team'>('my');
   const [editingGoal, setEditingGoal] = useState<Goal | null>(null);
   const [newProgress, setNewProgress] = useState(0);
@@ -143,7 +140,7 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
     description: '',
     priority: 'Medium' as Priority,
     estimatedTime: 10,
-    targetDate: '',
+    dueDate: '',
     isTeamGoal: false,
     category: '',
   });
@@ -202,6 +199,7 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
       id: `g-${Date.now()}`,
       progress: 0,
       owner: user.id,
+      status: 'not-started',
       ...newGoal,
     };
 
@@ -221,7 +219,7 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
       description: '',
       priority: 'Medium',
       estimatedTime: 10,
-      targetDate: '',
+      dueDate: '',
       isTeamGoal: false,
       category: '',
     });
@@ -412,12 +410,12 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
-                Target Date
+                Due Date
               </label>
               <input
                 type="date"
-                value={newGoal.targetDate}
-                onChange={e => setNewGoal({ ...newGoal, targetDate: e.target.value })}
+                value={newGoal.dueDate}
+                onChange={e => setNewGoal({ ...newGoal, dueDate: e.target.value })}
                 className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
               />
             </div>

@@ -42,8 +42,8 @@ const ToggleSwitch: React.FC<{
   </div>
 );
 
-const Settings: React.FC<SettingsProps> = ({ user, onLogout, setActiveView: _setActiveView }) => {
-  const { config: _config, setIndustry, industry: currentIndustry } = useIndustry();
+const Settings: React.FC<SettingsProps> = ({ user, onLogout }) => {
+  const { setIndustry, industry: currentIndustry } = useIndustry();
   const navigate = useNavigate();
 
   // Use Global Settings

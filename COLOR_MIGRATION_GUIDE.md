@@ -1,35 +1,38 @@
 # Nature Focus Palette Migration Guide
 
 ## Overview
+
 This guide helps developers migrate existing components to use the new **Nature Focus** color palette, which is fully ADA-compliant (WCAG 2.1 AAA).
 
 ## Quick Reference
 
 ### Color Mapping (Old → New)
 
-| Old Color | Old Usage | New Color Token | New Hex |
-|-----------|-----------|-----------------|---------|
-| `gray-50` | Background | `bg-primary` | `#F8FAFB` |
-| `gray-100` | Cards | `bg-secondary` | `#E8F4F8` |
-| `gray-900` | Text | `text-primary` | `#1A3A4A` |
-| `gray-700` | Secondary text | `text-secondary` | `#4A6A7A` |
-| `gray-500` | Tertiary text | `text-tertiary` | `#6A8A9A` |
+| Old Color    | Old Usage      | New Color Token  | New Hex   |
+| ------------ | -------------- | ---------------- | --------- |
+| `gray-50`    | Background     | `bg-primary`     | `#F8FAFB` |
+| `gray-100`   | Cards          | `bg-secondary`   | `#E8F4F8` |
+| `gray-900`   | Text           | `text-primary`   | `#1A3A4A` |
+| `gray-700`   | Secondary text | `text-secondary` | `#4A6A7A` |
+| `gray-500`   | Tertiary text  | `text-tertiary`  | `#6A8A9A` |
 | `indigo-600` | Primary button | `action-primary` | `#2E7D6E` |
-| `blue-600` | Links | `link-default` | `#2A6F8F` |
-| `green-600` | Success | `status-success` | `#2D7A5F` |
-| `yellow-600` | Warning | `status-warning` | `#9A6B00` |
-| `red-600` | Error | `status-error` | `#B71C1C` |
+| `blue-600`   | Links          | `link-default`   | `#2A6F8F` |
+| `green-600`  | Success        | `status-success` | `#2D7A5F` |
+| `yellow-600` | Warning        | `status-warning` | `#9A6B00` |
+| `red-600`    | Error          | `status-error`   | `#B71C1C` |
 
 ## Step-by-Step Migration
 
 ### 1. Update Background Colors
 
 **Before:**
+
 ```tsx
 <div className="bg-gray-50 dark:bg-slate-900">
 ```
 
 **After:**
+
 ```tsx
 <div className="bg-bg-primary dark:bg-dark-bg">
 ```
@@ -37,6 +40,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 2. Update Text Colors
 
 **Before:**
+
 ```tsx
 <h1 className="text-gray-900 dark:text-gray-100">
 <p className="text-gray-700 dark:text-gray-300">
@@ -44,6 +48,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <h1 className="text-text-primary dark:text-dark-text">
 <p className="text-text-secondary dark:text-dark-text-secondary">
@@ -53,11 +58,13 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 3. Update Button Colors
 
 **Before:**
+
 ```tsx
 <button className="bg-indigo-600 hover:bg-indigo-700 text-white">
 ```
 
 **After:**
+
 ```tsx
 <button className="bg-action-primary hover:bg-action-primary-hover text-text-inverse">
 ```
@@ -65,11 +72,13 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 4. Update Link Colors
 
 **Before:**
+
 ```tsx
 <a className="text-blue-600 hover:text-blue-800">
 ```
 
 **After:**
+
 ```tsx
 <a className="text-link-default hover:text-link-hover">
 ```
@@ -77,12 +86,14 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 5. Update Border Colors
 
 **Before:**
+
 ```tsx
 <div className="border border-gray-200">
 <div className="border-2 border-gray-300">
 ```
 
 **After:**
+
 ```tsx
 <div className="border border-border-light">
 <div className="border-2 border-border-medium">
@@ -91,6 +102,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 6. Update Status Colors
 
 **Before:**
+
 ```tsx
 <div className="bg-green-100 text-green-800">Success!</div>
 <div className="bg-yellow-100 text-yellow-800">Warning!</div>
@@ -98,6 +110,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <div className="bg-status-success-bg text-status-success">Success!</div>
 <div className="bg-status-warning-bg text-status-warning">Warning!</div>
@@ -107,11 +120,13 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### 7. Update Focus States
 
 **Before:**
+
 ```tsx
 <button className="focus:ring-2 focus:ring-indigo-500">
 ```
 
 **After:**
+
 ```tsx
 <button className="focus:ring-2 focus:ring-focus-ring">
 ```
@@ -121,6 +136,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### Card Component
 
 **Before:**
+
 ```tsx
 <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
   <h3 className="text-gray-900 dark:text-white">Title</h3>
@@ -129,6 +145,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <div className="bg-bg-elevated dark:bg-dark-card border border-border-light dark:border-dark-border rounded-lg shadow-sm">
   <h3 className="text-text-primary dark:text-dark-text">Title</h3>
@@ -139,6 +156,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### Form Input
 
 **Before:**
+
 ```tsx
 <input
   type="text"
@@ -147,6 +165,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <input
   type="text"
@@ -157,6 +176,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### Alert/Notification
 
 **Before:**
+
 ```tsx
 <div className="bg-blue-50 border-l-4 border-blue-500 text-blue-700 p-4">
   <p>Information message</p>
@@ -164,6 +184,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <div className="bg-status-info-bg border-l-4 border-status-info text-status-info p-4">
   <p>Information message</p>
@@ -173,6 +194,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ### Navigation Link
 
 **Before:**
+
 ```tsx
 <a
   href="/dashboard"
@@ -183,6 +205,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 ```
 
 **After:**
+
 ```tsx
 <a
   href="/dashboard"
@@ -197,6 +220,7 @@ This guide helps developers migrate existing components to use the new **Nature 
 Use this regex find-and-replace to speed up migration:
 
 ### Background Colors
+
 - Find: `bg-gray-50(?!\d)`
 - Replace: `bg-bg-primary`
 
@@ -207,6 +231,7 @@ Use this regex find-and-replace to speed up migration:
 - Replace: `bg-bg-secondary`
 
 ### Text Colors
+
 - Find: `text-gray-900(?!\d)`
 - Replace: `text-text-primary`
 
@@ -220,6 +245,7 @@ Use this regex find-and-replace to speed up migration:
 - Replace: `text-text-tertiary`
 
 ### Button Colors
+
 - Find: `bg-indigo-600(?!\d)`
 - Replace: `bg-action-primary`
 
@@ -230,6 +256,7 @@ Use this regex find-and-replace to speed up migration:
 - Replace: `bg-action-secondary`
 
 ### Border Colors
+
 - Find: `border-gray-200(?!\d)`
 - Replace: `border-border-light`
 
@@ -252,36 +279,42 @@ After migrating a component, verify:
 ## Common Pitfalls
 
 ### ❌ Don't Use Hardcoded Colors
+
 ```tsx
 // Bad
 <div style={{ backgroundColor: '#005A9C' }}>
 ```
 
 ### ✅ Use Tailwind Tokens
+
 ```tsx
 // Good
 <div className="bg-action-primary">
 ```
 
 ### ❌ Don't Skip Dark Mode
+
 ```tsx
 // Bad
 <div className="bg-bg-primary text-text-primary">
 ```
 
 ### ✅ Include Dark Mode Classes
+
 ```tsx
 // Good
 <div className="bg-bg-primary dark:bg-dark-bg text-text-primary dark:text-dark-text">
 ```
 
 ### ❌ Don't Forget Focus States
+
 ```tsx
 // Bad
 <button className="bg-action-primary">
 ```
 
 ### ✅ Always Add Focus Indicators
+
 ```tsx
 // Good
 <button className="bg-action-primary focus-visible:ring-2 focus-visible:ring-focus-ring">
@@ -354,6 +387,7 @@ Use these tools to verify compliance:
 ## Support
 
 For questions or issues:
+
 - Review [ADA_COMPLIANCE.md](./ADA_COMPLIANCE.md)
 - Check [nature-focus-palette.css](./nature-focus-palette.css) for CSS variables
 - See [tailwind.config.js](./tailwind.config.js) for Tailwind tokens

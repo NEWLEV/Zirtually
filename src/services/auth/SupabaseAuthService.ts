@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IAuthService, LoginCredentials, AuthResponse } from './types';
 import { User } from '../../types';
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import { mapProfileToUser } from './mapper';
+import { Database } from '../../types/database';
+
+type ProfileRow = Database['public']['Tables']['profiles']['Row'];
 
 export class SupabaseAuthService implements IAuthService {
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
@@ -27,15 +31,18 @@ export class SupabaseAuthService implements IAuthService {
     }
 
     // Fetch profile
-    const { data: profile, error: profileError } = await supabase
+
+    const { data: profileData, error: profileError } = await (supabase as any)
       .from('profiles')
       .select('*')
       .eq('id', data.user.id)
       .single();
 
-    if (profileError || !profile) {
+    if (profileError || !profileData) {
       throw new Error('User profile not found');
     }
+
+    const profile = profileData as unknown as ProfileRow;
 
     return {
       user: mapProfileToUser(profile),
@@ -55,26 +62,29 @@ export class SupabaseAuthService implements IAuthService {
     } = await supabase.auth.getSession();
     if (!session?.user) return null;
 
-    const { data: profile } = await supabase
+    const { data: profileData } = await (supabase as any)
       .from('profiles')
       .select('*')
       .eq('id', session.user.id)
       .single();
 
-    return profile ? mapProfileToUser(profile) : null;
+    if (!profileData) return null;
+
+    const profile = profileData as unknown as ProfileRow;
+    return mapProfileToUser(profile);
   }
 
   async updateUser(updatedUser: User): Promise<User> {
     if (!isSupabaseConfigured()) return updatedUser;
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('profiles')
       .update({
         full_name: updatedUser.name,
         avatar_url: updatedUser.avatarUrl,
         department: updatedUser.department,
         // Add other mapped fields here
-      })
+      } as any)
       .eq('id', updatedUser.id)
       .select()
       .single();
@@ -83,7 +93,8 @@ export class SupabaseAuthService implements IAuthService {
       throw new Error(error?.message || 'Failed to update profile');
     }
 
-    return mapProfileToUser(data);
+    const profile = data as unknown as ProfileRow;
+    return mapProfileToUser(profile);
   }
 
   async getUsers(): Promise<User[]> {
@@ -95,7 +106,8 @@ export class SupabaseAuthService implements IAuthService {
 
     if (error || !data) return [];
 
-    return data.map(mapProfileToUser);
+    const profiles = data as unknown as ProfileRow[];
+    return profiles.map(mapProfileToUser);
   }
 
   async signUp(
@@ -129,16 +141,18 @@ export class SupabaseAuthService implements IAuthService {
     }
 
     // Profile is created by DB trigger in migration, but we fetch it to return mapped user
-    const { data: profile, error: profileError } = await supabase
+
+    const { data: profileData, error: profileError } = await (supabase as any)
       .from('profiles')
       .select('*')
       .eq('id', data.user.id)
       .single();
 
-    if (profileError || !profile) {
+    if (profileError || !profileData) {
       // If the trigger hasn't finished yet, we might need to retry or create it manually here
       // For now, assume trigger works or create manually
-      const { data: manualProfile, error: manualError } = await supabase
+
+      const { data: manualProfileData, error: manualError } = await (supabase as any)
         .from('profiles')
         .insert({
           id: data.user.id,
@@ -146,17 +160,19 @@ export class SupabaseAuthService implements IAuthService {
           full_name: credentials.fullName,
           department: credentials.department,
           role: 'employee',
-        })
+        } as any)
         .select()
         .single();
 
-      if (manualError || !manualProfile) {
+      if (manualError || !manualProfileData) {
         throw new Error('Failed to create user profile');
       }
 
+      const manualProfile = manualProfileData as unknown as ProfileRow;
       return { user: mapProfileToUser(manualProfile) };
     }
 
+    const profile = profileData as unknown as ProfileRow;
     return {
       user: mapProfileToUser(profile),
     };

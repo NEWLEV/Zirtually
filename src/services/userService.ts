@@ -1,9 +1,26 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { User } from '../types';
+import { User, UserRole } from '../types';
 import { MOCK_USERS } from '../constants';
+import type { Database } from '../types/database';
+
+type ProfileRow = Database['public']['Tables']['profiles']['Row'];
 
 // Simulator delay to mimic API latency
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const mapRole = (role: string): UserRole => {
+  switch (role) {
+    case 'admin':
+      return UserRole.ADMIN;
+    case 'manager':
+      return UserRole.MANAGER;
+    case 'employee':
+      return UserRole.STAFF;
+    default:
+      return UserRole.STAFF;
+  }
+};
 
 export const UserService = {
   /**
@@ -18,13 +35,17 @@ export const UserService = {
         return [];
       }
 
-      return (data || []).map(u => ({
+      const profiles = data as unknown as ProfileRow[];
+
+      return (profiles || []).map(u => ({
         id: u.id,
         name: u.full_name,
         email: u.email,
-        role: u.role as any,
+        role: mapRole(u.role),
         department: u.department,
-        avatarUrl: u.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(u.full_name)}&background=random`,
+        avatarUrl:
+          u.avatar_url ||
+          `https://ui-avatars.com/api/?name=${encodeURIComponent(u.full_name)}&background=random`,
         isNewHire: false,
       }));
     }
@@ -46,13 +67,17 @@ export const UserService = {
 
       if (error || !data) return undefined;
 
+      const profile = data as unknown as ProfileRow;
+
       return {
-        id: data.id,
-        name: data.full_name,
-        email: data.email,
-        role: data.role as any,
-        department: data.department,
-        avatarUrl: data.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.full_name)}&background=random`,
+        id: profile.id,
+        name: profile.full_name,
+        email: profile.email,
+        role: mapRole(profile.role),
+        department: profile.department,
+        avatarUrl:
+          profile.avatar_url ||
+          `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.full_name)}&background=random`,
         isNewHire: false,
       };
     }
@@ -67,7 +92,7 @@ export const UserService = {
    */
   updateUser: async (updatedUser: User): Promise<User> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('profiles')
         .update({
           full_name: updatedUser.name,
@@ -83,13 +108,21 @@ export const UserService = {
         throw new Error(error.message);
       }
 
+      if (!data) {
+        throw new Error('No data returned from update');
+      }
+
+      const profile = data as unknown as ProfileRow;
+
       return {
-        id: data.id,
-        name: data.full_name,
-        email: data.email,
-        role: data.role as any,
-        department: data.department,
-        avatarUrl: data.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.full_name)}&background=random`,
+        id: profile.id,
+        name: profile.full_name,
+        email: profile.email,
+        role: mapRole(profile.role),
+        department: profile.department,
+        avatarUrl:
+          profile.avatar_url ||
+          `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.full_name)}&background=random`,
         isNewHire: false,
       };
     }

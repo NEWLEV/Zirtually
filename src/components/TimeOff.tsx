@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, TimeOffRequest, TimeOffType, TimeOffStatus, View } from '../types';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -13,8 +12,7 @@ interface TimeOffProps {
   setActiveView?: (view: View) => void;
 }
 
-const TimeOff: React.FC<TimeOffProps> = ({ user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const TimeOff: React.FC<TimeOffProps> = ({ user }) => {
   const [requests, setRequests] = useState<TimeOffRequest[]>(MOCK_TIME_OFF_REQUESTS);
   const [showNewRequest, setShowNewRequest] = useState(false);
   const [selectedType, setSelectedType] = useState<TimeOffType>('pto');

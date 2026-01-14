@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Profile from './Profile';
-import { User, EmployeeSkill, UserRole } from '../types';
+import { User, UserRole } from '../types';
 import { SettingsProvider } from '../context/SettingsContext';
 
 // Mock currentIndustry

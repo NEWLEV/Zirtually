@@ -146,10 +146,11 @@ const ClinicalScribe: React.FC<ClinicalScribeProps> = ({
           <button
             onClick={handleStartRecording}
             disabled={status === 'PROCESSING'}
-            className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 dark:focus:ring-offset-dark-card ${status === 'RECORDING'
+            className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 dark:focus:ring-offset-dark-card ${
+              status === 'RECORDING'
                 ? 'bg-red-500 hover:bg-red-600 focus:ring-red-400 animate-pulse'
                 : 'bg-brand-primary hover:bg-brand-dark focus:ring-brand-primary'
-              } disabled:bg-gray-400 disabled:cursor-not-allowed`}
+            } disabled:bg-gray-400 disabled:cursor-not-allowed`}
             aria-label={status === 'RECORDING' ? 'Stop recording' : 'Start recording'}
           >
             <MicrophoneIcon className="w-12 h-12 text-white" />

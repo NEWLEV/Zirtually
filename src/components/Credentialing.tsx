@@ -162,7 +162,7 @@ const CREDENTIAL_REQUIREMENTS = [
   { category: 'Insurance & Liability', items: ['Malpractice Insurance', 'Professional Liability'] },
 ];
 
-export const Credentialing: React.FC<CredentialingProps> = ({ user, setActiveView }) => {
+export const Credentialing: React.FC<CredentialingProps> = ({ user: _user, setActiveView }) => {
   const { config } = useIndustry();
   const [activeTab, setActiveTab] = useState<
     'overview' | 'credentials' | 'applications' | 'requirements'

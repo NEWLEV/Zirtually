@@ -17,8 +17,8 @@ export const useAuth = () => {
     if ('email' in userOrCreds && userOrCreds.email) {
       return login({ email: userOrCreds.email });
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return login(userOrCreds as any);
+
+    throw new Error('Invalid login credentials provided');
   };
 
   return {

@@ -48,12 +48,13 @@ const MetricCard: React.FC<{
           <p className="text-3xl font-bold text-text-primary dark:text-dark-text">{value}</p>
           {trend && trendValue && (
             <span
-              className={`inline-flex items-center text-sm font-medium ${trend === 'up'
+              className={`inline-flex items-center text-sm font-medium ${
+                trend === 'up'
                   ? 'text-status-success'
                   : trend === 'down'
                     ? 'text-status-error'
                     : 'text-text-tertiary'
-                }`}
+              }`}
             >
               {trend === 'up' ? '↑' : trend === 'down' ? '↓' : '→'} {trendValue}
             </span>
@@ -285,12 +286,13 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                 <div key={announcement.id} className="group">
                   <div className="flex items-start gap-3">
                     <div
-                      className={`w-1 h-full min-h-[60px] rounded-full ${announcement.priority === 'important'
+                      className={`w-1 h-full min-h-[60px] rounded-full ${
+                        announcement.priority === 'important'
                           ? 'bg-status-warning'
                           : announcement.priority === 'urgent'
                             ? 'bg-status-error'
                             : 'bg-border-medium'
-                        }`}
+                      }`}
                     />
                     <div className="flex-1">
                       <h4 className="text-sm font-bold text-text-primary dark:text-dark-text group-hover:text-action-primary transition-colors">

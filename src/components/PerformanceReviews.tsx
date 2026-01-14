@@ -37,10 +37,13 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
   }, [user.id]);
 
   interface ReviewDraft {
-    [key: string]: {
-      rating?: number;
-      comment?: string;
-    } | string;
+    [key: string]:
+      | {
+          rating?: number;
+          comment?: string;
+        }
+      | string
+      | undefined;
     achievements?: string;
     growth?: string;
   }
@@ -94,7 +97,11 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
     setDrafts((prev: Record<string, ReviewDraft>) => {
       const currentDraft = prev[reviewId] || {};
       if (subField) {
-        const fieldData = (currentDraft[field] as { rating?: number; comment?: string }) || {};
+        const existingField = currentDraft[field];
+        const fieldData =
+          typeof existingField === 'object' && existingField !== null
+            ? (existingField as { rating?: number; comment?: string })
+            : {};
         return {
           ...prev,
           [reviewId]: {
@@ -104,7 +111,7 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
               [subField]: value,
             },
           },
-        };
+        } as Record<string, ReviewDraft>;
       }
       return {
         ...prev,
@@ -112,7 +119,7 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
           ...currentDraft,
           [field]: value,
         },
-      };
+      } as Record<string, ReviewDraft>;
     });
   };
 
@@ -131,7 +138,7 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
         skillsGrowth: (draft['Skills Growth'] as { rating: number })?.rating || 0,
         teamwork: (draft['Teamwork'] as { rating: number })?.rating || 0,
         initiative: (draft['Initiative'] as { rating: number })?.rating || 0,
-        achievements: (draft.achievements as string || '').split('\n'),
+        achievements: ((draft.achievements as string) || '').split('\n'),
       },
     };
 
@@ -338,7 +345,7 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
             <div className="text-2xl mb-2">🎯</div>
             <h4 className="font-medium text-gray-900 dark:text-white">Align with Goals</h4>
             <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-              Reference your quarterly goals and how you've progressed
+              Reference your quarterly goals and how you&apos;ve progressed
             </p>
           </div>
           <div className="p-4 bg-white/50 dark:bg-slate-800/50 rounded-xl">
@@ -395,8 +402,15 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
                   'Teamwork',
                   'Initiative',
                 ].map(category => {
-                  const currentRating = drafts[selectedReview.id]?.[category]?.rating;
-                  const currentComment = drafts[selectedReview.id]?.[category]?.comment || '';
+                  const draftField = drafts[selectedReview.id]?.[category];
+                  const currentRating =
+                    typeof draftField === 'object' && draftField !== null
+                      ? draftField.rating
+                      : undefined;
+                  const currentComment =
+                    typeof draftField === 'object' && draftField !== null
+                      ? draftField.comment || ''
+                      : '';
 
                   return (
                     <div key={category} className="p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
@@ -411,10 +425,11 @@ const PerformanceReviews: React.FC<PerformanceReviewsProps> = ({ user, setActive
                               onClick={() =>
                                 updateDraft(selectedReview.id, category, rating, 'rating')
                               }
-                              className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${currentRating === rating
-                                ? 'bg-indigo-600 text-white'
-                                : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-600 dark:hover:text-indigo-400'
-                                }`}
+                              className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${
+                                currentRating === rating
+                                  ? 'bg-indigo-600 text-white'
+                                  : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-600 dark:hover:text-indigo-400'
+                              }`}
                             >
                               {rating}
                             </button>

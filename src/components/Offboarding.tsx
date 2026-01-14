@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, View } from '../types';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -137,11 +136,7 @@ const MOCK_OFFBOARDING_TASKS: OffboardingTask[] = [
   },
 ];
 
-const Offboarding: React.FC<OffboardingProps> = ({
-  user: _user,
-  setActiveView: _setActiveView,
-}) => {
-  const { config: _config } = useIndustry();
+const Offboarding: React.FC<OffboardingProps> = () => {
   const [tasks, setTasks] = useState<OffboardingTask[]>(MOCK_OFFBOARDING_TASKS);
   const [selectedTask, setSelectedTask] = useState<OffboardingTask | null>(null);
   const [showTaskModal, setShowTaskModal] = useState(false);
@@ -224,12 +219,13 @@ const Offboarding: React.FC<OffboardingProps> = ({
 
   const TaskCard: React.FC<{ task: OffboardingTask }> = ({ task }) => (
     <div
-      className={`flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all hover:shadow-md ${task.status === 'completed'
-        ? 'bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800'
-        : task.status === 'in_progress'
-          ? 'bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800'
-          : 'bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700'
-        }`}
+      className={`flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all hover:shadow-md ${
+        task.status === 'completed'
+          ? 'bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800'
+          : task.status === 'in_progress'
+            ? 'bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800'
+            : 'bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700'
+      }`}
       onClick={() => viewTask(task)}
     >
       {/* Status Indicator */}
@@ -247,10 +243,11 @@ const Offboarding: React.FC<OffboardingProps> = ({
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <p
-            className={`font-medium ${task.status === 'completed'
-              ? 'text-gray-500 dark:text-slate-400 line-through'
-              : 'text-gray-900 dark:text-white'
-              }`}
+            className={`font-medium ${
+              task.status === 'completed'
+                ? 'text-gray-500 dark:text-slate-400 line-through'
+                : 'text-gray-900 dark:text-white'
+            }`}
           >
             {task.title}
           </p>
@@ -404,10 +401,11 @@ const Offboarding: React.FC<OffboardingProps> = ({
           {otherTasks.map(task => (
             <div
               key={task.id}
-              className={`flex items-center gap-4 p-4 rounded-xl ${task.status === 'completed'
-                ? 'bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800'
-                : 'bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700'
-                }`}
+              className={`flex items-center gap-4 p-4 rounded-xl ${
+                task.status === 'completed'
+                  ? 'bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800'
+                  : 'bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700'
+              }`}
             >
               {task.status === 'completed' ? (
                 <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0" />
@@ -416,10 +414,11 @@ const Offboarding: React.FC<OffboardingProps> = ({
               )}
               <div className="flex-1 min-w-0">
                 <p
-                  className={`font-medium ${task.status === 'completed'
-                    ? 'text-gray-500 dark:text-slate-400 line-through'
-                    : 'text-gray-900 dark:text-white'
-                    }`}
+                  className={`font-medium ${
+                    task.status === 'completed'
+                      ? 'text-gray-500 dark:text-slate-400 line-through'
+                      : 'text-gray-900 dark:text-white'
+                  }`}
                 >
                   {task.title}
                 </p>
@@ -506,17 +505,19 @@ const Offboarding: React.FC<OffboardingProps> = ({
           ].map(item => (
             <div
               key={item.name}
-              className={`flex items-center gap-3 p-3 rounded-xl ${item.returned ? 'bg-green-50 dark:bg-green-900/10' : 'bg-gray-50 dark:bg-slate-800'
-                }`}
+              className={`flex items-center gap-3 p-3 rounded-xl ${
+                item.returned ? 'bg-green-50 dark:bg-green-900/10' : 'bg-gray-50 dark:bg-slate-800'
+              }`}
             >
               <span className="text-2xl">{item.icon}</span>
               <div>
                 <p className="font-medium text-gray-900 dark:text-white">{item.name}</p>
                 <p
-                  className={`text-xs ${item.returned
-                    ? 'text-green-600 dark:text-green-400'
-                    : 'text-gray-500 dark:text-slate-400'
-                    }`}
+                  className={`text-xs ${
+                    item.returned
+                      ? 'text-green-600 dark:text-green-400'
+                      : 'text-gray-500 dark:text-slate-400'
+                  }`}
                 >
                   {item.returned ? 'Returned ✓' : 'Pending'}
                 </p>

@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { User } from '../types';
 import { INDUSTRY_CONFIGS } from '../constants';
 import { useIndustry } from '../App';
-import { ZirtuallyLogo } from './ui/icons/Icon';
 import Button from './ui/Button';
 import { useAuthContext } from '../context/AuthContext';
 
@@ -47,7 +46,8 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
         setError(null);
         await onLogin({ email, password });
       } catch (err: unknown) {
-        const errorMsg = err instanceof Error ? err.message : 'Login failed. Please check your credentials.';
+        const errorMsg =
+          err instanceof Error ? err.message : 'Login failed. Please check your credentials.';
         setError(errorMsg);
       }
     } else {
@@ -72,9 +72,12 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
         {/* Header Section */}
         <div className="px-8 pt-8 pb-4 shrink-0 bg-slate-900">
           <div className="flex items-start justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <ZirtuallyLogo className="w-8 h-8 text-action-primary" />
-              <span className="text-xl font-bold text-white tracking-tight">Zirtually</span>
+            <div className="flex items-center">
+              <img
+                src="/zirtually-logo.png"
+                alt="Zirtually"
+                className="h-20 object-contain"
+              />
             </div>
 
             {/* Industry / Workspace Context - Subtle Secondary Control */}
@@ -116,8 +119,8 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                           setShowIndustrySelector(false);
                         }}
                         className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors ${industry === ind.id
-                            ? 'bg-action-primary text-white'
-                            : 'text-slate-300 hover:bg-slate-700'
+                          ? 'bg-action-primary text-white'
+                          : 'text-slate-300 hover:bg-slate-700'
                           }`}
                       >
                         <span className="text-lg">{ind.icon}</span>

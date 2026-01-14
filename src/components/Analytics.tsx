@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, AnalyticsMetric } from '../types';
-import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import { AnalyticsIcon, ArrowTrendingUpIcon } from './ui/icons/Icon';
@@ -13,8 +12,7 @@ interface AnalyticsProps {
   setActiveView: (view: View) => void;
 }
 
-const Analytics: React.FC<AnalyticsProps> = ({ user: _user, setActiveView: _setActiveView }) => {
-  const { config: _config } = useIndustry();
+const Analytics: React.FC<AnalyticsProps> = ({ setActiveView }) => {
   const [timeRange, setTimeRange] = useState<'week' | 'month' | 'quarter' | 'year'>('month');
   const [metrics] = useState<AnalyticsMetric[]>(MOCK_ANALYTICS);
 
@@ -91,10 +89,11 @@ const Analytics: React.FC<AnalyticsProps> = ({ user: _user, setActiveView: _setA
             <button
               key={range}
               onClick={() => setTimeRange(range)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${timeRange === range
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                timeRange === range
                   ? 'bg-white dark:bg-slate-700 text-gray-900 dark:text-white shadow-sm'
                   : 'text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-white'
-                }`}
+              }`}
             >
               {range.charAt(0).toUpperCase() + range.slice(1)}
             </button>

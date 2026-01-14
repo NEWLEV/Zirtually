@@ -680,8 +680,9 @@ export const MOCK_GOALS: Goal[] = [
     isTeamGoal: false,
     priority: 'High',
     estimatedTime: 40,
-    targetDate: '2024-08-15',
+    dueDate: '2024-08-15',
     category: 'Development',
+    status: 'in-progress',
   },
   {
     id: 'g2',
@@ -692,8 +693,9 @@ export const MOCK_GOALS: Goal[] = [
     isTeamGoal: true,
     priority: 'High',
     estimatedTime: 200,
-    targetDate: '2024-09-30',
+    dueDate: '2024-09-30',
     category: 'Product',
+    status: 'in-progress',
   },
   {
     id: 'g3',
@@ -704,8 +706,9 @@ export const MOCK_GOALS: Goal[] = [
     isTeamGoal: true,
     priority: 'Medium',
     estimatedTime: 80,
-    targetDate: '2024-10-31',
+    dueDate: '2024-10-31',
     category: 'Operations',
+    status: 'in-progress',
   },
   {
     id: 'g4',
@@ -716,8 +719,9 @@ export const MOCK_GOALS: Goal[] = [
     isTeamGoal: false,
     priority: 'Medium',
     estimatedTime: 60,
-    targetDate: '2024-12-31',
+    dueDate: '2024-12-31',
     category: 'Development',
+    status: 'not-started',
   },
   {
     id: 'g5',
@@ -728,8 +732,9 @@ export const MOCK_GOALS: Goal[] = [
     isTeamGoal: false,
     priority: 'High',
     estimatedTime: 120,
-    targetDate: '2024-08-31',
+    dueDate: '2024-08-31',
     category: 'Design',
+    status: 'in-progress',
   },
 ];
 

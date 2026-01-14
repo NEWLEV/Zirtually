@@ -40,14 +40,14 @@ interface NovaProviderProps {
   userName?: string; // For personalization
 }
 
-export const NovaProvider: React.FC<NovaProviderProps> = ({ children, userName }) => {
+export const NovaProvider: React.FC<NovaProviderProps> = ({ children, userName: _userName }) => {
   const [currentTip, setCurrentTip] = useState<NovaTip | null>(null);
   const [dismissedTips, setDismissedTips] = useState<Set<string>>(new Set());
   const location = useLocation();
   const navigate = useNavigate();
 
   // State for tracking behaviors
-  const [clickCount, setClickCount] = useState(0);
+  const [_clickCount, setClickCount] = useState(0);
   // Use Ref for tracking interaction time to prevent re-renders on mousemove
   const lastInteractionTimeRef = React.useRef(0);
 
@@ -153,7 +153,7 @@ export const NovaProvider: React.FC<NovaProviderProps> = ({ children, userName }
     }, 5000);
 
     return () => clearInterval(idleTimer);
-  }, [location.pathname, currentTip, dismissedTips, showTip]);
+  }, [location.pathname, currentTip, dismissedTips, showTip, navigate]);
 
   // Activity Trackers (MouseMove, KeyDown)
   useEffect(() => {

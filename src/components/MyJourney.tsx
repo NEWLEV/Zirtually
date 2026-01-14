@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, View, JourneyMilestone, CareerPath } from '../types';
+import { User, View, JourneyMilestone } from '../types';
 import { useIndustry } from '../App';
 import { Button } from './ui/Button';
 import { Card } from './ui/Card';
@@ -152,10 +152,11 @@ export const MyJourney: React.FC<MyJourneyProps> = ({ user, setActiveView }) => 
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as typeof activeTab)}
-            className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-all duration-200 ${activeTab === tab.id
+            className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-all duration-200 ${
+              activeTab === tab.id
                 ? 'border-action-primary text-action-primary bg-action-primary/5'
                 : 'border-transparent text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text'
-              }`}
+            }`}
           >
             <Icon name={tab.icon} size={18} />
             <span className="font-semibold">{tab.label}</span>
@@ -177,10 +178,11 @@ export const MyJourney: React.FC<MyJourneyProps> = ({ user, setActiveView }) => 
                   <button
                     key={category}
                     onClick={() => setFilterCategory(category)}
-                    className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-200 font-medium text-sm border-l-4 ${filterCategory === category
+                    className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-200 font-medium text-sm border-l-4 ${
+                      filterCategory === category
                         ? 'bg-action-primary/10 text-action-primary border-action-primary shadow-sm'
                         : 'border-transparent text-text-secondary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-border/50'
-                      }`}
+                    }`}
                   >
                     {category === 'all' ? 'All Categories' : category}
                   </button>
