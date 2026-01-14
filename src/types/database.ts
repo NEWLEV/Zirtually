@@ -15,6 +15,10 @@ export interface Database {
           role: 'admin' | 'manager' | 'employee';
           department: string;
           avatar_url: string | null;
+          position_id: string | null;
+          manager_id: string | null;
+          start_date: string | null;
+          status: 'active' | 'inactive' | 'on_leave' | 'terminated';
           created_at: string;
           updated_at: string;
         };
@@ -25,6 +29,10 @@ export interface Database {
           role?: 'admin' | 'manager' | 'employee';
           department: string;
           avatar_url?: string | null;
+          position_id?: string | null;
+          manager_id?: string | null;
+          start_date?: string | null;
+          status?: 'active' | 'inactive' | 'on_leave' | 'terminated';
           created_at?: string;
           updated_at?: string;
         };
@@ -35,7 +43,63 @@ export interface Database {
           role?: 'admin' | 'manager' | 'employee';
           department?: string;
           avatar_url?: string | null;
+          position_id?: string | null;
+          manager_id?: string | null;
+          start_date?: string | null;
+          status?: 'active' | 'inactive' | 'on_leave' | 'terminated';
           updated_at?: string;
+        };
+        Relationships: [];
+      };
+      departments: {
+        Row: {
+          id: string;
+          name: string;
+          manager_id: string | null;
+          description: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          manager_id?: string | null;
+          description?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          manager_id?: string | null;
+          description?: string | null;
+        };
+        Relationships: [];
+      };
+      positions: {
+        Row: {
+          id: string;
+          title: string;
+          department_id: string | null;
+          level: string | null;
+          salary_range_min: number | null;
+          salary_range_max: number | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          department_id?: string | null;
+          level?: string | null;
+          salary_range_min?: number | null;
+          salary_range_max?: number | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          department_id?: string | null;
+          level?: string | null;
+          salary_range_min?: number | null;
+          salary_range_max?: number | null;
         };
         Relationships: [];
       };
@@ -48,6 +112,10 @@ export interface Database {
           status: 'not-started' | 'in-progress' | 'completed' | 'blocked';
           progress: number;
           due_date: string | null;
+          priority: 'High' | 'Medium' | 'Low' | null;
+          category: string | null;
+          estimated_time: number | null;
+          is_team_goal: boolean | null;
           created_at: string;
           updated_at: string;
         };
@@ -59,6 +127,10 @@ export interface Database {
           status?: 'not-started' | 'in-progress' | 'completed' | 'blocked';
           progress?: number;
           due_date?: string | null;
+          priority?: 'High' | 'Medium' | 'Low' | null;
+          category?: string | null;
+          estimated_time?: number | null;
+          is_team_goal?: boolean | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -70,6 +142,10 @@ export interface Database {
           status?: 'not-started' | 'in-progress' | 'completed' | 'blocked';
           progress?: number;
           due_date?: string | null;
+          priority?: 'High' | 'Medium' | 'Low' | null;
+          category?: string | null;
+          estimated_time?: number | null;
+          is_team_goal?: boolean | null;
           updated_at?: string;
         };
         Relationships: [];
@@ -85,6 +161,9 @@ export interface Database {
           strengths: string | null;
           areas_for_improvement: string | null;
           goals_next_period: string | null;
+          due_date: string | null;
+          self_assessment: Json | null;
+          manager_assessment: Json | null;
           created_at: string;
           updated_at: string;
         };
@@ -98,6 +177,9 @@ export interface Database {
           strengths?: string | null;
           areas_for_improvement?: string | null;
           goals_next_period?: string | null;
+          due_date?: string | null;
+          self_assessment?: Json | null;
+          manager_assessment?: Json | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -111,8 +193,12 @@ export interface Database {
           strengths?: string | null;
           areas_for_improvement?: string | null;
           goals_next_period?: string | null;
+          due_date?: string | null;
+          self_assessment?: Json | null;
+          manager_assessment?: Json | null;
           updated_at?: string;
         };
+        Relationships: [];
       };
     };
     Views: {

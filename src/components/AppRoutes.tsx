@@ -27,6 +27,7 @@ const Profile = lazy(() => import('./Profile'));
 const Notifications = lazy(() => import('./Notifications'));
 const Settings = lazy(() => import('./Settings'));
 const Offboarding = lazy(() => import('./Offboarding'));
+const AdminDashboard = lazy(() => import('./admin/AdminDashboard'));
 
 interface AppRoutesProps {
   user: User;
@@ -111,6 +112,14 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ user, onUserUpdate, onLogout, set
         <Route
           path="/offboarding"
           element={<Offboarding user={user} setActiveView={setActiveView} />}
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={[UserRole.ADMIN]}>
+              <AdminDashboard user={user} setActiveView={setActiveView} />
+            </ProtectedRoute>
+          }
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

@@ -12,7 +12,8 @@ export type Industry =
   | 'manufacturing'
   | 'hospitality'
   | 'education'
-  | 'professional_services';
+  | 'professional_services'
+  | 'nonprofit';
 
 export interface IndustryConfig {
   id: Industry;
@@ -476,17 +477,17 @@ export interface JourneyMilestoneDetail {
 export interface JourneyMilestone {
   id: string;
   type:
-    | 'onboarding'
-    | 'training'
-    | 'promotion'
-    | 'achievement'
-    | 'review'
-    | 'certification'
-    | 'anniversary'
-    | 'project'
-    | 'recognition'
-    | 'milestone'
-    | 'role_change';
+  | 'onboarding'
+  | 'training'
+  | 'promotion'
+  | 'achievement'
+  | 'review'
+  | 'certification'
+  | 'anniversary'
+  | 'project'
+  | 'recognition'
+  | 'milestone'
+  | 'role_change';
   title: string;
   description: string;
   date: string;
@@ -597,6 +598,20 @@ export enum View {
   PROFILE = 'Profile',
   NOTIFICATIONS = 'Notifications',
   SETTINGS = 'Settings',
+  ADMIN_CONSOLE = 'Admin Console',
+}
+
+export interface Notification {
+  id: string;
+  type: 'info' | 'success' | 'warning' | 'error' | 'action';
+  category: 'system' | 'hr' | 'team' | 'training' | 'benefits' | 'compliance' | 'personal';
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
+  actionUrl?: string;
+  actionLabel?: string;
+  sender?: string;
 }
 
 // Integrations

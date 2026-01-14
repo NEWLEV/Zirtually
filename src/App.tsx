@@ -69,6 +69,7 @@ const AppContent: React.FC = () => {
     if (path === '/notifications') return View.NOTIFICATIONS;
     if (path === '/settings') return View.SETTINGS;
     if (path === '/offboarding') return View.OFFBOARDING;
+    if (path === '/admin') return View.ADMIN_CONSOLE;
     return View.DASHBOARD;
   }, [location.pathname]);
 
@@ -97,6 +98,7 @@ const AppContent: React.FC = () => {
       [View.NOTIFICATIONS]: '/notifications',
       [View.SETTINGS]: '/settings',
       [View.OFFBOARDING]: '/offboarding',
+      [View.ADMIN_CONSOLE]: '/admin',
     };
     navigate(routeMap[view] || '/');
   };
@@ -158,6 +160,7 @@ const AppContent: React.FC = () => {
               theme={theme}
               setTheme={setTheme}
               onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+              setActiveView={handleSetActiveView}
             />
             <main id="main-content" className="flex-1 p-6 lg:p-8 overflow-y-auto" role="main">
               <AppRoutes

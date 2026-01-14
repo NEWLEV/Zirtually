@@ -1,152 +1,22 @@
 import React, { useState } from 'react';
-import { User, View } from '../types';
+import { User, View, Notification } from '../types';
 import Card from './ui/Card';
 import Button from './ui/Button';
 import { BellIcon, CheckCircleIcon } from './ui/icons/Icon';
 import Breadcrumbs from './ui/Breadcrumbs';
 import EmptyState from './ui/EmptyState';
+import { useNotificationContext } from '../context/NotificationContext';
 
 interface NotificationsProps {
   user: User;
   setActiveView: (view: View) => void;
 }
 
-interface Notification {
-  id: string;
-  type: 'info' | 'success' | 'warning' | 'error' | 'action';
-  category: 'system' | 'hr' | 'team' | 'training' | 'benefits' | 'compliance' | 'personal';
-  title: string;
-  message: string;
-  timestamp: string;
-  read: boolean;
-  actionUrl?: string;
-  actionLabel?: string;
-  sender?: string;
-}
-
-const MOCK_NOTIFICATIONS: Notification[] = [
-  {
-    id: 'notif-1',
-    type: 'action',
-    category: 'hr',
-    title: 'Time Off Request Approved',
-    message: 'Your vacation request for February 10-14 has been approved by your manager.',
-    timestamp: '2025-01-15T14:30:00Z',
-    read: false,
-    actionUrl: '/time-off',
-    actionLabel: 'View Details',
-    sender: 'Sarah Chen',
-  },
-  {
-    id: 'notif-2',
-    type: 'warning',
-    category: 'compliance',
-    title: 'Credential Expiring Soon',
-    message: 'Your CPR certification expires in 30 days. Please renew to maintain compliance.',
-    timestamp: '2025-01-15T12:00:00Z',
-    read: false,
-    actionUrl: '/credentialing',
-    actionLabel: 'Renew Now',
-  },
-  {
-    id: 'notif-3',
-    type: 'info',
-    category: 'training',
-    title: 'New Training Assigned',
-    message: 'You have been assigned "Advanced Leadership Skills" training. Due by March 1, 2025.',
-    timestamp: '2025-01-15T10:00:00Z',
-    read: false,
-    actionUrl: '/learning',
-    actionLabel: 'Start Training',
-    sender: 'Learning & Development',
-  },
-  {
-    id: 'notif-4',
-    type: 'success',
-    category: 'personal',
-    title: 'Goal Completed',
-    message:
-      'Congratulations! You\'ve completed your Q4 goal "Complete project management certification".',
-    timestamp: '2025-01-14T16:00:00Z',
-    read: true,
-    actionUrl: '/goals',
-    actionLabel: 'View Goals',
-  },
-  {
-    id: 'notif-5',
-    type: 'info',
-    category: 'team',
-    title: 'New Team Member',
-    message: 'Jessica Martinez has joined your team as Senior Developer. Welcome them!',
-    timestamp: '2025-01-14T09:00:00Z',
-    read: true,
-    actionUrl: '/directory',
-    actionLabel: 'View Profile',
-    sender: 'HR Team',
-  },
-  {
-    id: 'notif-6',
-    type: 'action',
-    category: 'hr',
-    title: 'Performance Review Scheduled',
-    message: 'Your annual performance review is scheduled for January 25, 2025 at 2:00 PM.',
-    timestamp: '2025-01-13T14:00:00Z',
-    read: true,
-    actionUrl: '/performance',
-    actionLabel: 'Add to Calendar',
-    sender: 'Michael Rodriguez',
-  },
-  {
-    id: 'notif-7',
-    type: 'info',
-    category: 'benefits',
-    title: 'Open Enrollment Reminder',
-    message: 'Open enrollment starts March 1st. Review your current benefits before then.',
-    timestamp: '2025-01-13T08:00:00Z',
-    read: true,
-    actionUrl: '/benefits',
-    actionLabel: 'Review Benefits',
-    sender: 'Benefits Team',
-  },
-  {
-    id: 'notif-8',
-    type: 'success',
-    category: 'system',
-    title: 'Profile Updated',
-    message: 'Your profile information has been successfully updated.',
-    timestamp: '2025-01-12T15:30:00Z',
-    read: true,
-  },
-  {
-    id: 'notif-9',
-    type: 'warning',
-    category: 'training',
-    title: 'Training Due Soon',
-    message: 'Your "Security Awareness 2025" training is due in 7 days.',
-    timestamp: '2025-01-12T10:00:00Z',
-    read: true,
-    actionUrl: '/learning',
-    actionLabel: 'Complete Training',
-  },
-  {
-    id: 'notif-10',
-    type: 'info',
-    category: 'system',
-    title: 'System Maintenance',
-    message:
-      'Scheduled maintenance on January 20, 2025 from 2-4 AM EST. System may be unavailable.',
-    timestamp: '2025-01-11T08:00:00Z',
-    read: true,
-    sender: 'IT Team',
-  },
-];
-
 const Notifications: React.FC<NotificationsProps> = ({ setActiveView }) => {
-  const [notifications, setNotifications] = useState<Notification[]>(MOCK_NOTIFICATIONS);
+  const { notifications, unreadCount, markAsRead, markAllAsRead, deleteNotification, clearAll } =
+    useNotificationContext();
   const [filter, setFilter] = useState<'all' | 'unread'>('all');
   const [categoryFilter, setCategoryFilter] = useState<string | 'all'>('all');
-
-  const unreadCount = notifications.filter(n => !n.read).length;
 
   const categories = [
     { id: 'all', label: 'All', icon: '📋' },
@@ -206,22 +76,6 @@ const Notifications: React.FC<NotificationsProps> = ({ setActiveView }) => {
     if (days === 1) return 'Yesterday';
     if (days < 7) return `${days}d ago`;
     return date.toLocaleDateString();
-  };
-
-  const markAsRead = (id: string) => {
-    setNotifications(prev => prev.map(n => (n.id === id ? { ...n, read: true } : n)));
-  };
-
-  const markAllAsRead = () => {
-    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
-  };
-
-  const deleteNotification = (id: string) => {
-    setNotifications(prev => prev.filter(n => n.id !== id));
-  };
-
-  const clearAll = () => {
-    setNotifications([]);
   };
 
   const filteredNotifications = notifications

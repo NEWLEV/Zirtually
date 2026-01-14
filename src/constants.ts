@@ -36,6 +36,7 @@ import {
   TeamMemberSkill,
   ProficiencyLevel,
 } from './types';
+import { Department, Position } from './services/adminService';
 
 // ============================================
 // INDUSTRY CONFIGURATIONS
@@ -317,6 +318,44 @@ export const INDUSTRY_CONFIGS: Record<Industry, IndustryConfig> = {
       complianceTracking: true,
     },
   },
+  nonprofit: {
+    id: 'nonprofit',
+    name: 'Non-Profit',
+    icon: '💚',
+    primaryColor: '#10B981', // Emerald 500
+    secondaryColor: '#F59E0B', // Amber 500
+    terminology: {
+      employee: 'Team Member',
+      employees: 'Team',
+      manager: 'Program Lead',
+      department: 'Program',
+      client: 'Donor',
+      workspace: 'Location',
+    },
+    complianceModules: [
+      'Volunteer Safety',
+      'Child Protection',
+      'Data Privacy',
+      'Fundraising Ethics',
+    ],
+    defaultDepartments: [
+      'Programs',
+      'Fundraising',
+      'Volunteer Management',
+      'Communications',
+      'Administration',
+      'Grants',
+    ],
+    features: {
+      credentialing: true,
+      clinicalScribe: false,
+      shiftScheduling: true,
+      inventoryAccess: true,
+      projectTracking: true,
+      clientManagement: true,
+      complianceTracking: true,
+    },
+  },
 };
 
 // ============================================
@@ -341,6 +380,80 @@ export const MOCK_ORGANIZATION: Organization = {
   },
   createdAt: '2023-01-01',
 };
+
+// ============================================
+// MOCK STRUCTURE
+// ============================================
+
+export const MOCK_DEPARTMENTS: Department[] = [
+  {
+    id: 'd1',
+    name: 'Engineering',
+    description: 'Core product development and infrastructure.',
+    manager_id: 'u1',
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'd2',
+    name: 'Product',
+    description: 'Product strategy and roadmap management.',
+    manager_id: 'u3',
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'd3',
+    name: 'Design',
+    description: 'User experience and visual design.',
+    manager_id: 'u4',
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'd4',
+    name: 'HR',
+    description: 'Human resources and people operations.',
+    manager_id: 'u5',
+    created_at: '2023-01-01T00:00:00Z',
+  },
+];
+
+export const MOCK_POSITIONS: Position[] = [
+  {
+    id: 'p1',
+    title: 'Senior Software Developer',
+    department_id: 'd1',
+    level: 'Senior',
+    salary_range_min: 120000,
+    salary_range_max: 180000,
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'p2',
+    title: 'Product Manager',
+    department_id: 'd2',
+    level: 'Mid',
+    salary_range_min: 100000,
+    salary_range_max: 150000,
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'p3',
+    title: 'UX Designer',
+    department_id: 'd3',
+    level: 'Mid',
+    salary_range_min: 90000,
+    salary_range_max: 140000,
+    created_at: '2023-01-01T00:00:00Z',
+  },
+  {
+    id: 'p4',
+    title: 'Junior Frontend Developer',
+    department_id: 'd1',
+    level: 'Junior',
+    salary_range_min: 70000,
+    salary_range_max: 100000,
+    created_at: '2023-01-01T00:00:00Z',
+  },
+];
 
 // ============================================
 // MOCK USERS

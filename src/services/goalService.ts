@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import type { Database } from '../types/database';
-import { Goal as AppGoal, GoalStatus } from '../types';
+import { Goal as AppGoal, GoalStatus, Priority } from '../types';
 import { MOCK_GOALS } from '../constants';
 
 type GoalRow = Database['public']['Tables']['goals']['Row'];
@@ -28,10 +27,10 @@ export const GoalService = {
    */
   getGoalsByUserId: async (userId: string): Promise<AppGoal[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('goals')
         .select('*')
-        .eq('user_id', userId)
+        .or(`user_id.eq.${userId},is_team_goal.eq.true`) // Fetch own goals + team goals
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -41,7 +40,6 @@ export const GoalService = {
 
       const rows = (data || []) as unknown as GoalRow[];
 
-      // Map DB response to AppGoal
       return rows.map(g => ({
         id: g.id,
         title: g.title,
@@ -49,75 +47,54 @@ export const GoalService = {
         owner: g.user_id,
         progress: g.progress,
         dueDate: g.due_date || '',
-        category: 'Professional', // Default as it's not in DB yet
         status: mapStatus(g.status),
+        category: g.category || 'Professional',
+        priority: (g.priority as Priority) || 'Medium',
+        estimatedTime: g.estimated_time || 0,
+        isTeamGoal: g.is_team_goal || false,
         milestones: [],
         comments: [],
-        isTeamGoal: false, // Default
-        priority: 'Medium', // Default
-        estimatedTime: 0, // Default
       }));
     }
 
-    // Mock mode (localStorage)
+    // Mock Fallback
     await delay(300);
     const stored = localStorage.getItem('zirtually_goals');
     const all: AppGoal[] = stored ? JSON.parse(stored) : MOCK_GOALS;
-    return all.filter(g => g.owner === userId);
+    return all.filter(g => g.owner === userId || g.isTeamGoal);
   },
 
   /**
    * Create a new goal
    */
-  createGoal: async (goal: AppGoal | GoalInsert): Promise<AppGoal | null> => {
+  createGoal: async (goal: AppGoal): Promise<AppGoal | null> => {
     if (isSupabaseConfigured()) {
       const dbGoal: GoalInsert = {
-        title: 'title' in goal ? goal.title : '',
-        user_id: 'owner' in goal ? (goal.owner as string) : (goal as GoalInsert).user_id,
-        description: 'description' in goal ? goal.description : '',
-        progress: 'progress' in goal ? goal.progress : 0,
-        status: 'status' in goal ? (goal.status as DbGoalStatus) : 'not-started',
-        due_date: 'dueDate' in goal ? (goal.dueDate as string) : null,
+        title: goal.title,
+        user_id: goal.owner,
+        description: goal.description,
+        progress: goal.progress,
+        status: goal.status as DbGoalStatus,
+        due_date: goal.dueDate || null,
+        priority: goal.priority as GoalRow['priority'],
+        category: goal.category,
+        estimated_time: goal.estimatedTime,
+        is_team_goal: goal.isTeamGoal,
       };
 
-      const { data, error } = await (supabase as any)
-        .from('goals')
-        .insert(dbGoal as any)
-        .select()
-        .single();
+      const { data, error } = await supabase.from('goals').insert(dbGoal).select().single();
 
-      if (error) {
-        throw new Error(error.message);
-      }
+      if (error) throw new Error(error.message);
+      if (!data) throw new Error('No data returned from create');
 
-      if (!data) {
-        throw new Error('No data returned from create');
-      }
-
-      const row = data as unknown as GoalRow;
-
-      return {
-        id: row.id,
-        title: row.title,
-        description: row.description || '',
-        owner: row.user_id,
-        progress: row.progress,
-        dueDate: row.due_date || '',
-        category: 'Professional',
-        status: mapStatus(row.status),
-        milestones: [],
-        comments: [],
-        isTeamGoal: false, // Default
-        priority: 'Medium', // Default
-        estimatedTime: 0, // Default
-      };
+      return { ...goal, id: data.id };
     }
 
-    // Mock mode
+    // Mock Create Logic
     await delay(300);
     const stored = localStorage.getItem('zirtually_goals');
     const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
-    const newGoal = { ...goal } as AppGoal;
+    const newGoal = { ...goal, id: `goal-${Date.now()}` };
     all.push(newGoal);
     localStorage.setItem('zirtually_goals', JSON.stringify(all));
     return newGoal;
@@ -128,48 +105,29 @@ export const GoalService = {
    */
   updateGoal: async (updatedGoal: AppGoal): Promise<AppGoal | null> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { error } = await supabase
         .from('goals')
         .update({
           title: updatedGoal.title,
           description: updatedGoal.description,
           progress: updatedGoal.progress,
           status: updatedGoal.status as DbGoalStatus,
-          due_date: updatedGoal.dueDate,
+          due_date: updatedGoal.dueDate || null,
+          priority: updatedGoal.priority as GoalRow['priority'],
+          category: updatedGoal.category,
+          estimated_time: updatedGoal.estimatedTime,
+          is_team_goal: updatedGoal.isTeamGoal,
           updated_at: new Date().toISOString(),
-        } as any)
+        })
         .eq('id', updatedGoal.id)
         .select()
         .single();
 
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      if (!data) {
-        throw new Error('No data returned from update');
-      }
-
-      const row = data as unknown as GoalRow;
-
-      return {
-        id: row.id,
-        title: row.title,
-        description: row.description || '',
-        owner: row.user_id,
-        progress: row.progress,
-        dueDate: row.due_date || '',
-        category: updatedGoal.category,
-        status: mapStatus(row.status),
-        milestones: updatedGoal.milestones,
-        comments: updatedGoal.comments,
-        isTeamGoal: updatedGoal.isTeamGoal,
-        priority: updatedGoal.priority,
-        estimatedTime: updatedGoal.estimatedTime,
-      };
+      if (error) throw new Error(error.message);
+      return updatedGoal;
     }
 
-    // Mock mode
+    // Mock Update Logic
     await delay(300);
     const stored = localStorage.getItem('zirtually_goals');
     const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
@@ -187,10 +145,7 @@ export const GoalService = {
   deleteGoal: async (goalId: string): Promise<void> => {
     if (isSupabaseConfigured()) {
       const { error } = await supabase.from('goals').delete().eq('id', goalId);
-
-      if (error) {
-        throw new Error(error.message);
-      }
+      if (error) throw new Error(error.message);
       return;
     }
 

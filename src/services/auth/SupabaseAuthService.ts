@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IAuthService, LoginCredentials, AuthResponse } from './types';
 import { User } from '../../types';
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
@@ -32,7 +31,7 @@ export class SupabaseAuthService implements IAuthService {
 
     // Fetch profile
 
-    const { data: profileData, error: profileError } = await (supabase as any)
+    const { data: profileData, error: profileError } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', data.user.id)
@@ -62,7 +61,7 @@ export class SupabaseAuthService implements IAuthService {
     } = await supabase.auth.getSession();
     if (!session?.user) return null;
 
-    const { data: profileData } = await (supabase as any)
+    const { data: profileData } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', session.user.id)
@@ -77,14 +76,13 @@ export class SupabaseAuthService implements IAuthService {
   async updateUser(updatedUser: User): Promise<User> {
     if (!isSupabaseConfigured()) return updatedUser;
 
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('profiles')
       .update({
         full_name: updatedUser.name,
         avatar_url: updatedUser.avatarUrl,
         department: updatedUser.department,
-        // Add other mapped fields here
-      } as any)
+      })
       .eq('id', updatedUser.id)
       .select()
       .single();
@@ -142,7 +140,7 @@ export class SupabaseAuthService implements IAuthService {
 
     // Profile is created by DB trigger in migration, but we fetch it to return mapped user
 
-    const { data: profileData, error: profileError } = await (supabase as any)
+    const { data: profileData, error: profileError } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', data.user.id)
@@ -152,7 +150,7 @@ export class SupabaseAuthService implements IAuthService {
       // If the trigger hasn't finished yet, we might need to retry or create it manually here
       // For now, assume trigger works or create manually
 
-      const { data: manualProfileData, error: manualError } = await (supabase as any)
+      const { data: manualProfileData, error: manualError } = await supabase
         .from('profiles')
         .insert({
           id: data.user.id,
@@ -160,7 +158,7 @@ export class SupabaseAuthService implements IAuthService {
           full_name: credentials.fullName,
           department: credentials.department,
           role: 'employee',
-        } as any)
+        })
         .select()
         .single();
 

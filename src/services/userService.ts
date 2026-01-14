@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { User, UserRole } from '../types';
 import { MOCK_USERS } from '../constants';
@@ -92,7 +91,7 @@ export const UserService = {
    */
   updateUser: async (updatedUser: User): Promise<User> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('profiles')
         .update({
           full_name: updatedUser.name,

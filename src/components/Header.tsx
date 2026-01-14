@@ -1,8 +1,9 @@
 import React from 'react';
-import { User } from '../types';
+import { User, View } from '../types';
 import Button from './ui/Button';
 import { SunIcon, MoonIcon, SearchIcon, LogoutIcon, NotificationsIcon } from './ui/icons/Icon';
 import { Theme } from '../context/SettingsContext';
+import { useNotificationContext } from '../context/NotificationContext';
 
 interface HeaderProps {
   user: User;
@@ -10,6 +11,7 @@ interface HeaderProps {
   theme: Theme;
   setTheme: (theme: Theme) => void;
   onOpenCommandPalette: () => void;
+  setActiveView: (view: View) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -18,7 +20,9 @@ const Header: React.FC<HeaderProps> = ({
   theme,
   setTheme,
   onOpenCommandPalette,
+  setActiveView,
 }) => {
+  const { unreadCount } = useNotificationContext();
   const toggleTheme = () => {
     if (theme === 'system') {
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -82,11 +86,14 @@ const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2">
           {/* Notifications */}
           <button
+            onClick={() => setActiveView(View.NOTIFICATIONS)}
             className="relative p-2 rounded-xl text-text-tertiary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-card transition-colors"
             aria-label="Notifications"
           >
             <NotificationsIcon className="w-5 h-5" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full" />
+            {unreadCount > 0 && (
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full" />
+            )}
           </button>
 
           {/* Theme Toggle */}

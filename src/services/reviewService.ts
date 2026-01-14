@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { PerformanceReview, ReviewStatus } from '../types';
+import { PerformanceReview, ReviewStatus, AssessmentData } from '../types';
 import { MOCK_REVIEWS } from '../constants';
 import type { Database } from '../types/database';
 
-type DbReviewStatus = Database['public']['Tables']['performance_reviews']['Row']['status'];
-
 type ReviewRow = Database['public']['Tables']['performance_reviews']['Row'];
+type DbReviewStatus = ReviewRow['status'];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -43,7 +41,7 @@ export const ReviewService = {
    */
   getReviewsByEmployeeId: async (employeeId: string): Promise<PerformanceReview[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('performance_reviews')
         .select('*')
         .eq('employee_id', employeeId);
@@ -61,8 +59,13 @@ export const ReviewService = {
         managerId: r.reviewer_id,
         period: r.period,
         status: mapDbStatusToApp(r.status),
-        dueDate: r.created_at, // Placeholder
+        dueDate: r.due_date || r.created_at,
         overallRating: r.overall_rating || undefined,
+        selfAssessment: (r.self_assessment as unknown as AssessmentData) || undefined,
+        managerAssessment: (r.manager_assessment as unknown as AssessmentData) || undefined,
+        strengths: r.strengths || undefined,
+        areasForImprovement: r.areas_for_improvement || undefined,
+        goalsNextPeriod: r.goals_next_period || undefined,
       }));
     }
 
@@ -77,7 +80,7 @@ export const ReviewService = {
    */
   getManagedReviews: async (managerId: string): Promise<PerformanceReview[]> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('performance_reviews')
         .select('*')
         .eq('reviewer_id', managerId);
@@ -95,8 +98,13 @@ export const ReviewService = {
         managerId: r.reviewer_id,
         period: r.period,
         status: mapDbStatusToApp(r.status),
-        dueDate: r.created_at,
+        dueDate: r.due_date || r.created_at,
         overallRating: r.overall_rating || undefined,
+        selfAssessment: (r.self_assessment as unknown as AssessmentData) || undefined,
+        managerAssessment: (r.manager_assessment as unknown as AssessmentData) || undefined,
+        strengths: r.strengths || undefined,
+        areasForImprovement: r.areas_for_improvement || undefined,
+        goalsNextPeriod: r.goals_next_period || undefined,
       }));
     }
 
@@ -107,42 +115,29 @@ export const ReviewService = {
   },
 
   /**
-   * Update a review (e.g., submitting self-assessment)
+   * Update a review
    */
   updateReview: async (updatedReview: PerformanceReview): Promise<PerformanceReview | null> => {
     if (isSupabaseConfigured()) {
-      const { data, error } = await (supabase as any)
+      const { error } = await supabase
         .from('performance_reviews')
         .update({
           status: mapAppStatusToDb(updatedReview.status),
           overall_rating: updatedReview.overallRating,
           strengths: updatedReview.strengths,
           areas_for_improvement: updatedReview.areasForImprovement,
+          goals_next_period: updatedReview.goalsNextPeriod,
+          due_date: updatedReview.dueDate,
+          self_assessment: updatedReview.selfAssessment as unknown as ReviewRow['self_assessment'],
+          manager_assessment: updatedReview.managerAssessment as unknown as ReviewRow['manager_assessment'],
           updated_at: new Date().toISOString(),
-        } as any)
+        })
         .eq('id', updatedReview.id)
         .select()
         .single();
 
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      if (!data) {
-        throw new Error('No data returned from update');
-      }
-
-      const r = data as unknown as ReviewRow;
-
-      return {
-        id: r.id,
-        employeeId: r.employee_id,
-        managerId: r.reviewer_id,
-        period: r.period,
-        status: mapDbStatusToApp(r.status),
-        dueDate: r.created_at,
-        overallRating: r.overall_rating || undefined,
-      };
+      if (error) throw new Error(error.message);
+      return updatedReview;
     }
 
     await delay(300);

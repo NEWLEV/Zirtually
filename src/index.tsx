@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext';
 import { AuditLogProvider } from './context/AuditLogContext';
+import { NotificationProvider } from './context/NotificationContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -22,7 +23,9 @@ root.render(
         <SettingsProvider>
           <AuditLogProvider>
             <AuthProvider>
-              <App />
+              <NotificationProvider>
+                <App />
+              </NotificationProvider>
             </AuthProvider>
           </AuditLogProvider>
         </SettingsProvider>

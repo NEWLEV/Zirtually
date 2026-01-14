@@ -1,0 +1,12 @@
+﻿src/services/adminService.ts(34,75): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "departments", never, "POST">', gave the following error.
+    Argument of type 'Omit<Department, "id">' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "departments", never, "POST">', gave the following error.
+    Argument of type 'Omit<Department, "id">' is not assignable to parameter of type 'never[]'.
+      Type 'Omit<Department, "id">' is missing the following properties from type 'never[]': length, pop, push, concat, and 29 more.
+src/services/adminService.ts(58,73): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "positions", never, "POST">', gave the following error.
+    Argument of type 'Omit<Position, "id">' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "positions", never, "POST">', gave the following error.
+    Argument of type 'Omit<Position, "id">' is not assignable to parameter of type 'never[]'.
+      Type 'Omit<Position, "id">' is missing the following properties from type 'never[]': length, pop, push, concat, and 29 more.

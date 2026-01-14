@@ -410,6 +410,39 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
+                Category
+              </label>
+              <select
+                value={newGoal.category}
+                onChange={e => setNewGoal({ ...newGoal, category: e.target.value })}
+                className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              >
+                <option value="">Select Category</option>
+                <option value="Professional">Professional</option>
+                <option value="Technical">Technical</option>
+                <option value="Leadership">Leadership</option>
+                <option value="Personal">Personal</option>
+                <option value="Compliance">Compliance</option>
+              </select>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
+                Estimated Time (h)
+              </label>
+              <input
+                type="number"
+                value={newGoal.estimatedTime}
+                onChange={e =>
+                  setNewGoal({ ...newGoal, estimatedTime: parseInt(e.target.value) || 0 })
+                }
+                min="0"
+                className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
                 Due Date
               </label>
               <input

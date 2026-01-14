@@ -150,10 +150,11 @@ const Wellness: React.FC<WellnessProps> = ({ user, setActiveView }) => {
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors ${selectedCategory === cat.id
-              ? 'bg-action-primary/10 text-action-primary border border-action-primary/20'
-              : 'bg-bg-secondary dark:bg-dark-card text-text-secondary dark:text-dark-text-secondary hover:bg-border-light dark:hover:bg-dark-border'
-              }`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors ${
+              selectedCategory === cat.id
+                ? 'bg-action-primary/10 text-action-primary border border-action-primary/20'
+                : 'bg-bg-secondary dark:bg-dark-card text-text-secondary dark:text-dark-text-secondary hover:bg-border-light dark:hover:bg-dark-border'
+            }`}
           >
             <span>{cat.icon}</span>
             {cat.label}

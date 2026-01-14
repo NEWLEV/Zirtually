@@ -73,11 +73,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
         <div className="px-8 pt-8 pb-4 shrink-0 bg-slate-900">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center">
-              <img
-                src="/zirtually-logo.png"
-                alt="Zirtually"
-                className="h-20 object-contain"
-              />
+              <img src="/zirtually-logo.png" alt="Zirtually" className="h-20 object-contain" />
             </div>
 
             {/* Industry / Workspace Context - Subtle Secondary Control */}
@@ -118,10 +114,11 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                           setIndustry(ind.id);
                           setShowIndustrySelector(false);
                         }}
-                        className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors ${industry === ind.id
-                          ? 'bg-action-primary text-white'
-                          : 'text-slate-300 hover:bg-slate-700'
-                          }`}
+                        className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors ${
+                          industry === ind.id
+                            ? 'bg-action-primary text-white'
+                            : 'text-slate-300 hover:bg-slate-700'
+                        }`}
                       >
                         <span className="text-lg">{ind.icon}</span>
                         <span>{ind.name}</span>
@@ -241,10 +238,11 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                         onClick={() => setSelectedUserId(user.id)}
                         className={`
                             group relative flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-300 outline-none
-                            ${isSelected
-                            ? 'bg-gradient-to-br from-action-primary/20 to-action-primary/5 border-action-primary/50 ring-1 ring-action-primary/50 shadow-lg shadow-action-primary/10 z-10 scale-[1.01]'
-                            : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 hover:shadow-md hover:scale-[1.005]'
-                          }
+                            ${
+                              isSelected
+                                ? 'bg-gradient-to-br from-action-primary/20 to-action-primary/5 border-action-primary/50 ring-1 ring-action-primary/50 shadow-lg shadow-action-primary/10 z-10 scale-[1.01]'
+                                : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 hover:shadow-md hover:scale-[1.005]'
+                            }
                             `}
                         tabIndex={0}
                         onKeyDown={e => {
@@ -258,9 +256,10 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                         <div
                           className={`
                             w-5 h-5 rounded-full border flex items-center justify-center transition-colors shrink-0
-                            ${isSelected
-                              ? 'bg-action-primary border-action-primary text-white'
-                              : 'border-slate-600 group-hover:border-slate-500 bg-slate-900/50'
+                            ${
+                              isSelected
+                                ? 'bg-action-primary border-action-primary text-white'
+                                : 'border-slate-600 group-hover:border-slate-500 bg-slate-900/50'
                             }
                             `}
                         >

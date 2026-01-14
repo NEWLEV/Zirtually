@@ -60,10 +60,11 @@ const NavItem: React.FC<NavItemProps> = ({
     <li>
       <button
         onClick={() => setActiveView(view)}
-        className={`relative flex items-center w-full px-3 py-2.5 rounded-xl transition-all duration-200 group ${isActive
-          ? 'bg-action-primary text-text-inverse shadow-lg shadow-action-primary/25'
-          : 'text-text-secondary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-card hover:text-text-primary dark:hover:text-dark-text'
-          }`}
+        className={`relative flex items-center w-full px-3 py-2.5 rounded-xl transition-all duration-200 group ${
+          isActive
+            ? 'bg-action-primary text-text-inverse shadow-lg shadow-action-primary/25'
+            : 'text-text-secondary dark:text-dark-text-secondary hover:bg-bg-secondary dark:hover:bg-dark-card hover:text-text-primary dark:hover:text-dark-text'
+        }`}
         title={collapsed ? view : undefined}
         aria-label={view}
       >
@@ -73,10 +74,11 @@ const NavItem: React.FC<NavItemProps> = ({
             <span className="font-medium text-sm truncate">{view}</span>
             {badge && (
               <span
-                className={`ml-auto px-2 py-0.5 text-xs font-bold rounded-full ${isActive
-                  ? 'bg-text-inverse/20 text-text-inverse'
-                  : 'bg-action-primary/20 text-action-primary'
-                  }`}
+                className={`ml-auto px-2 py-0.5 text-xs font-bold rounded-full ${
+                  isActive
+                    ? 'bg-text-inverse/20 text-text-inverse'
+                    : 'bg-action-primary/20 text-action-primary'
+                }`}
               >
                 {badge}
               </span>
@@ -175,12 +177,12 @@ const Sidebar: React.FC<SidebarProps> = ({
     },
     ...(config.features.credentialing
       ? [
-        {
-          view: View.CREDENTIALING,
-          icon: <CredentialingIcon className="w-5 h-5" />,
-          roles: [UserRole.ADMIN, UserRole.MANAGER, UserRole.STAFF],
-        },
-      ]
+          {
+            view: View.CREDENTIALING,
+            icon: <CredentialingIcon className="w-5 h-5" />,
+            roles: [UserRole.ADMIN, UserRole.MANAGER, UserRole.STAFF],
+          },
+        ]
       : []),
     {
       view: View.WELLNESS,
@@ -213,6 +215,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   const adminNav: NavDefinition[] = [
+    {
+      view: View.ADMIN_CONSOLE,
+      icon: <SettingsIcon className="w-5 h-5 text-indigo-500" />,
+      roles: [UserRole.ADMIN],
+    },
     {
       view: View.DOCUMENT_MANAGEMENT,
       icon: <DocumentManagementIcon className="w-5 h-5" />,

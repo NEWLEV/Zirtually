@@ -110,8 +110,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist
-      - name: Deploy to Production (Placeholders)
+      - name: Deploy to Production (Vercel)
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          echo "Deploying to app.zirtually.com..."
-          # Example for Vercel:
-          # vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          npm install --global vercel@latest
+          vercel deploy dist --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
