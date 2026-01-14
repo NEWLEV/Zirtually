@@ -1,7 +1,6 @@
-import React, { createContext, useContext, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useCallback, ReactNode, useState, useEffect } from 'react';
 import { User, AuditLog } from '../types';
-import useLocalStorage from '../hooks/useLocalStorage';
-import { MOCK_AUDIT_LOGS } from '../constants';
+import { AuditLogService } from '../services/auditLogService';
 
 interface AuditLogContextType {
   logs: AuditLog[];
@@ -19,10 +18,23 @@ interface AuditLogContextType {
 const AuditLogContext = createContext<AuditLogContextType | undefined>(undefined);
 
 export const AuditLogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [logs, setLogs] = useLocalStorage<AuditLog[]>('zirtually_audit_logs', MOCK_AUDIT_LOGS);
+  const [logs, setLogs] = useState<AuditLog[]>([]);
+
+  // Load logs on mount
+  useEffect(() => {
+    const fetchLogs = async () => {
+      try {
+        const fetchedLogs = await AuditLogService.getLogs();
+        setLogs(fetchedLogs);
+      } catch (err) {
+        console.error('Failed to load audit logs', err);
+      }
+    };
+    fetchLogs();
+  }, []);
 
   const logAction = useCallback(
-    (
+    async (
       user: User | { id: string; name: string },
       action: string,
       category: AuditLog['category'],
@@ -30,25 +42,27 @@ export const AuditLogProvider: React.FC<{ children: ReactNode }> = ({ children }
       status: AuditLog['status'] = 'success',
       affectedEntity?: string
     ) => {
-      const newLog: AuditLog = {
-        id: `log-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        timestamp: new Date().toISOString(),
-        user: { id: user.id, name: user.name },
-        action,
-        category,
-        details,
-        status,
-        affectedEntity,
-        ipAddress: '127.0.0.1', // Simulated
-      };
-      setLogs(prev => [newLog, ...prev]);
+      try {
+        const newLog = await AuditLogService.createLog(
+          user,
+          action,
+          category,
+          details,
+          status,
+          affectedEntity
+        );
+        // Prepend the new log to the state
+        setLogs(prev => [newLog, ...prev]);
+      } catch (error) {
+        console.error('Failed to log action:', error);
+      }
     },
-    [setLogs]
+    []
   );
 
   const clearLogs = useCallback(() => {
     setLogs([]);
-  }, [setLogs]);
+  }, []);
 
   return (
     <AuditLogContext.Provider value={{ logs, logAction, clearLogs }}>

@@ -200,6 +200,49 @@ export interface Database {
         };
         Relationships: [];
       };
+      audit_logs: {
+        Row: {
+          id: string;
+          user_id: string;
+          action: string;
+          category: string;
+          details: string;
+          status: string;
+          ip_address: string | null;
+          affected_entity: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          action: string;
+          category: string;
+          details: string;
+          status?: string;
+          ip_address?: string | null;
+          affected_entity?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          action?: string;
+          category?: string;
+          details?: string;
+          status?: string;
+          ip_address?: string | null;
+          affected_entity?: string | null;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "audit_logs_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
     };
     Views: {
       [_ in never]: never;

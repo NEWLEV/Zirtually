@@ -658,25 +658,7 @@ export const MOCK_AUDIT_LOGS: AuditLog[] = [
   },
 ];
 
-export const createAuditLog = (
-  user: User,
-  action: string,
-  details: string,
-  category: AuditLog['category'] = 'system',
-  status: AuditLog['status'] = 'success'
-) => {
-  if (!user) return;
-  const newLog: AuditLog = {
-    id: `log-${Date.now()}`,
-    timestamp: new Date().toISOString(),
-    user: { id: user.id, name: user.name },
-    action,
-    category,
-    status,
-    details,
-  };
-  MOCK_AUDIT_LOGS.unshift(newLog);
-};
+
 
 // ============================================
 // ONBOARDING

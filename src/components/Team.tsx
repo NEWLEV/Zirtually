@@ -5,8 +5,8 @@ import {
   MOCK_RECOGNITIONS,
   MOCK_VALUES,
   MOCK_USERS,
-  createAuditLog,
 } from '../constants';
+import { useAuditLogs } from '../context/AuditLogContext';
 import { useIndustry } from '../App';
 import Card from './ui/Card';
 import Button from './ui/Button';
@@ -20,6 +20,7 @@ interface TeamProps {
 }
 
 const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
+  const { logAction } = useAuditLogs();
   const { config } = useIndustry();
   const [recognitions, setRecognitions] = useState(MOCK_RECOGNITIONS);
   const [selectedValue, setSelectedValue] = useState(MOCK_VALUES[0].id);
@@ -52,7 +53,7 @@ const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
     };
 
     setRecognitions(prev => [newRecognition, ...prev]);
-    createAuditLog(user, 'GIVE_RECOGNITION', `Recognized ${recipient.name} for ${value.name}`);
+    logAction(user, 'GIVE_RECOGNITION', 'hr', `Recognized ${recipient.name} for ${value.name}`);
     setMessage('');
     setSelectedRecipient('');
   };
@@ -266,11 +267,10 @@ const Team: React.FC<TeamProps> = ({ user, setActiveView }) => {
                         key={value.id}
                         type="button"
                         onClick={() => setSelectedValue(value.id)}
-                        className={`p-3 rounded-xl border-2 transition-all ${
-                          selectedValue === value.id
+                        className={`p-3 rounded-xl border-2 transition-all ${selectedValue === value.id
                             ? `${colors.border} ${colors.bg} ring-2 ring-offset-2`
                             : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
-                        }`}
+                          }`}
                         style={
                           {
                             '--tw-ring-color':

@@ -1,6 +1,7 @@
 import { IAuthService, LoginCredentials, AuthResponse } from './types';
 import { User } from '../../types';
-import { MOCK_USERS, createAuditLog } from '../../constants';
+import { MOCK_USERS } from '../../constants';
+import { AuditLogService } from '../auditLogService';
 
 export class MockAuthService implements IAuthService {
   private users: User[];
@@ -30,14 +31,14 @@ export class MockAuthService implements IAuthService {
 
     this.currentUser = user;
     this.persistCurrentUser();
-    createAuditLog(user, 'USER_LOGIN', 'User logged into Zirtually.');
+    AuditLogService.createLog(user, 'USER_LOGIN', 'security', 'User logged into Zirtually.');
 
     return { user };
   }
 
   async logout(): Promise<void> {
     if (this.currentUser) {
-      createAuditLog(this.currentUser, 'USER_LOGOUT', 'User logged out of Zirtually.');
+      AuditLogService.createLog(this.currentUser, 'USER_LOGOUT', 'security', 'User logged out of Zirtually.');
     }
     this.currentUser = null;
     localStorage.removeItem(this.STORAGE_KEY_CURRENT_USER);
@@ -53,7 +54,7 @@ export class MockAuthService implements IAuthService {
 
     this.persistUsers();
     this.persistCurrentUser();
-    createAuditLog(updatedUser, 'UPDATE_PROFILE', 'User updated their profile.');
+    AuditLogService.createLog(updatedUser, 'UPDATE_PROFILE', 'user', 'User updated their profile.');
 
     return updatedUser;
   }

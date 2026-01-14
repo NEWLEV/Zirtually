@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { User, OnboardingTask, TaskStatus, Policy, UserRole, Priority } from '../types';
-import { MOCK_ONBOARDING_TASKS, MOCK_POLICIES, MOCK_USERS, createAuditLog } from '../constants';
+import { MOCK_ONBOARDING_TASKS, MOCK_POLICIES, MOCK_USERS } from '../constants';
+import { useAuditLogs } from '../context/AuditLogContext';
 import { useIndustry } from '../App';
 import Card from './ui/Card';
 import ProgressBar from './ui/ProgressBar';
@@ -44,6 +45,7 @@ const getDueDateStatus = (dueDate: string, status: TaskStatus) => {
 };
 
 const Onboarding: React.FC<OnboardingProps> = ({ user, setActiveView }) => {
+  const { logAction } = useAuditLogs();
   const { config } = useIndustry();
   const [tasks, setTasks] = useState<OnboardingTask[]>(MOCK_ONBOARDING_TASKS);
   const [policies, setPolicies] = useState<Policy[]>(MOCK_POLICIES);
@@ -92,9 +94,10 @@ const Onboarding: React.FC<OnboardingProps> = ({ user, setActiveView }) => {
       tasks.map(task => {
         if (task.id === taskId) {
           const newStatus = task.status === TaskStatus.DONE ? TaskStatus.TODO : TaskStatus.DONE;
-          createAuditLog(
+          logAction(
             user,
             newStatus === TaskStatus.DONE ? 'COMPLETE_TASK' : 'UNCOMPLETE_TASK',
+            'hr',
             `Task: "${task.title}"`
           );
           return { ...task, status: newStatus };
@@ -115,7 +118,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ user, setActiveView }) => {
       setPolicies(
         policies.map(p => (p.id === selectedPolicy.id ? { ...p, acknowledged: true } : p))
       );
-      createAuditLog(user, 'ACKNOWLEDGE_POLICY', `Acknowledged: "${selectedPolicy.title}"`);
+      logAction(user, 'ACKNOWLEDGE_POLICY', 'compliance', `Acknowledged: "${selectedPolicy.title}"`);
     }
     setIsPolicyModalOpen(false);
     setSelectedPolicy(null);
@@ -237,19 +240,17 @@ const Onboarding: React.FC<OnboardingProps> = ({ user, setActiveView }) => {
                 return (
                   <div
                     key={task.id}
-                    className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${
-                      task.status === TaskStatus.DONE
+                    className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${task.status === TaskStatus.DONE
                         ? 'bg-bg-secondary dark:bg-dark-card/50 border-border-light dark:border-dark-border opacity-60'
                         : 'bg-bg-elevated dark:bg-dark-card border-border-medium dark:border-dark-border hover:border-action-secondary dark:hover:border-action-secondary'
-                    }`}
+                      }`}
                   >
                     <button
                       onClick={() => handleToggleTask(task.id)}
-                      className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                        task.status === TaskStatus.DONE
+                      className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${task.status === TaskStatus.DONE
                           ? 'bg-emerald-500 border-emerald-500'
                           : 'border-gray-300 dark:border-slate-600 hover:border-emerald-500'
-                      }`}
+                        }`}
                     >
                       {task.status === TaskStatus.DONE && (
                         <svg
@@ -342,11 +343,10 @@ const Onboarding: React.FC<OnboardingProps> = ({ user, setActiveView }) => {
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                        policy.acknowledged
+                      className={`w-8 h-8 rounded-full flex items-center justify-center ${policy.acknowledged
                           ? 'bg-emerald-100 dark:bg-emerald-900/50'
                           : 'bg-gray-200 dark:bg-slate-600'
-                      }`}
+                        }`}
                     >
                       {policy.acknowledged ? (
                         <svg

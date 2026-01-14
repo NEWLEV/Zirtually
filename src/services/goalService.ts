@@ -2,6 +2,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import type { Database } from '../types/database';
 import { Goal as AppGoal, GoalStatus, Priority } from '../types';
 import { MOCK_GOALS } from '../constants';
+import { eventBus } from './eventBus';
 
 type GoalRow = Database['public']['Tables']['goals']['Row'];
 type GoalInsert = Database['public']['Tables']['goals']['Insert'];
@@ -68,6 +69,8 @@ export const GoalService = {
    * Create a new goal
    */
   createGoal: async (goal: AppGoal): Promise<AppGoal | null> => {
+    let createdGoal: AppGoal | null = null;
+
     if (isSupabaseConfigured()) {
       const dbGoal: GoalInsert = {
         title: goal.title,
@@ -87,17 +90,22 @@ export const GoalService = {
       if (error) throw new Error(error.message);
       if (!data) throw new Error('No data returned from create');
 
-      return { ...goal, id: data.id };
+      createdGoal = { ...goal, id: data.id };
+    } else {
+      // Mock Create Logic
+      await delay(300);
+      const stored = localStorage.getItem('zirtually_goals');
+      const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
+      const newGoal = { ...goal, id: `goal-${Date.now()}` };
+      all.push(newGoal);
+      localStorage.setItem('zirtually_goals', JSON.stringify(all));
+      createdGoal = newGoal;
     }
 
-    // Mock Create Logic
-    await delay(300);
-    const stored = localStorage.getItem('zirtually_goals');
-    const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
-    const newGoal = { ...goal, id: `goal-${Date.now()}` };
-    all.push(newGoal);
-    localStorage.setItem('zirtually_goals', JSON.stringify(all));
-    return newGoal;
+    if (createdGoal) {
+      eventBus.publish('goal.created', createdGoal);
+    }
+    return createdGoal;
   },
 
   /**
@@ -124,18 +132,23 @@ export const GoalService = {
         .single();
 
       if (error) throw new Error(error.message);
-      return updatedGoal;
+    } else {
+      // Mock Update Logic
+      await delay(300);
+      const stored = localStorage.getItem('zirtually_goals');
+      const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
+      const index = all.findIndex(g => g.id === updatedGoal.id);
+      if (index !== -1) {
+        all[index] = updatedGoal;
+      }
+      localStorage.setItem('zirtually_goals', JSON.stringify(all));
     }
 
-    // Mock Update Logic
-    await delay(300);
-    const stored = localStorage.getItem('zirtually_goals');
-    const all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
-    const index = all.findIndex(g => g.id === updatedGoal.id);
-    if (index !== -1) {
-      all[index] = updatedGoal;
+    eventBus.publish('goal.updated', updatedGoal);
+    if (updatedGoal.progress === 100 || updatedGoal.status === 'completed') {
+      eventBus.publish('goal.completed', updatedGoal);
     }
-    localStorage.setItem('zirtually_goals', JSON.stringify(all));
+
     return updatedGoal;
   },
 
@@ -146,14 +159,14 @@ export const GoalService = {
     if (isSupabaseConfigured()) {
       const { error } = await supabase.from('goals').delete().eq('id', goalId);
       if (error) throw new Error(error.message);
-      return;
+    } else {
+      // Mock mode
+      await delay(300);
+      const stored = localStorage.getItem('zirtually_goals');
+      let all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
+      all = all.filter(g => g.id !== goalId);
+      localStorage.setItem('zirtually_goals', JSON.stringify(all));
     }
-
-    // Mock mode
-    await delay(300);
-    const stored = localStorage.getItem('zirtually_goals');
-    let all: AppGoal[] = stored ? JSON.parse(stored) : [...MOCK_GOALS];
-    all = all.filter(g => g.id !== goalId);
-    localStorage.setItem('zirtually_goals', JSON.stringify(all));
   },
 };
+

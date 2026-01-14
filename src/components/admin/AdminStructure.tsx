@@ -9,7 +9,7 @@ import {
   PositionWithDept,
   DepartmentWithManager,
 } from '../../services/adminService';
-import { createAuditLog } from '../../constants';
+import { useAuditLogs } from '../../context/AuditLogContext';
 import { User } from '../../types';
 
 interface AdminStructureProps {
@@ -17,6 +17,7 @@ interface AdminStructureProps {
 }
 
 const AdminStructure: React.FC<AdminStructureProps> = ({ user }) => {
+  const { logAction } = useAuditLogs();
   // --- Data State ---
   const [positions, setPositions] = useState<PositionWithDept[]>([]);
   const [departments, setDepartments] = useState<DepartmentWithManager[]>([]);
@@ -73,10 +74,10 @@ const AdminStructure: React.FC<AdminStructureProps> = ({ user }) => {
     try {
       if (editingDept) {
         await AdminService.updateDepartment(editingDept.id, deptForm);
-        createAuditLog(user, 'UPDATE_DEPARTMENT', `Updated department: ${deptForm.name}`);
+        logAction(user, 'UPDATE_DEPARTMENT', 'system', `Updated department: ${deptForm.name}`);
       } else {
         await AdminService.createDepartment(deptForm);
-        createAuditLog(user, 'CREATE_DEPARTMENT', `Created department: ${deptForm.name}`);
+        logAction(user, 'CREATE_DEPARTMENT', 'system', `Created department: ${deptForm.name}`);
       }
       setDeptModalOpen(false);
       fetchData();
@@ -89,7 +90,7 @@ const AdminStructure: React.FC<AdminStructureProps> = ({ user }) => {
     if (!window.confirm(`Delete ${name}? This cannot be undone.`)) return;
     try {
       await AdminService.deleteDepartment(id);
-      createAuditLog(user, 'DELETE_DEPARTMENT', `Deleted department: ${name}`);
+      logAction(user, 'DELETE_DEPARTMENT', 'system', `Deleted department: ${name}`);
       fetchData();
     } catch (error) {
       alert('Cannot delete department. Please remove assigned positions first.');
@@ -118,10 +119,10 @@ const AdminStructure: React.FC<AdminStructureProps> = ({ user }) => {
     try {
       if (editingPos) {
         await AdminService.updatePosition(editingPos.id, posForm);
-        createAuditLog(user, 'UPDATE_POSITION', `Updated position: ${posForm.title}`);
+        logAction(user, 'UPDATE_POSITION', 'system', `Updated position: ${posForm.title}`);
       } else {
         await AdminService.createPosition(posForm);
-        createAuditLog(user, 'CREATE_POSITION', `Created position: ${posForm.title}`);
+        logAction(user, 'CREATE_POSITION', 'system', `Created position: ${posForm.title}`);
       }
       setPosModalOpen(false);
       fetchData();
@@ -134,7 +135,7 @@ const AdminStructure: React.FC<AdminStructureProps> = ({ user }) => {
     if (!window.confirm(`Delete ${title}? This cannot be undone.`)) return;
     try {
       await AdminService.deletePosition(id);
-      createAuditLog(user, 'DELETE_POSITION', `Deleted position: ${title}`);
+      logAction(user, 'DELETE_POSITION', 'system', `Deleted position: ${title}`);
       fetchData();
     } catch (error) {
       alert('Delete failed.');

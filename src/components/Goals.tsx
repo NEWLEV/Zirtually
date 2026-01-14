@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { User, Goal, UserRole, Priority } from '../types';
-import { MOCK_USERS, createAuditLog } from '../constants';
+import { MOCK_USERS } from '../constants';
+import { useAuditLogs } from '../context/AuditLogContext';
 import ProgressBar from './ui/ProgressBar';
 import Button from './ui/Button';
 import Modal from './ui/Modal';
@@ -129,6 +130,7 @@ const GoalCard: React.FC<{
 };
 
 const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
+  const { logAction } = useAuditLogs();
   const [goals, setGoals] = useState<Goal[]>([]);
   const [, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'my' | 'team'>('my');
@@ -182,7 +184,7 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
 
     try {
       await GoalService.updateGoal(updated);
-      createAuditLog(user, 'UPDATE_GOAL', `Updated goal "${editingGoal.title}" to ${newProgress}%`);
+      logAction(user, 'UPDATE_GOAL', 'data', `Updated goal "${editingGoal.title}" to ${newProgress}%`);
     } catch (err) {
       console.error('Update failed', err);
     }
@@ -208,7 +210,7 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
 
     try {
       await GoalService.createGoal(goalToAdd);
-      createAuditLog(user, 'ADD_GOAL', `Created goal: "${goalToAdd.title}"`);
+      logAction(user, 'ADD_GOAL', 'data', `Created goal: "${goalToAdd.title}"`);
     } catch (err) {
       console.error('Create failed', err);
     }
@@ -273,22 +275,20 @@ const Goals: React.FC<GoalsProps> = ({ user, setActiveView }) => {
         <nav className="flex gap-8">
           <button
             onClick={() => setActiveTab('my')}
-            className={`pb-4 text-sm font-medium border-b-2 transition-colors ${
-              activeTab === 'my'
+            className={`pb-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'my'
                 ? 'border-indigo-500 text-indigo-600 dark:text-indigo-400'
                 : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-slate-400 dark:hover:text-slate-300'
-            }`}
+              }`}
           >
             My Goals ({myGoals.length})
           </button>
           {[UserRole.MANAGER, UserRole.ADMIN].includes(user.role) && (
             <button
               onClick={() => setActiveTab('team')}
-              className={`pb-4 text-sm font-medium border-b-2 transition-colors ${
-                activeTab === 'team'
+              className={`pb-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'team'
                   ? 'border-indigo-500 text-indigo-600 dark:text-indigo-400'
                   : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-slate-400 dark:hover:text-slate-300'
-              }`}
+                }`}
             >
               Team Goals ({teamGoals.length})
             </button>
