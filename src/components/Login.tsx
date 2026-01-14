@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { User } from '../types';
-import { INDUSTRY_CONFIGS } from '../constants';
-import { useIndustry } from '../App';
+
 import Button from './ui/Button';
 import { useAuthContext } from '../context/AuthContext';
 
@@ -11,19 +10,21 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
-  const { industry, setIndustry } = useIndustry();
-  const { isSupabase, isLoading: authLoading } = useAuthContext();
+  const { isSupabase, isLoading: authLoading, signUp } = useAuthContext();
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [showIndustrySelector, setShowIndustrySelector] = useState(false);
 
   // Real Auth State
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState(''); // New for registration
+  const [department, setDepartment] = useState(''); // New for registration
   const [error, setError] = useState<string | null>(null);
   const [isLoginMode, setIsLoginMode] = useState(isSupabase);
+  const [isRegistering, setIsRegistering] = useState(false); // Toggle between Login/Register
 
-  const industries = Object.values(INDUSTRY_CONFIGS);
+
+
 
   // Filter users based on search query
   const filteredUsers = useMemo(() => {
@@ -42,10 +43,20 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
         setError('Please enter both email and password.');
         return;
       }
+      if (isRegistering && (!fullName || !department)) {
+        setError('Please details for registration.');
+        return;
+      }
+
       try {
         setError(null);
-        await onLogin({ email, password });
+        if (isRegistering) {
+          await signUp({ email, password, fullName, department });
+        } else {
+          await onLogin({ email, password });
+        }
       } catch (err: unknown) {
+
         const errorMsg =
           err instanceof Error ? err.message : 'Login failed. Please check your credentials.';
         setError(errorMsg);
@@ -76,73 +87,30 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
               <img src="/zirtually-logo.png" alt="Zirtually" className="h-20 object-contain" />
             </div>
 
-            {/* Industry / Workspace Context - Subtle Secondary Control */}
-            <div className="relative">
-              <button
-                onClick={() => setShowIndustrySelector(!showIndustrySelector)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-colors text-xs font-medium text-slate-400 hover:text-white group"
-              >
-                <span>Workspace:</span>
-                <span className="flex items-center gap-1.5 text-slate-200">
-                  {INDUSTRY_CONFIGS[industry].icon} {INDUSTRY_CONFIGS[industry].name}
-                </span>
-                <svg
-                  className="w-3 h-3 text-slate-500 group-hover:text-slate-300 transition-colors"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {showIndustrySelector && (
-                <div className="absolute right-0 top-full mt-2 w-64 bg-slate-800 border border-slate-700 rounded-xl shadow-xl z-50 overflow-hidden">
-                  <div className="p-2 space-y-1">
-                    <p className="px-2 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                      Select Workspace
-                    </p>
-                    {industries.map(ind => (
-                      <button
-                        key={ind.id}
-                        onClick={() => {
-                          setIndustry(ind.id);
-                          setShowIndustrySelector(false);
-                        }}
-                        className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors ${
-                          industry === ind.id
-                            ? 'bg-action-primary text-white'
-                            : 'text-slate-300 hover:bg-slate-700'
-                        }`}
-                      >
-                        <span className="text-lg">{ind.icon}</span>
-                        <span>{ind.name}</span>
-                        {industry === ind.id && <span className="ml-auto text-white/50">✓</span>}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+            {/* Simple Welcome - Removed Workspace Selector */}
+            <div className="flex flex-col">
+              {/* Optional: Add a welcoming tagline or keeps it clean */}
             </div>
           </div>
 
+
           <h1 className="text-2xl font-bold text-white mb-2">
-            {isLoginMode ? 'Welcome back' : 'Choose your profile'}
+            {isLoginMode
+              ? (isRegistering ? 'Create an account' : 'Welcome back')
+              : 'Choose your profile'
+            }
           </h1>
           <p className="text-slate-400 text-sm">
             {isLoginMode
-              ? 'Sign in to access your talent and development dashboard.'
+              ? (isRegistering
+                ? 'Enter your details to get started with Zirtually.'
+                : 'Sign in to access your talent and development dashboard.')
               : 'Select who you’re signing in as to continue to the platform.'}
           </p>
         </div>
 
         {isLoginMode ? (
-          /* Real Login Form */
+          /* Real Login/Register Form */
           <div className="px-8 py-6 space-y-6 flex-1 overflow-y-auto">
             {error && (
               <div className="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-sm flex items-center gap-3">
@@ -163,6 +131,34 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
               </div>
             )}
             <div className="space-y-4">
+              {isRegistering && (
+                <>
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      value={fullName}
+                      onChange={e => setFullName(e.target.value)}
+                      className="w-full bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-600 text-sm rounded-xl py-3 px-4 focus:outline-none focus:border-action-primary/50 focus:ring-2 focus:ring-action-primary/10 transition-all"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                      Department
+                    </label>
+                    <input
+                      type="text"
+                      value={department}
+                      onChange={e => setDepartment(e.target.value)}
+                      className="w-full bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-600 text-sm rounded-xl py-3 px-4 focus:outline-none focus:border-action-primary/50 focus:ring-2 focus:ring-action-primary/10 transition-all"
+                      placeholder="Engineering"
+                    />
+                  </div>
+                </>
+              )}
               <div className="space-y-2">
                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                   Email Address
@@ -180,9 +176,11 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                   <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                     Password
                   </label>
-                  <button className="text-xs text-action-primary hover:text-action-primary-hover font-medium">
-                    Forgot?
-                  </button>
+                  {!isRegistering && (
+                    <button className="text-xs text-action-primary hover:text-action-primary-hover font-medium">
+                      Forgot?
+                    </button>
+                  )}
                 </div>
                 <input
                   type="password"
@@ -238,11 +236,10 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                         onClick={() => setSelectedUserId(user.id)}
                         className={`
                             group relative flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-300 outline-none
-                            ${
-                              isSelected
-                                ? 'bg-gradient-to-br from-action-primary/20 to-action-primary/5 border-action-primary/50 ring-1 ring-action-primary/50 shadow-lg shadow-action-primary/10 z-10 scale-[1.01]'
-                                : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 hover:shadow-md hover:scale-[1.005]'
-                            }
+                            ${isSelected
+                            ? 'bg-gradient-to-br from-action-primary/20 to-action-primary/5 border-action-primary/50 ring-1 ring-action-primary/50 shadow-lg shadow-action-primary/10 z-10 scale-[1.01]'
+                            : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 hover:shadow-md hover:scale-[1.005]'
+                          }
                             `}
                         tabIndex={0}
                         onKeyDown={e => {
@@ -256,10 +253,9 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                         <div
                           className={`
                             w-5 h-5 rounded-full border flex items-center justify-center transition-colors shrink-0
-                            ${
-                              isSelected
-                                ? 'bg-action-primary border-action-primary text-white'
-                                : 'border-slate-600 group-hover:border-slate-500 bg-slate-900/50'
+                            ${isSelected
+                              ? 'bg-action-primary border-action-primary text-white'
+                              : 'border-slate-600 group-hover:border-slate-500 bg-slate-900/50'
                             }
                             `}
                         >
@@ -357,7 +353,15 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
                 {isLoginMode ? 'Switch to Profile Picker' : 'Sign in with Email'}
               </button>
             ) : (
-              <button className="hover:text-white transition-colors">Need access?</button>
+              <button
+                className="hover:text-white transition-colors"
+                onClick={() => {
+                  setIsRegistering(!isRegistering);
+                  setError(null);
+                }}
+              >
+                {isRegistering ? 'Already have an account? Sign In' : 'Need access? Sign Up'}
+              </button>
             )}
             <span className="text-slate-700">|</span>
             <button className="hover:text-white transition-colors">Help Center</button>
@@ -372,7 +376,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, users }) => {
               onClick={handleContinue}
               loading={authLoading}
             >
-              {isLoginMode ? 'Sign In' : 'Continue'}
+              {isLoginMode ? (isRegistering ? 'Create Account' : 'Sign In') : 'Continue'}
               {isLoginMode || !selectedUserId ? null : (
                 <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
